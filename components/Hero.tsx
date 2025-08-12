@@ -12,7 +12,7 @@ const Hero = () => {
           alt="Campus da Faculdade Marinho" 
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="absolute inset-0 bg-black/60"></div>
       </div>
 
       {/* Content */}
@@ -20,7 +20,7 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
             Transforme seu
-            <span className="block bg-gradient-to-r from-orange to-orange-light bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-orange-300  to-orange-500 bg-clip-text text-transparent">
               Futuro Profissional
             </span>
           </h1>
@@ -34,7 +34,7 @@ const Hero = () => {
             <Button 
               
               size="lg" 
-              className="bg-primary hover:bg-white hover:text-black text-white px-8 py-4 text-lg shadow-orange transition-all duration-300 hover:scale-105"
+              className="bg-primary hover:bg-orange-500 hover:text-black text-white px-8 py-4 text-lg shadow-orange transition-all duration-300 hover:scale-105"
               onClick={() => {
                 const depoimentosEl = document.getElementById("depoimentos");
                 if (depoimentosEl) {
@@ -52,15 +52,15 @@ const Hero = () => {
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
             <div className="text-center">
-              <div className="text-4xl font-bold text-primary mb-2">15+</div>
+              <div className="text-4xl font-bold text-orange-500 mb-2">15+</div>
               <div className="text-gray-200">Anos de Excelência</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-primary mb-2">5.000+</div>
+              <div className="text-4xl font-bold text-orange-500 mb-2">5.000+</div>
               <div className="text-gray-200">Alunos Formados</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-primary mb-2">98%</div>
+              <div className="text-4xl font-bold text-orange-500 mb-2">98%</div>
               <div className="text-gray-200">Taxa de Empregabilidade</div>
             </div>
           </div>
