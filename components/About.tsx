@@ -5,26 +5,10 @@ import studentsSuccess from "@/public/assets/students-success.jpg";
 
 const About = () => {
   const features = [
-    {
-      icon: Award,
-      title: "Excelência Acadêmica",
-      description: "Reconhecida pelo MEC com nota máxima em qualidade de ensino."
-    },
-    {
-      icon: Users,
-      title: "Corpo Docente Qualificado",
-      description: "Professores mestres e doutores com experiência de mercado."
-    },
-    {
-      icon: BookOpen,
-      title: "Metodologia Inovadora",
-      description: "Ensino prático e teórico com foco no mundo real."
-    },
-    {
-      icon: Target,
-      title: "Foco no Mercado",
-      description: "Cursos alinhados com as demandas atuais do mercado de trabalho."
-    }
+    { icon: Award, title: "Excelência Acadêmica", description: "Reconhecida pelo MEC com nota máxima em qualidade de ensino." },
+    { icon: Users, title: "Corpo Docente Qualificado", description: "Professores mestres e doutores com experiência de mercado." },
+    { icon: BookOpen, title: "Metodologia Inovadora", description: "Ensino prático e teórico com foco no mundo real." },
+    { icon: Target, title: "Foco no Mercado", description: "Cursos alinhados com as demandas atuais do mercado de trabalho." }
   ];
 
   return (
@@ -49,17 +33,14 @@ const About = () => {
                 <Card key={index} className="border-none shadow-md hover:shadow-lg transition-shadow">
                   <CardContent className="p-6">
                     <feature.icon className="h-12 w-12 text-primary mb-4" />
-                    <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                    <h3 className="text-xl font-semibold mb-2 text-foreground">{feature.title}</h3>
                     <p className="text-muted-foreground">{feature.description}</p>
                   </CardContent>
                 </Card>
               ))}
             </div>
 
-            <Button 
-              size="lg" 
-              className="bg-primary hover:bg-orange-dark text-white shadow-orange"
-            >
+            <Button size="lg" className="bg-primary hover:bg-orange-dark text-primary-foreground shadow-orange">
               Conheça Nossa História
             </Button>
           </div>
@@ -67,16 +48,10 @@ const About = () => {
           {/* Image */}
           <div className="relative">
             <div className="relative overflow-hidden rounded-2xl shadow-elegant">
-              <img 
-                src={studentsSuccess.src} 
-                alt="Estudantes da Faculdade Marinho" 
-                className="w-full h-[600px] object-cover"
-              />
+              <img src={studentsSuccess.src} alt="Estudantes da Faculdade Marinho" className="w-full h-[600px] object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
             </div>
-            
-            {/* Floating Stats Card */}
-            <Card className="absolute -bottom-6 -left-6 bg-white shadow-orange border-none">
+            <Card className="absolute -bottom-6 -left-6 bg-background shadow-orange border-none">
               <CardContent className="p-6">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-primary mb-1">98%</div>
