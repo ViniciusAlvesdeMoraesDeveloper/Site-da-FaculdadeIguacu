@@ -83,7 +83,7 @@ const Footer = () => {
                 <li key={index}>
                   <a 
                     href="#" 
-                    className="text-gray-300 hover:text-primary transition-colors"
+                    className="text-gray-300 hover:text-[var(--primary)] transition-colors"
                   >
                     {course}
                   </a>

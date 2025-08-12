@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import campusHero from "@/public/assets/campus-hero.jpg";
 
 const Hero = () => {
@@ -18,50 +18,64 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+          <h1
+            className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
+            /* fallback inline para garantir contraste caso a classe tokenizada não exista */
+            style={{ color: "hsl(var(--foreground))" }}
+          >
             Transforme seu
-            <span className="block bg-gradient-to-r from-orange-300  to-orange-500 bg-clip-text text-transparent">
+            <span
+              className="block bg-clip-text text-transparent"
+              /* fallback do gradiente */
+              style={{ backgroundImage: "var(--gradient-hero)" }}
+            >
               Futuro Profissional
             </span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed">
+          <p
+            className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto leading-relaxed"
+            style={{ color: "hsl(var(--muted-foreground))" }}
+          >
             Na Faculdade Marinho, oferecemos educação de excelência com foco no mercado de trabalho. 
             Construa sua carreira com quem entende do assunto.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button 
-              
-              size="lg" 
-              className="bg-primary hover:bg-orange-500 hover:text-black text-white px-8 py-4 text-lg shadow-orange transition-all duration-300 hover:scale-105"
+            <Button
+              size="lg"
+              className="px-8 py-4 text-lg rounded-md"
+              /* classes tokenizadas (se geradas) */
+              /* bg-primary / text-primary-foreground */
+              /* fallback inline para cor e sombra */
+              style={{
+                backgroundColor: "hsl(var(--primary))",
+                color: "hsl(var(--primary-foreground))",
+                boxShadow: "var(--shadow-orange)"
+              }}
               onClick={() => {
                 const depoimentosEl = document.getElementById("depoimentos");
-                if (depoimentosEl) {
-                  depoimentosEl.scrollIntoView({ behavior: "smooth" });
-                }
+                if (depoimentosEl) depoimentosEl.scrollIntoView({ behavior: "smooth" });
               }}
             >
               Começar Agora
               <ArrowRight className="ml-2 h-5 w-5" />
-              
             </Button>
-            
           </div>
 
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
             <div className="text-center">
-              <div className="text-4xl font-bold text-orange-500 mb-2">15+</div>
-              <div className="text-gray-200">Anos de Excelência</div>
+              <div className="text-4xl font-bold mb-2" style={{ color: "hsl(var(--orange-primary))" }}>15+</div>
+              <div style={{ color: "hsl(var(--muted-foreground))" }}>Anos de Excelência</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-orange-500 mb-2">5.000+</div>
-              <div className="text-gray-200">Alunos Formados</div>
+              <div className="text-4xl font-bold mb-2" style={{ color: "hsl(var(--orange-primary))" }}>5.000+</div>
+              <div style={{ color: "hsl(var(--muted-foreground))" }}>Alunos Formados</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-orange-500 mb-2">98%</div>
-              <div className="text-gray-200">Taxa de Empregabilidade</div>
+              <div className="text-4xl font-bold mb-2" style={{ color: "hsl(var(--orange-primary))" }}>98%</div>
+              <div style={{ color: "hsl(var(--muted-foreground))" }}>Taxa de Empregabilidade</div>
             </div>
           </div>
         </div>

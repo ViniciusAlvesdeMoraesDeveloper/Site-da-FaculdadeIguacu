@@ -13,7 +13,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-hero rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-hero rounded-lg flex items-center justify-center" style={{ backgroundImage: "var(--gradient-hero)" }}>
               <span className="text-white font-bold text-xl">FM</span>
             </div>
             <span className="text-xl font-bold text-foreground">Faculdade Marinho</span>
