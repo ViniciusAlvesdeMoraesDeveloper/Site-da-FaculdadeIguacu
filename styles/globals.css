@@ -166,6 +166,7 @@
   }
   html, body, #__next {
     height: 100%;
+    scroll-behavior: smooth;
   }
   body {
     background-color: hsl(var(--background));
