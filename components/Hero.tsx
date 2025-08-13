@@ -43,15 +43,11 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Button
               size="lg"
-              className="px-8 py-4 text-lg rounded-md"
+              className=" px-8 py-4 text-lg rounded-md hover:bg-orange-600"
               /* classes tokenizadas (se geradas) */
               /* bg-primary / text-primary-foreground */
               /* fallback inline para cor e sombra */
-              style={{
-                backgroundColor: "hsl(var(--primary))",
-                color: "hsl(var(--primary-foreground))",
-                boxShadow: "var(--shadow-orange)"
-              }}
+              
               onClick={() => {
                 const depoimentosEl = document.getElementById("depoimentos");
                 if (depoimentosEl) depoimentosEl.scrollIntoView({ behavior: "smooth" });

@@ -1,9 +1,8 @@
 'use client'
 
-import { Button } from "@/components/ui/button";
+import { ButtonLink } from "@/components/ui/button-link";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import {cn} from "@/lib/utils";
 import {usePathname} from "next/navigation";
 import { navigationItems } from "@/utils/navigation";
 import Link from "next/link";
@@ -37,20 +36,21 @@ const Header = () => {
                 {item.label}
               </Link>
             ))}
-            <Button variant="default" className="bg-primary hover:bg-orange-dark">
+            <ButtonLink href="" variant="default" className="bg-primary hover:bg-orange-600">
               Inscreva-se
-            </Button>
+            </ButtonLink>
           </nav>
 
           {/* Mobile Menu Button */}
-          <Button
+          <ButtonLink
+            href=""
             variant="ghost"
             size="icon"
             className="md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X /> : <Menu />}
-          </Button>
+          </ButtonLink>
         </div>
 
         {/* Mobile Navigation */}
@@ -67,9 +67,9 @@ const Header = () => {
                   {item.label}
                 </Link>
               ))}
-              <Button variant="default" className="bg-primary hover:bg-orange-dark w-full">
+              <ButtonLink href="" variant="default" className="bg-primary hover:bg-orange-dark w-full">
                 Inscreva-se
-              </Button>
+              </ButtonLink>
             </div>
           </nav>
         )}

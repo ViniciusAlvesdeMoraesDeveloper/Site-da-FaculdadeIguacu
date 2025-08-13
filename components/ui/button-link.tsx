@@ -5,7 +5,8 @@ import React from "react";
 interface ButtonLinkProps extends LinkProps {
   children: React.ReactNode;
   className?: string;
-  variant?: "default" | "outline";
+  size?: string;
+  variant?: "default" | "outline" | "ghost";
 }
 
 export function ButtonLink({ children, className, variant = "default", ...props }: ButtonLinkProps) {
@@ -14,6 +15,7 @@ export function ButtonLink({ children, className, variant = "default", ...props 
   const variants = {
     default: "bg-primary text-primary-foreground hover:bg-orange-dark border border-primary",
     outline: "border border-primary text-primary bg-transparent hover:bg-primary hover:text-white",
+    ghost:"hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
   };
   return (
     <Link {...props} className={cn(base, variants[variant], className)}>
