@@ -12,7 +12,7 @@ const Hero = () => {
           alt="Campus da Faculdade Marinho" 
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-black/50"></div>
       </div>
 
       {/* Content */}
@@ -34,8 +34,7 @@ const Hero = () => {
           </h1>
           
           <p
-            className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto leading-relaxed"
-            style={{ color: "hsl(var(--muted-foreground))" }}
+            className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto leading-relaxed text-white"
           >
             Na Faculdade Marinho, oferecemos educação de excelência com foco no mercado de trabalho. 
             Construa sua carreira com quem entende do assunto.
@@ -67,15 +66,15 @@ const Hero = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
             <div className="text-center">
               <div className="text-4xl font-bold mb-2" style={{ color: "hsl(var(--orange-primary))" }}>15+</div>
-              <div style={{ color: "hsl(var(--muted-foreground))" }}>Anos de Excelência</div>
+              <div className="text-white">Anos de Excelência</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold mb-2" style={{ color: "hsl(var(--orange-primary))" }}>5.000+</div>
-              <div style={{ color: "hsl(var(--muted-foreground))" }}>Alunos Formados</div>
+              <div className="text-white" >Alunos Formados</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold mb-2" style={{ color: "hsl(var(--orange-primary))" }}>98%</div>
-              <div style={{ color: "hsl(var(--muted-foreground))" }}>Taxa de Empregabilidade</div>
+              <div className="text-white">Taxa de Empregabilidade</div>
             </div>
           </div>
         </div>

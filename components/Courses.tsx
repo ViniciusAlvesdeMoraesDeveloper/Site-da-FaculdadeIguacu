@@ -1,8 +1,10 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import {ButtonLink} from "@/components/ui/button-link"
 import { Badge } from "@/components/ui/badge";
 import { Clock, Users, Star, ArrowRight } from "lucide-react";
 import classroomModern from "@/public/assets/classroom-modern.jpg";
+
 
 const Courses = () => {
   const courses = [
@@ -37,20 +39,39 @@ const Courses = () => {
                   Destaque
                 </Badge>
               </div>
-              <div className="p-8 lg:p-12 flex flex-col justify-center">
-                <h3 className="text-3xl font-bold mb-4 text-foreground">MBA Executivo</h3>
-                <p className="text-lg text-muted-foreground mb-6">
-                  Acelere sua carreira com nosso MBA voltado para executivos...
-                </p>
-                <div className="flex items-center gap-6 mb-6 text-foreground">
-                  <div className="flex items-center gap-2"><Clock className="h-5 w-5 text-primary" /><span>18 meses</span></div>
-                  <div className="flex items-center gap-2"><Users className="h-5 w-5 text-primary" /><span>Turma limitada</span></div>
-                  <div className="flex items-center gap-2"><Star className="h-5 w-5 text-primary" /><span>5.0</span></div>
+                <div className="p-8 lg:p-12 flex flex-col justify-center">
+                {[
+                  {
+                  title: "MBA Executivo",
+                  description: "Acelere sua carreira com nosso MBA voltado para executivos...",
+                  duration: "18 meses",
+                  students: "Turma limitada",
+                  rating: "5.0",
+                  },
+                ].map((course, idx) => (
+                  <div key={idx}>
+                  <h3 className="text-3xl font-bold mb-4 text-foreground">{course.title}</h3>
+                  <p className="text-lg text-muted-foreground mb-6">{course.description}</p>
+                  <div className="flex items-center gap-6 mb-6 text-foreground">
+                    <div className="flex items-center gap-2">
+                    <Clock className="h-5 w-5 text-primary" />
+                    <span>{course.duration}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                    <Users className="h-5 w-5 text-primary" />
+                    <span>{course.students}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                    <Star className="h-5 w-5 text-primary" />
+                    <span>{course.rating}</span>
+                    </div>
+                  </div>
+                  <ButtonLink href="/cursos" variant="default">
+                    Saiba Mais <ArrowRight className="ml-2 h-5 w-5" />
+                  </ButtonLink>
+                  </div>
+                ))}
                 </div>
-                <Button size="lg" className="bg-primary hover:bg-orange-dark text-primary-foreground w-fit">
-                  Saiba Mais <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </div>
             </div>
           </Card>
         </div>
