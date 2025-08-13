@@ -1,0 +1,134 @@
+{
+    "courses": [
+        {
+            "id": "administracao",
+            "title": "Administração",
+            "description": "Forme-se em uma das áreas mais promissoras do mercado de trabalho com foco em gestão estratégica.",
+            "duration": "4 anos",
+            "students": "250+ alunos",
+            "rating": "4.9",
+            "badge": "Mais Procurado",
+            "color": "bg-primary",
+            "category": "administracao",
+            "modalidade": "Presencial/EAD",
+            "investimento": "R$ 890/mês"
+        },
+        {
+            "id": "engenharia-civil",
+            "title": "Engenharia Civil",
+            "description": "Construa o futuro com conhecimentos sólidos em engenharia e tecnologia de construção.",
+            "duration": "5 anos",
+            "students": "180+ alunos",
+            "rating": "4.8",
+            "badge": "Mercado Aquecido",
+            "color": "bg-secondary",
+            "category": "Engenharia",
+            "modalidade": "Presencial",
+            "investimento": "R$ 1.290/mês"
+        },
+        {
+            "id": "direito",
+            "title": "Direito",
+            "description": "Desenvolva senso crítico e conhecimento jurídico de excelência para atuar em diversas áreas.",
+            "duration": "5 anos",
+            "students": "300+ alunos",
+            "rating": "4.9",
+            "badge": "Tradição",
+            "color": "bg-accent",
+            "category": "Humanas",
+            "modalidade": "Presencial/Noturno",
+            "investimento": "R$ 1.190/mês"
+        },
+        {
+            "id": "psicologia",
+            "title": "Psicologia",
+            "description": "Compreenda o comportamento humano e transforme vidas através da ciência psicológica.",
+            "duration": "5 anos",
+            "students": "120+ alunos",
+            "rating": "4.7",
+            "badge": "Em Crescimento",
+            "color": "bg-primary",
+            "category": "Saúde",
+            "modalidade": "Presencial",
+            "investimento": "R$ 1.090/mês"
+        },
+        {
+            "id": "sistemas-informacao",
+            "title": "Sistemas de Informação",
+            "description": "Domine a tecnologia que move o mundo moderno e seja protagonista da transformação digital.",
+            "duration": "4 anos",
+            "students": "200+ alunos",
+            "rating": "4.8",
+            "badge": "Alta Demanda",
+            "color": "bg-secondary",
+            "category": "Tecnologia",
+            "modalidade": "Presencial/EAD",
+            "investimento": "R$ 990/mês"
+        },
+        {
+            "id": "enfermagem",
+            "title": "Enfermagem",
+            "description": "Cuide de pessoas e faça a diferença na sociedade através da ciência do cuidar.",
+            "duration": "4 anos",
+            "students": "150+ alunos",
+            "rating": "4.9",
+            "badge": "Essencial",
+            "color": "bg-accent",
+            "category": "Saúde",
+            "modalidade": "Presencial",
+            "investimento": "R$ 1.190/mês"
+        },
+        {
+            "id": "pedagogia",
+            "title": "Pedagogia",
+            "description": "Forme educadores preparados para os desafios da educação contemporânea.",
+            "duration": "4 anos",
+            "students": "180+ alunos",
+            "rating": "4.6",
+            "badge": "Transformador",
+            "color": "bg-primary",
+            "category": "Educação",
+            "modalidade": "Presencial/EAD",
+            "investimento": "R$ 690/mês"
+        },
+        {
+            "id": "medicina-veterinaria",
+            "title": "Medicina Veterinária",
+            "description": "Cuide da saúde animal e contribua para o bem-estar de pets e animais de produção.",
+            "duration": "5 anos",
+            "students": "90+ alunos",
+            "rating": "4.8",
+            "badge": "Novo",
+            "color": "bg-secondary",
+            "category": "Saúde",
+            "modalidade": "Presencial",
+            "investimento": "R$ 1.590/mês"
+        }
+    ],
+
+    "categories": [{
+        "id": "negocios",
+        "name": "Negócios"
+    },
+    {
+        "id": "engenharia",
+        "name": "Engenharia"
+    },
+    {
+        "id": "humanas",
+        "name": "Humanas"
+    },
+    {
+        "id": "saude",
+        "name": "Saúde"
+    },
+    {
+        "id": "tecnologia",
+        "name": "Tecnologia"
+    },
+    {
+        "id": "educacao",
+        "name": "Educação"
+    }
+    ]
+}

@@ -1,42 +1,49 @@
-/* globals.css */
 @import "tailwindcss/preflight";
 @import "tailwindcss/theme";
 @import "tailwindcss/utilities";
 @import "tw-animate-css";
 
+/* Suporte a dark mode */
 @custom-variant dark (&:is(.dark *));
 
-/* Mapear para o tema do Tailwind (usamos hsl(...) para valores que estão no :root como "14 95% 60%") */
+/* ===============================
+   THEME - mapeamento para Tailwind v4
+   =============================== */
 @theme inline {
+  /* Cores base */
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
 
+  /* Fontes */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
+  /* Cores principais */
   --color-primary: hsl(var(--primary));
   --color-primary-foreground: hsl(var(--primary-foreground));
-
   --color-secondary: hsl(var(--secondary));
   --color-secondary-foreground: hsl(var(--secondary-foreground));
-
   --color-accent: hsl(var(--accent));
   --color-accent-foreground: hsl(var(--accent-foreground));
 
+  /* Cores auxiliares */
   --color-muted: hsl(var(--muted));
   --color-muted-foreground: hsl(var(--muted-foreground));
-
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
 
-  /* tokens adicionais (gradientes / sombras) */
+  /* Gradientes */
   --gradient-hero: var(--gradient-hero);
   --gradient-subtle: var(--gradient-subtle);
 
+  /* Sombras */
   --shadow-orange: var(--shadow-orange);
   --shadow-elegant: var(--shadow-elegant);
 
+  /* Radius */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -44,7 +51,7 @@
 }
 
 /* ===============================
-   TOKENS BASE DO TEMA (mantive seu :root)
+   TOKENS BASE DO TEMA
    =============================== */
 :root {
   --background: 0 0% 100%;
@@ -77,7 +84,7 @@
 
   --radius: 0.75rem;
 
-  /* Custom Faculdade Marinho Design Tokens */
+  /* Tokens adicionais */
   --orange-primary: 14 95% 60%;
   --orange-light: 14 95% 70%;
   --orange-dark: 14 95% 50%;
@@ -115,22 +122,51 @@
   --border: 217.2 32.6% 17.5%;
   --input: 217.2 32.6% 17.5%;
   --ring: 212.7 26.8% 83.9%;
-
-  --sidebar-background: 240 5.9% 10%;
-  --sidebar-foreground: 240 4.8% 95.9%;
-  --sidebar-primary: 224.3 76.3% 48%;
-  --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 240 3.7% 15.9%;
-  --sidebar-accent-foreground: 240 4.8% 95.9%;
-  --sidebar-border: 240 3.7% 15.9%;
-  --sidebar-ring: 217.2 91.2% 59.8%;
 }
 
-@layer base {
-  /* evite @apply com arbitrary values aqui — use propriedades diretas para garantir que o browser receba um valor válido */
-  *, *::before, *::after { box-sizing: border-box; }
-  html, body, #__next { height: 100%; }
+/* ===============================
+   UTILITIES CUSTOMIZADAS
+   =============================== */
+@utility bg-gradient-hero {
+  background-image: var(--gradient-hero);
+}
 
+@utility bg-gradient-subtle {
+  background-image: var(--gradient-subtle);
+}
+
+@utility shadow-orange {
+  box-shadow: var(--shadow-orange);
+}
+
+@utility shadow-elegant {
+  box-shadow: var(--shadow-elegant);
+}
+
+/* Se quiser radius customizados como utilities explícitas */
+@utility rounded-sm {
+  border-radius: var(--radius-sm);
+}
+@utility rounded-md {
+  border-radius: var(--radius-md);
+}
+@utility rounded-lg {
+  border-radius: var(--radius-lg);
+}
+@utility rounded-xl {
+  border-radius: var(--radius-xl);
+}
+
+/* ===============================
+   BASE
+   =============================== */
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  html, body, #__next {
+    height: 100%;
+  }
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
