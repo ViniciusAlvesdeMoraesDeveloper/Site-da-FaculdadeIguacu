@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Clock, Users, Star, ArrowRight, BookOpen } from "lucide-react"
 import Link from "next/link"
-import courses from "@/cursos.json"
+import courses from "@/json/cursos.json"
 
 
 export default function CursosPage() {
