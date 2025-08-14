@@ -1,7 +1,7 @@
 {
     "courses": [
         {
-            "id": "administracao",
+            "id": "Administracao",
             "title": "Administração",
             "description": "Forme-se em uma das áreas mais promissoras do mercado de trabalho com foco em gestão estratégica.",
             "duration": "4 anos",
@@ -14,7 +14,7 @@
             "investimento": "R$ 890/mês"
         },
         {
-            "id": "engenharia-civil",
+            "id": "Engenharia-Civil",
             "title": "Engenharia Civil",
             "description": "Construa o futuro com conhecimentos sólidos em engenharia e tecnologia de construção.",
             "duration": "5 anos",
@@ -27,7 +27,7 @@
             "investimento": "R$ 1.290/mês"
         },
         {
-            "id": "direito",
+            "id": "Direito",
             "title": "Direito",
             "description": "Desenvolva senso crítico e conhecimento jurídico de excelência para atuar em diversas áreas.",
             "duration": "5 anos",
@@ -40,7 +40,7 @@
             "investimento": "R$ 1.190/mês"
         },
         {
-            "id": "psicologia",
+            "id": "Psicologia",
             "title": "Psicologia",
             "description": "Compreenda o comportamento humano e transforme vidas através da ciência psicológica.",
             "duration": "5 anos",
@@ -53,7 +53,7 @@
             "investimento": "R$ 1.090/mês"
         },
         {
-            "id": "sistemas-informacao",
+            "id": "Sistemas-Informacao",
             "title": "Sistemas de Informação",
             "description": "Domine a tecnologia que move o mundo moderno e seja protagonista da transformação digital.",
             "duration": "4 anos",
@@ -66,7 +66,7 @@
             "investimento": "R$ 990/mês"
         },
         {
-            "id": "enfermagem",
+            "id": "Enfermagem",
             "title": "Enfermagem",
             "description": "Cuide de pessoas e faça a diferença na sociedade através da ciência do cuidar.",
             "duration": "4 anos",
@@ -79,7 +79,7 @@
             "investimento": "R$ 1.190/mês"
         },
         {
-            "id": "pedagogia",
+            "id": "Pedagogia",
             "title": "Pedagogia",
             "description": "Forme educadores preparados para os desafios da educação contemporânea.",
             "duration": "4 anos",
@@ -92,7 +92,7 @@
             "investimento": "R$ 690/mês"
         },
         {
-            "id": "medicina-veterinaria",
+            "id": "Medicina-Veterinaria",
             "title": "Medicina Veterinária",
             "description": "Cuide da saúde animal e contribua para o bem-estar de pets e animais de produção.",
             "duration": "5 anos",
@@ -103,6 +103,19 @@
             "category": "Saúde",
             "modalidade": "Presencial",
             "investimento": "R$ 1.590/mês"
+        },
+        {
+            "id": "Arquitetura",
+            "title": "Arquitetura",
+            "description": "Projete espaços inovadores e sustentáveis com nosso curso de Arquitetura.",
+            "duration": "5 anos",
+            "students": "100+ alunos",
+            "rating": "4.8",
+            "badge": "Novo",
+            "color": "bg-secondary",
+            "category": "Engenharia",
+            "modalidade": "Presencial",
+            "investimento": "R$ 1.490/mês"
         }
     ],
 

@@ -1,7 +1,7 @@
 {
 "courses": [
     { 
-        "id": "administracao",
+        "id": "Administracao",
         "title": "Administração", 
         "description": "Forme-se em uma das áreas mais promissoras...", 
         "duration": "4 anos", 
@@ -11,7 +11,7 @@
         "color": "bg-primary" 
     },
     { 
-        "id": "engenharia-civil",
+        "id": "Engenharia-Civil",
         "title": "Engenharia Civil", 
         "description": "Construa o futuro com conhecimentos sólidos...", 
         "duration": "5 anos", 

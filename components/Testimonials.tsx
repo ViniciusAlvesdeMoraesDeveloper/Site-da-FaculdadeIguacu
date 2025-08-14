@@ -1,16 +1,10 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Star, Quote } from "lucide-react";
+import testimonials from "@/json/testimonials.json"
 
 const Testimonials = () => {
-  const testimonials = [
-    { name: "Ana Carolina Silva", course: "Administração - 2023", text: "A Faculdade Marinho transformou minha vida profissional...", rating: 4, avatar: "AC", company: "Manager na Petrobras" },
-    { name: "Carlos Eduardo Santos", course: "Engenharia Civil - 2022", text: "Os professores são excepcionais e a infraestrutura...", rating: 5, avatar: "CE", company: "Engenheiro na Construtora ABC" },
-    { name: "Marina Oliveira", course: "Psicologia - 2023", text: "A metodologia de ensino é inovadora...", rating: 4, avatar: "MO", company: "Psicóloga Clínica" },
-    { name: "Ricardo Ferreira", course: "Sistemas de Informação - 2022", text: "O curso é muito atualizado...", rating: 5, avatar: "RF", company: "Developer na Google" },
-    { name: "Juliana Costa", course: "Direito - 2021", text: "A formação jurídica que recebi é incomparável...", rating: 5, avatar: "JC", company: "Advogada no TozziniFreire" },
-    { name: "Pedro Almeida", course: "Enfermagem - 2023", text: "A experiência prática que tive durante o curso...", rating: 5, avatar: "PA", company: "Enfermeiro no Hospital Albert Einstein" }
-  ];
+  
 
   return (
     <section id="depoimentos" className="py-20 bg-gradient-subtle">
@@ -25,7 +19,7 @@ const Testimonials = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
+          {testimonials.testimonials.map((testimonial, index) => (
             <Card key={index} className="relative group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-none shadow-md">
               <CardContent className="p-6">
                 <Quote className="h-8 w-8 text-primary mb-4 opacity-50" />
