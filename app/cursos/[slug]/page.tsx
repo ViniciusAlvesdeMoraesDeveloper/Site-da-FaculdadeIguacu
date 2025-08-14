@@ -9,7 +9,7 @@ import { notFound } from "next/navigation"
 
 // Dados dos cursos - simplificado e corrigido
 const coursesData: Record<string, any> = {
-  administracao: {
+  Administracao: {
     title: "Administração",
     description:
       "O curso de Administração da Faculdade Marinho forma profissionais capazes de gerenciar organizações de forma estratégica e inovadora.",
@@ -59,7 +59,7 @@ const coursesData: Record<string, any> = {
       },
     ],
   },
-  "engenharia-civil": {
+  "Engenharia-civil": {
     title: "Engenharia Civil",
     description:
       "Forme-se em Engenharia Civil e construa o futuro com conhecimentos sólidos em projetos, construção e infraestrutura.",
@@ -97,7 +97,7 @@ const coursesData: Record<string, any> = {
       },
     ],
   },
-  direito: {
+  Direito: {
     title: "Direito",
     description:
       "Desenvolva senso crítico e conhecimento jurídico de excelência para atuar em diversas áreas do direito.",
@@ -147,7 +147,7 @@ const coursesData: Record<string, any> = {
       },
     ],
   },
-  psicologia: {
+  Psicologia: {
     title: "Psicologia",
     description: "Compreenda o comportamento humano e transforme vidas através da ciência psicológica.",
     duration: "5 anos",
@@ -190,7 +190,7 @@ const coursesData: Record<string, any> = {
       },
     ],
   },
-  "sistemas-informacao": {
+  "Sistemas-informacao": {
     title: "Sistemas de Informação",
     description: "Domine a tecnologia que move o mundo moderno e seja protagonista da transformação digital.",
     duration: "4 anos",
@@ -239,7 +239,7 @@ const coursesData: Record<string, any> = {
       },
     ],
   },
-  enfermagem: {
+  Enfermagem: {
     title: "Enfermagem",
     description: "Cuide de pessoas e faça a diferença na sociedade através da ciência do cuidar.",
     duration: "4 anos",
