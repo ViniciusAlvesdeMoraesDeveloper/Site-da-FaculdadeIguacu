@@ -19,15 +19,11 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto">
           <h1
-            className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
-            /* fallback inline para garantir contraste caso a classe tokenizada não exista */
-            style={{ color: "hsl(var(--foreground))" }}
+            className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight"
           >
             Transforme seu
             <span
-              className="block bg-clip-text text-transparent"
-              /* fallback do gradiente */
-              style={{ backgroundImage: "var(--gradient-hero)" }}
+              className="block bg-gradient-to-r from-orange to-orange-light bg-clip-text text-transparent"
             >
               Futuro Profissional
             </span>
@@ -44,10 +40,6 @@ const Hero = () => {
             <Button
               size="lg"
               className=" px-8 py-4 text-lg rounded-md hover:bg-orange-600"
-              /* classes tokenizadas (se geradas) */
-              /* bg-primary / text-primary-foreground */
-              /* fallback inline para cor e sombra */
-              
               onClick={() => {
                 const depoimentosEl = document.getElementById("depoimentos");
                 if (depoimentosEl) depoimentosEl.scrollIntoView({ behavior: "smooth" });

@@ -56,76 +56,12 @@ const Header = () => {
                             >
                                 Inscreva-se
                             </Button>
-                            <Modal isOpen={showModal} onClose={() => setShowModal(false)} onSubmit={handleModalSubmit} courses={["Curso 1", "Curso 2", "Curso 3"]}>
-                                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm transition-all duration-300">
-                                    <div className="relative bg-background rounded-2xl shadow-2xl border border-border p-8 w-full max-w-md mx-auto animate-fade-in">
-                                        <button
-                                            type="button"
-                                            onClick={() => setShowModal(false)}
-                                            className="absolute top-4 right-4 text-muted-foreground hover:text-primary focus:outline-none"
-                                            aria-label="Fechar modal"
-                                        >
-                                            <X className="w-6 h-6" />
-                                        </button>
-                                        <h2 className="text-3xl font-bold mb-6 text-center text-primary">Inscreva-se em um curso</h2>
-                                        <form
-                                            onSubmit={e => {
-                                                e.preventDefault();
-                                                const formData = new FormData(e.currentTarget);
-                                                handleModalSubmit({
-                                                    name: formData.get('name') as string,
-                                                    email: formData.get('email') as string,
-                                                    course: formData.get('course') as string,
-                                                });
-                                            }}
-                                            className="space-y-5"
-                                        >
-                                            <div>
-                                                <label htmlFor="name" className="block text-sm font-medium mb-1 text-foreground">Nome</label>
-                                                <input
-                                                    type="text"
-                                                    name="name"
-                                                    id="name"
-                                                    required
-                                                    className="w-full border border-border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary bg-background text-foreground"
-                                                />
-                                            </div>
-                                            <div>
-                                                <label htmlFor="email" className="block text-sm font-medium mb-1 text-foreground">Email</label>
-                                                <input
-                                                    type="email"
-                                                    name="email"
-                                                    id="email"
-                                                    required
-                                                    className="w-full border border-border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary bg-background text-foreground"
-                                                />
-                                            </div>
-                                            <div>
-                                                <label htmlFor="course" className="block text-sm font-medium mb-1 text-foreground">Curso</label>
-                                                <select
-                                                    name="course"
-                                                    id="course"
-                                                    required
-                                                    className="w-full border border-border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary bg-background text-foreground"
-                                                >
-                                                    <option value="">Selecione um curso</option>
-                                                    {["Curso 1", "Curso 2", "Curso 3"].map(course => (
-                                                        <option key={course} value={course}>{course}</option>
-                                                    ))}
-                                                </select>
-                                            </div>
-                                            <div className="flex justify-end space-x-2 pt-2">
-                                                <Button type="button" variant="ghost" onClick={() => setShowModal(false)}>
-                                                    Cancelar
-                                                </Button>
-                                                <Button type="submit" variant="default">
-                                                    Enviar
-                                                </Button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </Modal>
+                            <Modal
+                                isOpen={showModal}
+                                onClose={() => setShowModal(false)}
+                                onSubmit={handleModalSubmit}
+                                courses={["Economia", "Administração", "Engenharia"]}
+                            />
                         </nav>
 
                         {/* Mobile Menu Button */}

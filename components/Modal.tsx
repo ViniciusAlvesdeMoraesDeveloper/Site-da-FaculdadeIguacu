@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
 
 type ModalProps = {
     isOpen: boolean;
     onClose: () => void;
     onSubmit: (data: { name: string; email: string; course: string }) => void;
     courses: string[];
-    children?:React.ReactNode;
+    children?: React.ReactNode;
 };
 
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit, courses }) => {
@@ -24,7 +25,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit, courses }) => 
         onClose();
     };
 
-    return (
+    const modalContent = (
         <div style={{
             position: 'fixed',
             top: 0, left: 0, right: 0, bottom: 0,
@@ -41,6 +42,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit, courses }) => 
             }}>
                 <h2>Inscreva-se no Curso</h2>
                 <form onSubmit={handleSubmit}>
+                    {/* ...seu formulário... */}
                     <div style={{ marginBottom: 12 }}>
                         <label>
                             Nome:
@@ -88,6 +90,8 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit, courses }) => 
             </div>
         </div>
     );
+
+    return ReactDOM.createPortal(modalContent, document.body);
 };
 
 export default Modal;
