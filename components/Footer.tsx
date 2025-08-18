@@ -6,10 +6,6 @@ const Footer = () => {
   const quickLinks = [
     "Sobre Nós",
     "Cursos",
-    "Vestibular",
-    "Portal do Aluno",
-    "Biblioteca",
-    "Carreiras",
   ];
 
   const courses = [
@@ -30,7 +26,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-secondary text-primary-foreground">
+    <footer className="bg-[#3D4C66] text-primary">
       <div className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo and Description */}
@@ -42,17 +38,17 @@ const Footer = () => {
                   backgroundImage: "bg-gradient-hero",
                 }}
               >
-                <span className="text-primary-foreground font-bold text-xl">
+                <span className="text-primary font-bold text-xl">
                   FM
                 </span>
               </div>
               <span className="text-xl font-bold">Faculdade Marinho</span>
             </div>
-            <p className="text-muted-foreground mb-6 leading-relaxed">
+            <p className="text-white mb-6 leading-relaxed">
               Transformando vidas através da educação de qualidade há mais de 15
               anos. Seja parte da nossa história de sucesso.
             </p>
-            <div className="flex space-x-4">
+            <div className="text-white flex space-x-4">
               {socialLinks.map((social, index) => (
                 <a
                   key={index}
@@ -73,26 +69,9 @@ const Footer = () => {
                 <li key={index}>
                   <a
                     href="#"
-                    className="text-muted-foreground hover:text-primary transition-colors"
+                    className="text-white hover:text-primary transition-colors"
                   >
                     {link}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Courses */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Nossos Cursos</h3>
-            <ul className="space-y-2">
-              {courses.map((course, index) => (
-                <li key={index}>
-                  <a
-                    href="#"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    {course}
                   </a>
                 </li>
               ))}
@@ -102,23 +81,23 @@ const Footer = () => {
           {/* Contact Info */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Contato</h3>
-            <div className="space-y-3 text-muted-foreground">
+            <div className="space-y-3 text-white">
               <p>
-                Rua dos Estudantes, 123
+                  Luiz Rodrigues dos Santos, 44
                 <br />
-                Centro - São Paulo/SP
+                  Todos os Santos - Coronel Fabriciano/MG
                 <br />
-                CEP: 01234-567
+                CEP: 35170-061
               </p>
               <p>
                 <strong>Telefone:</strong>
                 <br />
-                (11) 3456-7890
+                  (31) 98288-3280
               </p>
               <p>
                 <strong>E-mail:</strong>
                 <br />
-                contato@faculdademarinho.edu.br
+                  faculdademarinho@gmail.com
               </p>
               <p>
                 <strong>Horário:</strong>
@@ -134,7 +113,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-border mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-muted-foreground text-sm">
+            <p className="text-white text-sm">
               © 2024 Faculdade Marinho. Todos os direitos reservados.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
@@ -143,7 +122,7 @@ const Footer = () => {
                   <a
                     key={item}
                     href="#"
-                    className="text-muted-foreground hover:text-primary text-sm transition-colors"
+                    className="text-white hover:text-primary text-sm transition-colors"
                   >
                     {item}
                   </a>

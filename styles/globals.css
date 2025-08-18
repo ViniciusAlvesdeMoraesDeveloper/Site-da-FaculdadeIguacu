@@ -146,6 +146,10 @@
   background-image: var(--gradient-subtle);
 }
 
+@utility bg-secondary {
+    background-image: var(--secondary);
+}
+
 @utility orange-light {
   color:var(--orange-light) ;
 }
