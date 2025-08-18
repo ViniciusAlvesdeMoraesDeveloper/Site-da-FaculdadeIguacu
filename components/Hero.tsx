@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import campusHero from "@/public/assets/campus-hero.jpg";
 import Modal from "@/components/Modal"
 import {useState} from "react";
+import coursesData from "@/json/courses.json";
 
 const Hero = () => {
 
@@ -56,17 +57,12 @@ const Hero = () => {
               Começar Agora
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Modal
-                isOpen={showModal}
-                onClose={() => setShowModal(false)}
-                onSubmit={(data) => console.log("Form enviado:", data)}
-                courses={[
-                "Administração",
-                "Direito",
-                "Engenharia Civil",
-                "Psicologia"
-            ]}
-                />
+              <Modal
+                  isOpen={showModal}
+                  onClose={() => setShowModal(false)}
+                  onSubmit={(data) => console.log("Form enviado:", data)}
+                  courses={coursesData.courses.map((c) => c.title)}
+              />
           </div>
 
           {/* Stats */}

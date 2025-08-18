@@ -26,7 +26,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#3D4C66] text-primary">
+    <footer className="bg-[#2C3649] text-primary">
       <div className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo and Description */}
@@ -68,7 +68,7 @@ const Footer = () => {
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <a
-                    href="#"
+                    href="/cursos"
                     className="text-white hover:text-primary transition-colors"
                   >
                     {link}
@@ -76,6 +76,7 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
+
           </div>
 
           {/* Contact Info */}

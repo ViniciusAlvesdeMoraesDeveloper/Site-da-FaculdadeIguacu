@@ -8,6 +8,7 @@ import {usePathname} from "next/navigation";
 import {navigationItems} from "@/utils/navigation";
 import Link from "next/link";
 import Modal from "@/components/Modal"
+import coursesData from "@/json/courses.json"
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -46,25 +47,18 @@ const Header = () => {
                                     {item.label}
                                 </Link>
                             ))}
+
                             <Button
                                 variant="secondary"
                                 className="bg-primary hover:bg-orange-600"
                                 onClick={() => { setIsMenuOpen(false); setShowModal(true); }}
                             >
                                 Inscreva-se
+
                             </Button>
-                            <Modal
-                                isOpen={showModal}
-                                onClose={() => setShowModal(false)}
-                                onSubmit={(data) => console.log("Form enviado:", data)}
-                                courses={[
-                                    "Administração",
-                                    "Direito",
-                                    "Engenharia Civil",
-                                    "Psicologia"
-                                ]}
-                            />
                         </nav>
+
+
 
                         {/* Mobile Menu Button */}
                         <ButtonLink
@@ -101,6 +95,13 @@ const Header = () => {
                     )}
                 </div>
             </header>
+
+            <Modal
+                isOpen={showModal}
+                onClose={() => setShowModal(false)}
+                onSubmit={(data) => console.log("Form enviado:", data)}
+                courses={coursesData.courses.map((c) => c.title)}
+            />
         </>
     );
 };
