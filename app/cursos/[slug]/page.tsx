@@ -9,7 +9,7 @@ import { notFound } from "next/navigation"
 
 // Dados dos cursos - simplificado e corrigido
 const coursesData: Record<string, any> = {
-  Administracao: {
+  "Administracao": {
     title: "Administração",
     description:
       "O curso de Administração da Faculdade Marinho forma profissionais capazes de gerenciar organizações de forma estratégica e inovadora.",
@@ -291,7 +291,7 @@ interface CoursePageProps {
 }
 
 export default async function CoursePage({ params }: CoursePageProps) {
-  const {  slug } = await params;
+  const { slug } = await params;
   const course = coursesData[slug]
 
   if (!course) {

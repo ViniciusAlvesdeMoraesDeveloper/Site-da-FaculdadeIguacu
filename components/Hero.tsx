@@ -1,8 +1,19 @@
+"use client"
+
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import campusHero from "@/public/assets/campus-hero.jpg";
+import Modal from "@/components/Modal"
+import {useState} from "react";
 
 const Hero = () => {
+
+    const [showModal, setShowModal] = useState(false);
+
+    function handleModalSubmit(data: { name: string; email: string; course: string; }): void {
+        setShowModal(false);
+    }
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -12,7 +23,7 @@ const Hero = () => {
           alt="Campus da Faculdade Marinho" 
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="absolute inset-0 bg-black/35"></div>
       </div>
 
       {/* Content */}
@@ -39,15 +50,23 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Button
               size="lg"
-              className=" px-8 py-4 text-lg rounded-md hover:bg-orange-600"
-              onClick={() => {
-                const depoimentosEl = document.getElementById("depoimentos");
-                if (depoimentosEl) depoimentosEl.scrollIntoView({ behavior: "smooth" });
-              }}
+              className="px-8 py-4 text-lg rounded-md hover:bg-orange-600"
+              onClick={() => setShowModal(true)} // Corrija aqui!
             >
               Começar Agora
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
+            <Modal
+                isOpen={showModal}
+                onClose={() => setShowModal(false)}
+                onSubmit={(data) => console.log("Form enviado:", data)}
+                courses={[
+                "Administração",
+                "Direito",
+                "Engenharia Civil",
+                "Psicologia"
+            ]}
+                />
           </div>
 
           {/* Stats */}

@@ -8,7 +8,6 @@ import {usePathname} from "next/navigation";
 import {navigationItems} from "@/utils/navigation";
 import Link from "next/link";
 import Modal from "@/components/Modal"
-import Courses from "./Courses";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -20,8 +19,6 @@ const Header = () => {
 
 
     function handleModalSubmit(data: { name: string; email: string; course: string; }): void {
-        // Aqui você pode implementar o envio dos dados do formulário
-        // Exemplo: enviar para uma API, mostrar mensagem de sucesso, etc.
         setShowModal(false);
     }
 
@@ -50,7 +47,7 @@ const Header = () => {
                                 </Link>
                             ))}
                             <Button
-                                variant="default"
+                                variant="secondary"
                                 className="bg-primary hover:bg-orange-600"
                                 onClick={() => { setIsMenuOpen(false); setShowModal(true); }}
                             >
@@ -59,8 +56,13 @@ const Header = () => {
                             <Modal
                                 isOpen={showModal}
                                 onClose={() => setShowModal(false)}
-                                onSubmit={handleModalSubmit}
-                                courses={["Economia", "Administração", "Engenharia"]}
+                                onSubmit={(data) => console.log("Form enviado:", data)}
+                                courses={[
+                                    "Administração",
+                                    "Direito",
+                                    "Engenharia Civil",
+                                    "Psicologia"
+                                ]}
                             />
                         </nav>
 
