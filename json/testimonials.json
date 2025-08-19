@@ -17,9 +17,6 @@
         },
         { 
             "name": "Pedro Almeida", "course": "Enfermagem - 2023", "text": "A experiência prática que tive durante o curso...", "rating": 5, "avatar": "PA", "company": "Enfermeiro no Hospital Albert Einstein" 
-        },
-        {
-            "name": "Israel de Oliveira Mendes", "course": "Ciência da Computação - 2022", "text": "A Faculdade foi um passo gigante para minha carreira", "rating": 5, "avatar": "IM", "company": " Desenvolvedor na Microsoft"
         }
     ]
 }
