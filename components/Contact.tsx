@@ -29,25 +29,31 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center justify-center">
-
-          <div className="space-y-6">
-            {contactInfo.map((item, index) => (
-              <Card key={index} className="group hover:shadow-orange transition-shadow border-none">
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="bg-primary/10 p-3 rounded-lg  transition-colors">
-                      <item.icon className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-lg mb-2 text-foreground">{item.title}</h3>
-                      <p className="text-muted-foreground whitespace-pre-line">{item.info}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+        <div className="gap-12 w-full place-items-center ">
+            <div className="grid lg:grid-cols-2 gap-12 w-full">
+                {contactInfo.map((item, index) => (
+                    <Card
+                        key={index}
+                        className="w-full flex group hover:shadow-orange transition-shadow border-none"
+                    >
+                        <CardContent className="p-6 w-full">
+                            <div className="flex items-start gap-4">
+                                <div className="bg-primary/10 p-3 rounded-lg transition-colors">
+                                    <item.icon className="h-6 w-6 text-primary" />
+                                </div>
+                                <div>
+                                    <h3 className="font-semibold text-lg mb-2 text-foreground">
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-muted-foreground whitespace-pre-line">
+                                        {item.info}
+                                    </p>
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
+                ))}
+            </div>
         </div>
 
         <div className="mt-16 text-center bg-gradient-hero rounded-2xl p-12 text-primary-foreground">
