@@ -1,147 +1,429 @@
 {
-    "courses": [
-        {
-            "id": "Administracao",
-            "title": "Administração",
-            "description": "Forme-se em uma das áreas mais promissoras do mercado de trabalho com foco em gestão estratégica.",
-            "duration": "4 anos",
-            "students": "250+ alunos",
-            "rating": "4.9",
-            "badge": "Mais Procurado",
-            "color": "bg-primary",
-            "category": "administracao",
-            "modalidade": "Presencial/EAD",
-            "investimento": "R$ 890/mês"
-        },
-        {
-            "id": "Engenharia-Civil",
-            "title": "Engenharia Civil",
-            "description": "Construa o futuro com conhecimentos sólidos em engenharia e tecnologia de construção.",
-            "duration": "5 anos",
-            "students": "180+ alunos",
-            "rating": "4.8",
-            "badge": "Mercado Aquecido",
-            "color": "bg-secondary",
-            "category": "Engenharia",
-            "modalidade": "Presencial",
-            "investimento": "R$ 1.290/mês"
-        },
-        {
-            "id": "Direito",
-            "title": "Direito",
-            "description": "Desenvolva senso crítico e conhecimento jurídico de excelência para atuar em diversas áreas.",
-            "duration": "5 anos",
-            "students": "300+ alunos",
-            "rating": "4.9",
-            "badge": "Tradição",
-            "color": "bg-accent",
-            "category": "Humanas",
-            "modalidade": "Presencial/Noturno",
-            "investimento": "R$ 1.190/mês"
-        },
-        {
-            "id": "Psicologia",
-            "title": "Psicologia",
-            "description": "Compreenda o comportamento humano e transforme vidas através da ciência psicológica.",
-            "duration": "5 anos",
-            "students": "120+ alunos",
-            "rating": "4.7",
-            "badge": "Em Crescimento",
-            "color": "bg-primary",
-            "category": "Saúde",
-            "modalidade": "Presencial",
-            "investimento": "R$ 1.090/mês"
-        },
-        {
-            "id": "Sistemas-Informacao",
-            "title": "Sistemas de Informação",
-            "description": "Domine a tecnologia que move o mundo moderno e seja protagonista da transformação digital.",
-            "duration": "4 anos",
-            "students": "200+ alunos",
-            "rating": "4.8",
-            "badge": "Alta Demanda",
-            "color": "bg-secondary",
-            "category": "Tecnologia",
-            "modalidade": "Presencial/EAD",
-            "investimento": "R$ 990/mês"
-        },
-        {
-            "id": "Enfermagem",
-            "title": "Enfermagem",
-            "description": "Cuide de pessoas e faça a diferença na sociedade através da ciência do cuidar.",
-            "duration": "4 anos",
-            "students": "150+ alunos",
-            "rating": "4.9",
-            "badge": "Essencial",
-            "color": "bg-accent",
-            "category": "Saúde",
-            "modalidade": "Presencial",
-            "investimento": "R$ 1.190/mês"
-        },
-        {
-            "id": "Pedagogia",
-            "title": "Pedagogia",
-            "description": "Forme educadores preparados para os desafios da educação contemporânea.",
-            "duration": "4 anos",
-            "students": "180+ alunos",
-            "rating": "4.6",
-            "badge": "Transformador",
-            "color": "bg-primary",
-            "category": "Educação",
-            "modalidade": "Presencial/EAD",
-            "investimento": "R$ 690/mês"
-        },
-        {
-            "id": "Medicina-Veterinaria",
-            "title": "Medicina Veterinária",
-            "description": "Cuide da saúde animal e contribua para o bem-estar de pets e animais de produção.",
-            "duration": "5 anos",
-            "students": "90+ alunos",
-            "rating": "4.8",
-            "badge": "Novo",
-            "color": "bg-secondary",
-            "category": "Saúde",
-            "modalidade": "Presencial",
-            "investimento": "R$ 1.590/mês"
-        },
-        {
-            "id": "Arquitetura",
-            "title": "Arquitetura",
-            "description": "Projete espaços inovadores e sustentáveis com nosso curso de Arquitetura.",
-            "duration": "5 anos",
-            "students": "100+ alunos",
-            "rating": "4.8",
-            "badge": "Novo",
-            "color": "bg-secondary",
-            "category": "Engenharia",
-            "modalidade": "Presencial",
-            "investimento": "R$ 1.490/mês"
-        }
-    ],
-
-    "categories": [{
-        "id": "negocios",
-        "name": "Negócios"
+  "courses": [
+    {
+      "id": "administracao",
+      "title": "Administração",
+      "description": "Forme-se em uma das áreas mais promissoras do mercado de trabalho com foco em gestão estratégica.",
+      "duration": "4 anos",
+      "students": "250+ alunos",
+      "rating": "4.9",
+      "badge": "Mais Procurado",
+      "color": "bg-primary",
+      "category": "negocios",
+      "modalidade": "Presencial/EAD",
+      "investimento": "R$ 890/mês"
     },
     {
-        "id": "engenharia",
-        "name": "Engenharia"
+      "id": "engenharia-civil",
+      "title": "Engenharia Civil",
+      "description": "Construa o futuro com conhecimentos sólidos em engenharia e tecnologia de construção.",
+      "duration": "5 anos",
+      "students": "180+ alunos",
+      "rating": "4.8",
+      "badge": "Mercado Aquecido",
+      "color": "bg-secondary",
+      "category": "engenharia",
+      "modalidade": "Presencial",
+      "investimento": "R$ 1.290/mês"
     },
     {
-        "id": "humanas",
-        "name": "Humanas"
+      "id": "direito",
+      "title": "Direito",
+      "description": "Desenvolva senso crítico e conhecimento jurídico de excelência para atuar em diversas áreas.",
+      "duration": "5 anos",
+      "students": "300+ alunos",
+      "rating": "4.9",
+      "badge": "Tradição",
+      "color": "bg-accent",
+      "category": "humanas",
+      "modalidade": "Presencial/Noturno",
+      "investimento": "R$ 1.190/mês"
     },
     {
-        "id": "saude",
-        "name": "Saúde"
+      "id": "psicologia",
+      "title": "Psicologia",
+      "description": "Compreenda o comportamento humano e transforme vidas através da ciência psicológica.",
+      "duration": "5 anos",
+      "students": "120+ alunos",
+      "rating": "4.7",
+      "badge": "Em Crescimento",
+      "color": "bg-primary",
+      "category": "saude",
+      "modalidade": "Presencial",
+      "investimento": "R$ 1.090/mês"
     },
     {
-        "id": "tecnologia",
-        "name": "Tecnologia"
+      "id": "sistemas-informacao",
+      "title": "Sistemas de Informação",
+      "description": "Domine a tecnologia que move o mundo moderno e seja protagonista da transformação digital.",
+      "duration": "4 anos",
+      "students": "200+ alunos",
+      "rating": "4.8",
+      "badge": "Alta Demanda",
+      "color": "bg-secondary",
+      "category": "tecnologia",
+      "modalidade": "Presencial/EAD",
+      "investimento": "R$ 990/mês"
     },
     {
-        "id": "educacao",
-        "name": "Educação"
+      "id": "enfermagem",
+      "title": "Enfermagem",
+      "description": "Cuide de pessoas e faça a diferença na sociedade através da ciência do cuidar.",
+      "duration": "4 anos",
+      "students": "150+ alunos",
+      "rating": "4.9",
+      "badge": "Essencial",
+      "color": "bg-accent",
+      "category": "saude",
+      "modalidade": "Presencial",
+      "investimento": "R$ 1.190/mês"
+    },
+    {
+      "id": "pedagogia",
+      "title": "Pedagogia",
+      "description": "Forme educadores preparados para os desafios da educação contemporânea.",
+      "duration": "4 anos",
+      "students": "180+ alunos",
+      "rating": "4.6",
+      "badge": "Transformador",
+      "color": "bg-primary",
+      "category": "educacao",
+      "modalidade": "Presencial/EAD",
+      "investimento": "R$ 690/mês"
+    },
+    {
+      "id": "medicina-veterinaria",
+      "title": "Medicina Veterinária",
+      "description": "Cuide da saúde animal e contribua para o bem-estar de pets e animais de produção.",
+      "duration": "5 anos",
+      "students": "90+ alunos",
+      "rating": "4.8",
+      "badge": "Novo",
+      "color": "bg-secondary",
+      "category": "saude",
+      "modalidade": "Presencial",
+      "investimento": "R$ 1.590/mês"
     }
-    ]
+  ],
+  "categories": [
+    {
+      "id": "todos",
+      "name": "Todos"
+    },
+    {
+      "id": "negocios",
+      "name": "Negócios"
+    },
+    {
+      "id": "engenharia",
+      "name": "Engenharia"
+    },
+    {
+      "id": "humanas",
+      "name": "Humanas"
+    },
+    {
+      "id": "saude",
+      "name": "Saúde"
+    },
+    {
+      "id": "tecnologia",
+      "name": "Tecnologia"
+    },
+    {
+      "id": "educacao",
+      "name": "Educação"
+    }
+  ],
+  "coursesData": {
+    "administracao": {
+      "title": "Administração",
+      "description": "O curso de Administração da Faculdade Marinho forma profissionais capazes de gerenciar organizações de forma estratégica e inovadora.",
+      "duration": "4 anos",
+      "students": "250+ alunos",
+      "rating": "4.9",
+      "category": "Negócios",
+      "modalidade": "Presencial/EAD",
+      "investimento": "R$ 890/mês",
+      "coordenador": "Prof. Dr. Carlos Silva",
+      "reconhecimento": "Reconhecido pelo MEC - Nota 5",
+      "sobre": "O curso de Administração prepara profissionais para atuar em diversas áreas da gestão empresarial, desenvolvendo competências em planejamento estratégico, gestão de pessoas, marketing, finanças e operações.",
+      "objetivos": [
+        "Formar administradores éticos e competentes",
+        "Desenvolver visão estratégica e sistêmica",
+        "Capacitar para liderança e gestão de equipes",
+        "Preparar para empreendedorismo e inovação"
+      ],
+      "mercado": [
+        "Gestão empresarial em grandes corporações",
+        "Consultoria organizacional",
+        "Empreendedorismo e startups",
+        "Gestão pública",
+        "Terceiro setor"
+      ],
+      "grade": [
+        {
+          "periodo": "1º Período",
+          "disciplinas": [
+            "Fundamentos da Administração",
+            "Matemática Aplicada",
+            "Comunicação Empresarial",
+            "Economia",
+            "Metodologia Científica"
+          ]
+        },
+        {
+          "periodo": "2º Período",
+          "disciplinas": [
+            "Teoria Geral da Administração",
+            "Contabilidade Geral",
+            "Estatística",
+            "Direito Empresarial",
+            "Psicologia Organizacional"
+          ]
+        }
+      ]
+    },
+    "engenharia-civil": {
+      "title": "Engenharia Civil",
+      "description": "Forme-se em Engenharia Civil e construa o futuro com conhecimentos sólidos em projetos, construção e infraestrutura.",
+      "duration": "5 anos",
+      "students": "180+ alunos",
+      "rating": "4.8",
+      "category": "Engenharia",
+      "modalidade": "Presencial",
+      "investimento": "R$ 1.290/mês",
+      "coordenador": "Prof. Dr. Ana Santos",
+      "reconhecimento": "Reconhecido pelo MEC - Nota 4",
+      "sobre": "O curso de Engenharia Civil forma profissionais capacitados para projetar, construir e gerenciar obras de infraestrutura, edificações e sistemas urbanos.",
+      "objetivos": [
+        "Formar engenheiros competentes e éticos",
+        "Desenvolver conhecimentos técnicos sólidos",
+        "Capacitar para gestão de projetos",
+        "Promover sustentabilidade na construção"
+      ],
+      "mercado": [
+        "Construtoras e incorporadoras",
+        "Empresas de projetos estruturais",
+        "Órgãos públicos de infraestrutura",
+        "Consultoria em engenharia",
+        "Perícia e avaliação de imóveis"
+      ],
+      "grade": [
+        {
+          "periodo": "1º Período",
+          "disciplinas": [
+            "Cálculo I",
+            "Geometria Analítica",
+            "Física I",
+            "Desenho Técnico",
+            "Introdução à Engenharia"
+          ]
+        },
+        {
+          "periodo": "2º Período",
+          "disciplinas": [
+            "Cálculo II",
+            "Álgebra Linear",
+            "Física II",
+            "Química Geral",
+            "Algoritmos e Programação"
+          ]
+        }
+      ]
+    },
+    "direito": {
+      "title": "Direito",
+      "description": "Desenvolva senso crítico e conhecimento jurídico de excelência para atuar em diversas áreas do direito.",
+      "duration": "5 anos",
+      "students": "300+ alunos",
+      "rating": "4.9",
+      "category": "Humanas",
+      "modalidade": "Presencial/Noturno",
+      "investimento": "R$ 1.190/mês",
+      "coordenador": "Prof. Dr. Roberto Lima",
+      "reconhecimento": "Reconhecido pelo MEC - Nota 5",
+      "sobre": "O curso de Direito forma bacharéis capacitados para atuar em diversas áreas jurídicas, desenvolvendo raciocínio crítico e conhecimento das leis.",
+      "objetivos": [
+        "Formar juristas éticos e competentes",
+        "Desenvolver raciocínio jurídico crítico",
+        "Capacitar para diversas carreiras jurídicas",
+        "Promover justiça social e cidadania"
+      ],
+      "mercado": [
+        "Advocacia privada",
+        "Ministério Público",
+        "Magistratura",
+        "Advocacia pública",
+        "Consultoria jurídica empresarial"
+      ],
+      "grade": [
+        {
+          "periodo": "1º Período",
+          "disciplinas": [
+            "Introdução ao Direito",
+            "Teoria Geral do Estado",
+            "Sociologia Jurídica",
+            "Filosofia do Direito",
+            "Português Jurídico"
+          ]
+        },
+        {
+          "periodo": "2º Período",
+          "disciplinas": [
+            "Direito Civil I",
+            "Direito Penal I",
+            "Direito Constitucional I",
+            "História do Direito",
+            "Economia"
+          ]
+        }
+      ]
+    },
+    "psicologia": {
+      "title": "Psicologia",
+      "description": "Compreenda o comportamento humano e transforme vidas através da ciência psicológica.",
+      "duration": "5 anos",
+      "students": "120+ alunos",
+      "rating": "4.7",
+      "category": "Saúde",
+      "modalidade": "Presencial",
+      "investimento": "R$ 1.090/mês",
+      "coordenador": "Prof. Dra. Maria Fernanda",
+      "reconhecimento": "Reconhecido pelo MEC - Nota 4",
+      "sobre": "O curso de Psicologia forma profissionais capacitados para compreender e intervir nos processos psicológicos, promovendo saúde mental e bem-estar.",
+      "objetivos": [
+        "Formar psicólogos éticos e competentes",
+        "Desenvolver conhecimento científico em psicologia",
+        "Capacitar para intervenções psicológicas",
+        "Promover saúde mental e bem-estar"
+      ],
+      "mercado": [
+        "Clínica psicológica",
+        "Psicologia organizacional",
+        "Psicologia escolar",
+        "Psicologia hospitalar",
+        "Pesquisa em psicologia"
+      ],
+      "grade": [
+        {
+          "periodo": "1º Período",
+          "disciplinas": [
+            "História da Psicologia",
+            "Anatomia Humana",
+            "Filosofia",
+            "Metodologia Científica",
+            "Estatística"
+          ]
+        },
+        {
+          "periodo": "2º Período",
+          "disciplinas": [
+            "Psicologia Geral",
+            "Neuroanatomia",
+            "Sociologia",
+            "Antropologia",
+            "Genética"
+          ]
+        }
+      ]
+    },
+    "sistemas-informacao": {
+      "title": "Sistemas de Informação",
+      "description": "Domine a tecnologia que move o mundo moderno e seja protagonista da transformação digital.",
+      "duration": "4 anos",
+      "students": "200+ alunos",
+      "rating": "4.8",
+      "category": "Tecnologia",
+      "modalidade": "Presencial/EAD",
+      "investimento": "R$ 990/mês",
+      "coordenador": "Prof. Dr. João Tech",
+      "reconhecimento": "Reconhecido pelo MEC - Nota 5",
+      "sobre": "O curso de Sistemas de Informação forma profissionais capazes de desenvolver, implementar e gerenciar sistemas computacionais.",
+      "objetivos": [
+        "Formar profissionais de TI competentes",
+        "Desenvolver soluções tecnológicas inovadoras",
+        "Capacitar para gestão de projetos de TI",
+        "Promover transformação digital"
+      ],
+      "mercado": [
+        "Desenvolvimento de software",
+        "Análise de sistemas",
+        "Gestão de TI",
+        "Consultoria tecnológica",
+        "Startups de tecnologia"
+      ],
+      "grade": [
+        {
+          "periodo": "1º Período",
+          "disciplinas": [
+            "Algoritmos e Programação",
+            "Matemática Discreta",
+            "Introdução à Computação",
+            "Inglês Técnico",
+            "Comunicação"
+          ]
+        },
+        {
+          "periodo": "2º Período",
+          "disciplinas": [
+            "Estruturas de Dados",
+            "Programação Orientada a Objetos",
+            "Banco de Dados I",
+            "Estatística",
+            "Administração"
+          ]
+        }
+      ]
+    },
+    "enfermagem": {
+      "title": "Enfermagem",
+      "description": "Cuide de pessoas e faça a diferença na sociedade através da ciência do cuidar.",
+      "duration": "4 anos",
+      "students": "150+ alunos",
+      "rating": "4.9",
+      "category": "Saúde",
+      "modalidade": "Presencial",
+      "investimento": "R$ 1.190/mês",
+      "coordenador": "Prof. Dra. Carla Saúde",
+      "reconhecimento": "Reconhecido pelo MEC - Nota 5",
+      "sobre": "O curso de Enfermagem forma profissionais capacitados para promover, prevenir, recuperar e reabilitar a saúde individual e coletiva.",
+      "objetivos": [
+        "Formar enfermeiros competentes e humanizados",
+        "Desenvolver cuidado integral em saúde",
+        "Capacitar para liderança em enfermagem",
+        "Promover saúde e prevenção de doenças"
+      ],
+      "mercado": [
+        "Hospitais e clínicas",
+        "Unidades básicas de saúde",
+        "Home care",
+        "Enfermagem do trabalho",
+        "Docência em enfermagem"
+      ],
+      "grade": [
+        {
+          "periodo": "1º Período",
+          "disciplinas": [
+            "Anatomia Humana",
+            "Histologia",
+            "Bioquímica",
+            "Introdução à Enfermagem",
+            "Bioestatística"
+          ]
+        },
+        {
+          "periodo": "2º Período",
+          "disciplinas": [
+            "Fisiologia",
+            "Microbiologia",
+            "Parasitologia",
+            "Fundamentos de Enfermagem",
+            "Ética em Enfermagem"
+          ]
+        }
+      ]
+    }
+  }
 }
+

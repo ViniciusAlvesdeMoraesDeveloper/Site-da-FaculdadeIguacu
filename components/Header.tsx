@@ -1,14 +1,14 @@
 'use client'
 
 import {ButtonLink} from "@/components/ui/button-link";
-import { Button } from "./ui/button";
+import {Button} from "./ui/button";
 import {Menu, X} from "lucide-react";
 import {useState} from "react";
 import {usePathname} from "next/navigation";
 import {navigationItems} from "@/utils/navigation";
 import Link from "next/link";
 import Modal from "@/components/Modal"
-import coursesData from "@/json/courses.json"
+import coursesData from "@/json/cursos.json"
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -51,13 +51,15 @@ const Header = () => {
                             <Button
                                 variant="secondary"
                                 className="bg-primary hover:bg-orange-600"
-                                onClick={() => { setIsMenuOpen(false); setShowModal(true); }}
+                                onClick={() => {
+                                    setIsMenuOpen(false);
+                                    setShowModal(true);
+                                }}
                             >
                                 Inscreva-se
 
                             </Button>
                         </nav>
-
 
 
                         {/* Mobile Menu Button */}
