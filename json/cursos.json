@@ -9,7 +9,7 @@
       "rating": "4.9",
       "badge": "Mais Procurado",
       "color": "bg-primary",
-      "category": "negocios",
+      "category": "Negócios",
       "modalidade": "Presencial/EAD",
       "investimento": "R$ 890/mês"
     },
@@ -22,7 +22,7 @@
       "rating": "4.8",
       "badge": "Mercado Aquecido",
       "color": "bg-secondary",
-      "category": "engenharia",
+      "category": "Engenhaia",
       "modalidade": "Presencial",
       "investimento": "R$ 1.290/mês"
     },
@@ -35,7 +35,7 @@
       "rating": "4.9",
       "badge": "Tradição",
       "color": "bg-accent",
-      "category": "humanas",
+      "category": "Humanas",
       "modalidade": "Presencial/Noturno",
       "investimento": "R$ 1.190/mês"
     },
@@ -48,7 +48,7 @@
       "rating": "4.7",
       "badge": "Em Crescimento",
       "color": "bg-primary",
-      "category": "saude",
+      "category": "Saúde",
       "modalidade": "Presencial",
       "investimento": "R$ 1.090/mês"
     },
@@ -61,7 +61,7 @@
       "rating": "4.8",
       "badge": "Alta Demanda",
       "color": "bg-secondary",
-      "category": "tecnologia",
+      "category": "Tecnologia",
       "modalidade": "Presencial/EAD",
       "investimento": "R$ 990/mês"
     },
@@ -74,7 +74,7 @@
       "rating": "4.9",
       "badge": "Essencial",
       "color": "bg-accent",
-      "category": "saude",
+      "category": "Saúde",
       "modalidade": "Presencial",
       "investimento": "R$ 1.190/mês"
     },
@@ -87,7 +87,7 @@
       "rating": "4.6",
       "badge": "Transformador",
       "color": "bg-primary",
-      "category": "educacao",
+      "category": "Educação",
       "modalidade": "Presencial/EAD",
       "investimento": "R$ 690/mês"
     },
@@ -100,7 +100,7 @@
       "rating": "4.8",
       "badge": "Novo",
       "color": "bg-secondary",
-      "category": "saude",
+      "category": "Saúde",
       "modalidade": "Presencial",
       "investimento": "R$ 1.590/mês"
     }
@@ -111,7 +111,7 @@
       "name": "Todos"
     },
     {
-      "id": "negocios",
+      "id": "Negócios",
       "name": "Negócios"
     },
     {

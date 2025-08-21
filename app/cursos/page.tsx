@@ -10,6 +10,7 @@ import {ArrowRight, BookOpen, Clock, Star, Users} from "lucide-react"
 import courses from "@/json/cursos.json"
 import Link from "next/link";
 
+console.time("Cursos page load");
 export default function CursosPage() {
     // Estado para armazenar a categoria selecionada
     const [selectedCategory, setSelectedCategory] = useState("Todos")
@@ -160,3 +161,4 @@ export default function CursosPage() {
         </main>
     )
 }
+console.timeEnd("Cursos page load");
