@@ -257,7 +257,7 @@ export default function CoursePage({params}: CoursePageProps) {
                                             variant="secondary"
                                             className="bg-primary hover:bg-orange-600"
                                             onClick={() => {
-                                                setIsMenuOpen(false);
+                                                setIsMenuOpen(true);
                                                 setShowModal(true);
                                             }}
                                         >
