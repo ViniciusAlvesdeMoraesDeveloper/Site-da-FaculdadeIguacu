@@ -20,7 +20,7 @@ interface CoursePageProps {
 
 export default function CoursePage({params}: CoursePageProps) {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-    const [showModal, setShowModal] = useState(false);
+    const [showModal, setShowModal] = useState<boolean>(false);
     const {slug} = params;
 
     function handleModalSubmit(data: { name: string; email: string; course: string; }): void {
