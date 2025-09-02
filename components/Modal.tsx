@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { toast } from "@/hooks/use-toast"
 import { GraduationCap, CheckCircle, AlertCircle, Send } from "lucide-react"
+import { apiService } from "@/app/lib/api"
 
 const enrollmentSchema = z.object({
     name: z.string().min(2, "Nome deve ter pelo menos 2 caracteres"),
@@ -70,12 +71,18 @@ export default function Modal({ isOpen, onClose, onSubmit, courses }: ModalProps
         setIsSubmitting(true)
 
         try {
-            await new Promise((resolve) => setTimeout(resolve, 2000))
+            const apiData = {
+                fullName: data.name,
+                email: data.email,
+                phone: data.phone,
+                courseOfInterest: data.course,
+                message: data.message ||"",
+            }
+            await  apiService.registerUser(apiData);
 
-            onSubmit(data)
-            setIsSuccess(true)
-            reset() // limpa os campos após envio
-            toast({
+                setIsSuccess(true);
+                reset();
+                toast({
                 title: "Inscrição realizada com sucesso!",
                 description: "Entraremos em contato em breve.",
             })
@@ -85,9 +92,15 @@ export default function Modal({ isOpen, onClose, onSubmit, courses }: ModalProps
                 onClose()
             }, 3000)
         } catch (error) {
+
+            console.error("Erro ao enviar a inscrição:", error);
+            const erroMessage = error instanceof Error
+                    ?error.message
+                    : "Tente novamente mais tarde. ";
+
             toast({
                 title: "Erro ao enviar inscrição",
-                description: "Tente novamente mais tarde.",
+                description: erroMessage,
                 variant: "destructive",
             })
         } finally {

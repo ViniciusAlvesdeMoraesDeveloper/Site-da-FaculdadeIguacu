@@ -22,7 +22,7 @@
       "rating": "4.8",
       "badge": "Mercado Aquecido",
       "color": "bg-secondary",
-      "category": "Engenhaia",
+      "category": "Engenharia",
       "modalidade": "Presencial",
       "investimento": "R$ 1.290/mês"
     },
@@ -423,7 +423,104 @@
           ]
         }
       ]
+    },
+    "medicina-veterinaria": {
+      "title": "Medicina Veterinária",
+      "description": "Dedique-se à saúde, bem-estar e produção de animais, contribuindo para a saúde pública e a conservação.",
+      "duration": "5 anos",
+      "students": "200+ alunos",
+      "rating": "4.8",
+      "category": "Saúde e Agrárias",
+      "modalidade": "Presencial",
+      "investimento": "R$ 1.650/mês",
+      "coordenador": "Prof. Dr. Ricardo Animali",
+      "reconhecimento": "Reconhecido pelo MEC - Nota 5",
+      "sobre": "O curso de Medicina Veterinária forma profissionais aptos a atuar em diversas áreas, desde a clínica e cirurgia de animais, até a inspeção de produtos de origem animal e a pesquisa científica.",
+      "objetivos": [
+        "Capacitar para o cuidado e tratamento de animais de pequeno e grande porte",
+        "Garantir a segurança alimentar através da inspeção sanitária",
+        "Desenvolver habilidades em clínica, cirurgia e reprodução animal",
+        "Promover a saúde pública e a conservação ambiental"
+      ],
+      "mercado": [
+        "Clínicas e hospitais veterinários",
+        "Indústria de alimentos e farmacêutica",
+        "Agronegócio",
+        "Zoológicos e parques",
+        "Pesquisa e docência",
+        "Saúde pública"
+      ],
+      "grade": [
+        {
+          "periodo": "1º Período",
+          "disciplinas": [
+            "Anatomia Veterinária",
+            "Citologia e Histologia Animal",
+            "Bioquímica Veterinária",
+            "Introdução à Medicina Veterinária",
+            "Genética e Evolução"
+          ]
+        },
+        {
+          "periodo": "2º Período",
+          "disciplinas": [
+            "Fisiologia Animal",
+            "Microbiologia Veterinária",
+            "Parasitologia",
+            "Imunologia Animal",
+            "Patologia Geral"
+          ]
+        }
+      ]
+    },
+    "pedagogia": {
+      "title": "Pedagogia",
+      "description": "Construa o futuro da educação, formando cidadãos críticos e transformando vidas através do ensino e da pesquisa.",
+      "duration": "4 anos",
+      "students": "250+ alunos",
+      "rating": "5.0",
+      "category": "Educação",
+      "modalidade": "Presencial e EAD",
+      "investimento": "R$ 690/mês",
+      "coordenador": "Prof. Dra. Ana Educadora",
+      "reconhecimento": "Reconhecido pelo MEC - Nota 5",
+      "sobre": "O curso de Pedagogia forma profissionais aptos a atuar como professores na Educação Infantil e nos Anos Iniciais do Ensino Fundamental, além de gestores e coordenadores escolares.",
+      "objetivos": [
+        "Capacitar para a docência na Educação Infantil e Ensino Fundamental",
+        "Desenvolver competências em gestão e coordenação pedagógica",
+        "Promover a inclusão e a diversidade no ambiente escolar",
+        "Formar profissionais reflexivos e inovadores"
+      ],
+      "mercado": [
+        "Escolas públicas e privadas",
+        "Coordenação e direção escolar",
+        "Consultoria educacional",
+        "Ensino a distância (EAD)",
+        "Recursos humanos",
+        "Editoras e materiais didáticos"
+      ],
+      "grade": [
+        {
+          "periodo": "1º Período",
+          "disciplinas": [
+            "História da Educação",
+            "Filosofia da Educação",
+            "Psicologia da Educação",
+            "Sociologia da Educação",
+            "Educação e Sociedade"
+          ]
+        },
+        {
+          "periodo": "2º Período",
+          "disciplinas": [
+            "Didática",
+            "Políticas Educacionais",
+            "Alfabetização e Letramento",
+            "Educação Inclusiva",
+            "Tecnologias Educacionais"
+          ]
+        }
+      ]
     }
   }
 }
-

@@ -11,6 +11,7 @@ import {notFound} from "next/navigation"
 import coursesData from "@/json/cursos.json"
 import {useState} from "react";
 import Modal from "@/components/Modal";
+import React from "react";
 
 // Dados dos cursos - simplificado e corrigido
 
@@ -18,7 +19,7 @@ interface CoursePageProps {
     params: { slug: string }
 }
 
-export default function CoursePage({params}: CoursePageProps) {
+export default  function CoursePage({params}: CoursePageProps) {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
     const [showModal, setShowModal] = useState<boolean>(false);
     const {slug} = params;
