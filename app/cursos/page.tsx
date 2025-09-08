@@ -65,7 +65,7 @@ export default function CursosPage() {
             {/* Courses Grid */}
             <section className="py-20 bg-background">
                 <div className="container mx-auto px-4">
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    <div id="cursos" className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                         {filteredCourses.map((course, index) => (
                             <Card
                                 key={index}
@@ -150,9 +150,15 @@ export default function CursosPage() {
                         modalidades
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <Link href="https://wa.me/9999999?text=Olá!%20Gostaria%20de%20mais%20informações."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white hover:text-yellow-100 p-2 rounded-full"
+                        aria-label="WhatsApp">
                         <Button size="lg" className="bg-primary hover:bg-orange-dark">
                             Falar com Consultor
                         </Button>
+                        </Link>
                     </div>
                 </div>
             </section>

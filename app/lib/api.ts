@@ -3,12 +3,12 @@ export interface RegistrationFormData {
   fullName: string;
   email: string;
   phone: string;
-  courseOfInterest: string;
+  courseOfInterest?: string;
   message: string;
 }
 
 
-const API_BASE_URL = ''; // Exemplo: https://api.exemplo.com/
+const API_BASE_URL = ''; 
 const AUTH_ENDPOINT = `${API_BASE_URL}/auth/token`; // Endpoint para obter/renovar o token
 const REGISTER_ENDPOINT = `${API_BASE_URL}/register`; // Endpoint para registrar o usuário
 

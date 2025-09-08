@@ -1,11 +1,11 @@
 "use client";
 
-import { Facebook, Instagram, Twitter, Linkedin, Youtube } from "lucide-react";
+import { Facebook, Instagram, Music2, Linkedin, Youtube } from "lucide-react";
 
 const Footer = () => {
   const quickLinks = [
-    "Sobre Nós",
-    "Cursos",
+    { text: 'Sobre Nós', href: '/about' },
+    { text: 'Cursos', href: '#cursos' },
   ];
 
   const courses = [
@@ -19,14 +19,14 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: Facebook, href: "#" },
-    { icon: Instagram, href: "#" },
-    { icon: Twitter, href: "#" },
+    { icon: Instagram, href: "https://www.instagram.com/faculdade.marinho?igsh=d3QzNmZzMzB3ZGFu" },
+    { icon: Music2, href: "https://www.tiktok.com/@faculdade.marinho?is_from_webapp=1&sender_device=pc" },
     { icon: Linkedin, href: "#" },
     { icon: Youtube, href: "#" },
   ];
 
   return (
-    <footer className="bg-[#2C3649] text-primary">
+    <footer className="bg-[#0B093F] text-primary">
       <div className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo and Description */}
@@ -48,14 +48,15 @@ const Footer = () => {
               Transformando vidas através da educação de qualidade há mais de 15
               anos. Seja parte da nossa história de sucesso.
             </p>
+            {/* Troque quickLinks por socialLinks aqui */}
             <div className="text-white flex space-x-4">
-              {socialLinks.map((social, index) => (
+              {socialLinks.map((link, index) => (
                 <a
                   key={index}
-                  href={social.href}
-                  className="w-10 h-10  rounded-lg flex items-center justify-center hover:bg-primary transition-colors"
+                  href={link.href}
+                  className="w-10 h-10 rounded-lg flex items-center justify-center hover:bg-primary transition-colors"
                 >
-                  <social.icon className="h-5 w-5" />
+                  <link.icon className="h-5 w-5" />
                 </a>
               ))}
             </div>
@@ -68,15 +69,14 @@ const Footer = () => {
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <a
-                    href="/cursos"
+                    href={link.href}
                     className="text-white hover:text-primary transition-colors"
                   >
-                    {link}
+                    {link.text}
                   </a>
                 </li>
               ))}
             </ul>
-
           </div>
 
           {/* Contact Info */}
@@ -84,21 +84,21 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Contato</h3>
             <div className="space-y-3 text-white">
               <p>
-                  Luiz Rodrigues dos Santos, 44
+                Luiz Rodrigues dos Santos, 44
                 <br />
-                  Todos os Santos - Coronel Fabriciano/MG
+                Todos os Santos - Coronel Fabriciano/MG
                 <br />
                 CEP: 35170-061
               </p>
               <p>
                 <strong>Telefone:</strong>
                 <br />
-                  (31) 98288-3280
+                (31) 98288-3280
               </p>
               <p>
                 <strong>E-mail:</strong>
                 <br />
-                  faculdademarinho@gmail.com
+                faculdademarinho@gmail.com
               </p>
               <p>
                 <strong>Horário:</strong>

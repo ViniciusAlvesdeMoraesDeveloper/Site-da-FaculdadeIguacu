@@ -58,24 +58,24 @@ const Contact = () => {
                     </div>
                 </div>
 
-                <div className="mt-16 text-center bg-gradient-hero rounded-2xl p-12 text-primary-foreground">
-                    <h3 className="text-3xl font-bold mb-4">Pronto para começar sua jornada?</h3>
-                    <p className="text-xl mb-8 opacity-90">Faça sua inscrição hoje mesmo e transforme seu futuro
-                        profissional.</p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button size="lg" variant="secondary" className="bg-background text-foreground hover:bg-muted"
-                                onClick={() => {
-                                    setIsMenuOpen(false);
-                                    setShowModal(true);
-                                }}
-                        >
-                            Inscreva-se Agora
-                        </Button>
+               <div className="mt-16 text-center bg-gradient-to-r from-orange-400 to-[#0B093F] rounded-2xl p-12 text-primary-foreground">
+          <h3 className="text-3xl font-bold mb-4">Pronto para expandir seu portfólio?</h3>
+          <p className="text-xl mb-8 opacity-90">Faça parte da nossa rede de parceiros e ofereça cursos
+            de pós-graduação de alta qualidade sem investimento inicial.</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" variant="secondary" className="bg-background text-foreground hover:bg-muted"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setShowModal(true);
+                }}
+            >
+              Seja um parceiro!
+            </Button>
                         <Modal
                             isOpen={showModal}
                             onClose={() => setShowModal(false)}
                             onSubmit={(data) => console.log("Form enviado:", data)}
-                            courses={coursesData.courses.map((c) => c.title)}
+                            
                         />
                     </div>
                 </div>

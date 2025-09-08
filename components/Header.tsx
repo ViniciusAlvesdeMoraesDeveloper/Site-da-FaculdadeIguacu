@@ -1,20 +1,20 @@
 'use client'
 
-import {ButtonLink} from "@/components/ui/button-link";
-import {Button} from "./ui/button";
-import {Menu, X} from "lucide-react";
-import {useState} from "react";
-import {usePathname} from "next/navigation";
-import {navigationItems} from "@/utils/navigation";
+import { ButtonLink } from "@/components/ui/button-link";
+import { Button } from "./ui/button";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { navigationItems } from "@/utils/navigation";
 import Link from "next/link";
 import Modal from "@/components/Modal"
 import coursesData from "@/json/cursos.json"
-
+import About from "@/app/about/page";
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
     const pathname = usePathname();
     const isHomePage = pathname === '/';
-    const isCoursePage = pathname === '/cursos';
+    const isCoursePage = pathname === '/about';
 
     const [showModal, setShowModal] = useState(false);
 
@@ -33,7 +33,7 @@ const Header = () => {
                             <div className="w-10 h-10 bg-gradient-hero rounded-lg flex items-center justify-center">
                                 <a href="/" className="text-white font-bold text-xl">FM</a>
                             </div>
-                            <a href="/" className="text-xl font-bold text-foreground">Faculdade Marinho</a>
+                            <a href="/" className="text-xl font-bold text-#100D5D">Faculdade Marinho</a>
                         </div>
 
                         {/* Desktop Navigation */}
@@ -42,7 +42,7 @@ const Header = () => {
                                 <Link
                                     key={item.href}
                                     href={item.href}
-                                    className={`text-foreground hover:text-primary transition-color ${item.href === "/" && isHomePage ? "text-primary" : "text-foreground"} ${item.href === "/cursos" && isCoursePage ? "text-primary" : "text-foregound"}`}
+                                    className={`text-foreground hover:text-primary transition-color ${item.href === "/" && isHomePage ? "text-primary" : "text-foreground"} ${item.href === "/about" && isCoursePage ? "text-primary" : "text-foregound"}`}
                                 >
                                     {item.label}
                                 </Link>
@@ -56,9 +56,21 @@ const Header = () => {
                                     setShowModal(true);
                                 }}
                             >
-                                Inscreva-se
+                                Área do Parceiro
 
                             </Button>
+
+                            <Link href="https://laava.simpleacademy.tech/login">
+                                <Button
+
+                                    variant="secondary"
+                                    className="bg-primary hover:bg-orange-600"
+
+                                >
+                                    Área do Aluno
+
+                                </Button>
+                            </Link>
                         </nav>
 
 
@@ -70,7 +82,7 @@ const Header = () => {
                             className="md:hidden"
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
                         >
-                            {isMenuOpen ? <X/> : <Menu/>}
+                            {isMenuOpen ? <X /> : <Menu />}
                         </ButtonLink>
                     </div>
 
@@ -89,7 +101,7 @@ const Header = () => {
                                     </Link>
                                 ))}
                                 <ButtonLink href="Dialog" variant="default"
-                                            className="bg-primary hover:bg-orange-dark w-full">
+                                    className="bg-primary hover:bg-orange-dark w-full">
                                     Inscreva-se
                                 </ButtonLink>
                             </div>
@@ -102,7 +114,7 @@ const Header = () => {
                 isOpen={showModal}
                 onClose={() => setShowModal(false)}
                 onSubmit={(data) => console.log("Form enviado:", data)}
-                courses={coursesData.courses.map((c) => c.title)}
+
             />
         </>
     );
