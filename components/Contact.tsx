@@ -12,8 +12,8 @@ const Contact = () => {
             title: "Endereço",
             info: "Luiz Rodrigues dos Santos, 44\nTodos os Santos - Coronel Fabriciano/MG\nCEP: 35170-061"
         },
-        {icon: Phone, title: "Telefone", info: "(31) 99999-9999\n(31) 99999-9999"},
-        {icon: Mail, title: "E-mail", info: "email@faculdademarinho.edu.br\nemail2@faculdademarinho.edu.br"},
+        {icon: Phone, title: "Telefone", info: "(31) 98288-3280 \n(31) 99806-3604"},
+        {icon: Mail, title: "E-mail", info: "faculdademarinho@gmail.com"},
         {icon: Clock, title: "Horário de Atendimento", info: "Segunda a Sexta: 8h às 18h"}
     ];
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);

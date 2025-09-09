@@ -33,9 +33,9 @@ export default function CursosPage() {
                             Nossos Cursos
                         </h1>
                         <p className="text-xl md:text-2xl opacity-90 leading-relaxed">
-                            Descubra o curso ideal para sua carreira e transforme seu futuro
-                            profissional
-                        </p>
+                            Descubra os cursos que ofertamos e transforme seu futuro com a
+                            Faculdade Marinho
+                        </p>                        
                     </div>
                 </div>
             </section>
@@ -139,7 +139,7 @@ export default function CursosPage() {
                 </div>
             </section>
 
-            {/* CTA Section */}
+            {/* CTA Section 
             <section className="py-20 bg-gradient-subtle">
                 <div className="container mx-auto px-4 text-center">
                     <h2 className="text-4xl font-bold mb-6">
@@ -161,7 +161,7 @@ export default function CursosPage() {
                         </Link>
                     </div>
                 </div>
-            </section>
+            </section>*/}
 
             <Footer/>
         </main>

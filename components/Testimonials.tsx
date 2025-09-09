@@ -53,7 +53,7 @@ const Testimonials = () => {
             { value: "5.000+", label: "Alunos Formados" },
             { value: "98%", label: "Taxa de Empregabilidade" },
             { value: "4.9", label: "Avaliação Média" },
-            { value: "15+", label: "Anos de Tradição" }
+            { value: "18+", label: "Anos de Tradição" }
           ].map((stat, i) => (
             <div key={i} className="text-center">
               <div className="text-4xl font-bold text-primary mb-2">{stat.value}</div>

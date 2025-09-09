@@ -7,6 +7,7 @@ import Courses from "@/components/Courses";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import { BannerCarousel } from "@/components/banner/page";
 
 const Index = () => {
   return (
@@ -14,7 +15,7 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
-        <Courses />
+        <BannerCarousel />
         <Testimonials />
         <Contact />
       </main>

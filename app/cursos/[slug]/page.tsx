@@ -2,14 +2,14 @@
 
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
-import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card"
-import {Button} from "@/components/ui/button"
-import {Badge} from "@/components/ui/badge"
-import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs"
-import {Award, BookOpen, Calendar, Clock, DollarSign, MapPin, Star, Target, Users} from "lucide-react"
-import {notFound} from "next/navigation"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Award, BookOpen, Calendar, Clock, DollarSign, MapPin, Star, Target, Users } from "lucide-react"
+import { notFound } from "next/navigation"
 import coursesData from "@/json/cursos.json"
-import {useState} from "react";
+import { useState } from "react";
 import Modal from "@/components/Modal";
 import React from "react";
 
@@ -19,10 +19,10 @@ interface CoursePageProps {
     params: { slug: string }
 }
 
-export default  function CoursePage({params}: CoursePageProps) {
+export default function CoursePage({ params }: CoursePageProps) {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
     const [showModal, setShowModal] = useState<boolean>(false);
-    const {slug} = params;
+    const { slug } = params;
 
     function handleModalSubmit(data: { name: string; email: string; course: string; }): void {
         setShowModal(false);
@@ -38,7 +38,7 @@ export default  function CoursePage({params}: CoursePageProps) {
 
     return (
         <main className="min-h-screen">
-            <Header/>
+            <Header />
 
             {/* Hero Section */}
             <section className="pt-24 pb-16 bg-gradient-hero text-white">
@@ -50,22 +50,22 @@ export default  function CoursePage({params}: CoursePageProps) {
 
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                             <div className="text-center">
-                                <Clock className="h-8 w-8 mx-auto mb-2 opacity-80"/>
+                                <Clock className="h-8 w-8 mx-auto mb-2 opacity-80" />
                                 <div className="font-semibold">{course.duration}</div>
                                 <div className="text-sm opacity-80">Duração</div>
                             </div>
                             <div className="text-center">
-                                <Users className="h-8 w-8 mx-auto mb-2 opacity-80"/>
+                                <Users className="h-8 w-8 mx-auto mb-2 opacity-80" />
                                 <div className="font-semibold">{course.students}</div>
                                 <div className="text-sm opacity-80">Alunos</div>
                             </div>
                             <div className="text-center">
-                                <Star className="h-8 w-8 mx-auto mb-2 opacity-80"/>
+                                <Star className="h-8 w-8 mx-auto mb-2 opacity-80" />
                                 <div className="font-semibold">{course.rating}</div>
                                 <div className="text-sm opacity-80">Avaliação</div>
                             </div>
                             <div className="text-center">
-                                <Award className="h-8 w-8 mx-auto mb-2 opacity-80"/>
+                                <Award className="h-8 w-8 mx-auto mb-2 opacity-80" />
                                 <div className="font-semibold">MEC</div>
                                 <div className="text-sm opacity-80">Reconhecido</div>
                             </div>
@@ -102,7 +102,7 @@ export default  function CoursePage({params}: CoursePageProps) {
                                                     {course.objetivos.map((objetivo: string, index: number) => (
                                                         <li key={index} className="flex items-start gap-3">
                                                             <Target
-                                                                className="h-5 w-5 text-primary mt-0.5 flex-shrink-0"/>
+                                                                className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                                                             <span>{objetivo}</span>
                                                         </li>
                                                     ))}
@@ -123,8 +123,8 @@ export default  function CoursePage({params}: CoursePageProps) {
                                                     <div className="grid md:grid-cols-2 gap-3">
                                                         {periodo.disciplinas.map((disciplina: string, idx: number) => (
                                                             <div key={idx}
-                                                                 className="flex items-center gap-3 p-3 bg-muted/50 rounded-lg">
-                                                                <BookOpen className="h-4 w-4 text-primary"/>
+                                                                className="flex items-center gap-3 p-3 bg-muted/50 rounded-lg">
+                                                                <BookOpen className="h-4 w-4 text-primary" />
                                                                 <span className="text-sm">{disciplina}</span>
                                                             </div>
                                                         ))}
@@ -148,8 +148,8 @@ export default  function CoursePage({params}: CoursePageProps) {
                                             <div className="grid md:grid-cols-2 gap-4">
                                                 {course.mercado.map((area: string, index: number) => (
                                                     <div key={index}
-                                                         className="flex items-center gap-3 p-4 bg-primary/5 rounded-lg">
-                                                        <Award className="h-5 w-5 text-primary"/>
+                                                        className="flex items-center gap-3 p-4 bg-primary/5 rounded-lg">
+                                                        <Award className="h-5 w-5 text-primary" />
                                                         <span>{area}</span>
                                                     </div>
                                                 ))}
@@ -217,28 +217,28 @@ export default  function CoursePage({params}: CoursePageProps) {
                                 </CardHeader>
                                 <CardContent className="space-y-4">
                                     <div className="flex items-center gap-3">
-                                        <Calendar className="h-5 w-5 text-primary"/>
+                                        <Calendar className="h-5 w-5 text-primary" />
                                         <div>
                                             <div className="font-semibold">Modalidade</div>
                                             <div className="text-sm text-muted-foreground">{course.modalidade}</div>
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-3">
-                                        <MapPin className="h-5 w-5 text-primary"/>
+                                        <MapPin className="h-5 w-5 text-primary" />
                                         <div>
                                             <div className="font-semibold">Coordenador</div>
                                             <div className="text-sm text-muted-foreground">{course.coordenador}</div>
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-3">
-                                        <DollarSign className="h-5 w-5 text-primary"/>
+                                        <DollarSign className="h-5 w-5 text-primary" />
                                         <div>
                                             <div className="font-semibold">Investimento</div>
                                             <div className="text-sm text-muted-foreground">{course.investimento}</div>
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-3">
-                                        <Award className="h-5 w-5 text-primary"/>
+                                        <Award className="h-5 w-5 text-primary" />
                                         <div>
                                             <div className="font-semibold">Reconhecimento</div>
                                             <div className="text-sm text-muted-foreground">{course.reconhecimento}</div>
@@ -251,8 +251,8 @@ export default  function CoursePage({params}: CoursePageProps) {
                             <Card className="border-none shadow-md bg-gradient-hero text-white">
                                 <CardContent className="p-6 text-center">
                                     <h3 className="text-xl font-bold mb-4">Interessado?</h3>
-                                    <p className="mb-6 opacity-90">Fale com nossos consultores e tire todas suas
-                                        dúvidas</p>
+                                    <p className="mb-6 opacity-90">Realize seu cadastro
+                                    </p>
                                     <div className="space-y-3">
                                         <Button
                                             variant="secondary"
@@ -262,7 +262,7 @@ export default  function CoursePage({params}: CoursePageProps) {
                                                 setShowModal(true);
                                             }}
                                         >
-                                            Inscreva-se
+                                            Seja um Parceiro!
 
                                         </Button>
                                     </div>
@@ -273,13 +273,13 @@ export default  function CoursePage({params}: CoursePageProps) {
                 </div>
             </section>
 
-            <Footer/>
+            <Footer />
 
             <Modal
                 isOpen={showModal}
                 onClose={() => setShowModal(false)}
                 onSubmit={(data) => console.log("Form enviado:", data)}
-                courses={coursesData.courses.map((c) => c.title)}
+
             />
         </main>
     )
