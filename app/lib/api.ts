@@ -7,6 +7,18 @@ export interface RegistrationFormData {
   message: string;
 }
 
+export interface OuvidoriaFormData {
+  nome: string;
+  sobrenome?: string;
+  telefone: string;
+  email: string;
+  tipoUsuario?: string;
+  tentouContato?: string;
+  setor?: string;
+  mensagem?: string;
+  arquivo?: File | null;
+}
+
 
 const API_BASE_URL = ''; 
 const AUTH_ENDPOINT = `${API_BASE_URL}/auth/token`; // Endpoint para obter/renovar o token
@@ -72,6 +84,30 @@ class ApiService {
       throw new Error('Não foi possível obter um token de autenticação válido.');
     }
   }
+  public async sendOuvidoriaForm(formData: OuvidoriaFormData) {
+    try {
+      // 3. Obtém um token válido (se necessário, um novo será buscado)
+      const token = await this.getToken();
+      // 4. Faz a requisição POST com o token no cabeçalho
+      const response = await fetch(REGISTER_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify(formData),
+      });
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Falha ao enviar os dados.');
+      }
+      return await response.json();
+    } catch (error) {
+      console.error('Erro na requisição da API:', error);
+      throw new Error('Erro de conexão. Verifique sua rede.');
+    }
+  }
+
 
   /**
    * Envia os dados de registro do usuário para a API, usando um token válido.

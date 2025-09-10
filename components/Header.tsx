@@ -10,6 +10,7 @@ import Link from "next/link";
 import Modal from "@/components/Modal"
 import coursesData from "@/json/cursos.json"
 import About from "@/app/about/page";
+import Image from "next/image";
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
     const pathname = usePathname();
@@ -30,8 +31,15 @@ const Header = () => {
                     <div className="flex items-center justify-between">
                         {/* Logo */}
                         <div className="flex items-center space-x-2">
-                            <div className="w-10 h-10 bg-gradient-hero rounded-lg flex items-center justify-center">
-                                <a href="/" className="text-white font-bold text-xl">FM</a>
+                            <div className="w-10 h-10 flex items-center justify-center">
+                                <Image
+                                    src="/logo-marinho.webp"
+                                    alt="Logo da Faculdade Marinho"
+                                    width={40}
+                                    height={40}
+                                    className="rounded-lg"
+                                />
+                                
                             </div>
                             <a href="/" className="text-xl font-bold text-#100D5D">Faculdade Marinho</a>
                         </div>

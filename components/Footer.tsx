@@ -1,6 +1,7 @@
 "use client";
 
 import { Facebook, Instagram, Music2, Linkedin, Youtube } from "lucide-react";
+import Image from "next/image";
 
 const Footer = () => {
   const quickLinks = [
@@ -26,11 +27,16 @@ const Footer = () => {
           <div>
             <div className="flex items-center space-x-2 mb-2">
               <div
-                className="w-10 h-10 rounded-lg flex items-center justify-center bg-gradient-hero "
+                className="w-10 h-10 flex items-center justify-center "
               >
-                <span className="text-white font-bold text-xl">
-                  FM
-                </span>
+                <Image
+                  src="/logo-marinho.webp"
+                  alt="Faculdade Marinho Logo"
+                  width={30}
+                  height={30}
+                  className="object-contain"
+                />
+                
               </div>
               <span className="text-xl font-bold">Faculdade Marinho</span>
             </div>

@@ -7,90 +7,220 @@ import { Textarea } from "../ui/textarea"
 import { Label } from "../ui/label"
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group"
 import { useToast } from "@/hooks/use-toast"
+import { apiService } from "@/app/lib/api"
+import { useForm, Controller } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import * as z from "zod"
+import { AlertCircle } from "lucide-react"
+
+// Esquema de validação do formulário com Zod
+const ouvidoriaSchema = z.object({
+nome: z.string().min(2, "Nome é obrigatório."),
+  sobrenome: z.string().optional(),
+  telefone: z.string().min(14, "Telefone inválido."),
+  email: z.string().email("Email inválido."),
+  tipoUsuario: z.enum(["aluno", "licenciado", "outros"], {
+    message: "Selecione uma opção.",
+  }),
+  tentouContato: z.enum(["sim", "nao"], {
+    message: "Selecione uma opção.",
+  }),
+  setor: z.string().optional(),
+  mensagem: z.string().optional(),
+  arquivo: z.any().optional(), 
+})
+
+export type OuvidoriaFormData = z.infer<typeof ouvidoriaSchema>
 
 export function OuvidoriaForm() {
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  
   const { toast } = useToast()
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+  const {
+    register,
+    handleSubmit,
+    formState: { isSubmitting, errors },
+    setValue,
+    control,
+    reset,
+  } = useForm<OuvidoriaFormData>({
+    resolver: zodResolver(ouvidoriaSchema),
+    defaultValues: {
+      nome: "",
+      sobrenome: "",
+      telefone: "",
+      email: "",
+      tipoUsuario: undefined,
+      tentouContato: undefined,
+      setor: "",
+      mensagem: "",
+      arquivo: undefined,
+    },
+  })
 
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+  // Função para formatar o telefone
+  const formatPhone = (value: string) => {
+    let raw = value.replace(/\D/g, "")
+    if (raw.length > 11) raw = raw.slice(0, 11)
+    if (raw.length <= 10) {
+      return raw.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, "($1) $2-$3")
+    } else {
+      return raw.replace(/^(\d{2})(\d{5})(\d{0,4}).*/, "($1) $2-$3")
+    }
+  }
 
-    toast({
-      title: "Mensagem enviada com sucesso!",
-      description: "Obrigado por entrar em contato. Responderemos em breve.",
-      duration: 5000,
-    })
-    e.currentTarget.reset()
-    setIsSubmitting(false)
+  // Lidar com a mudança no campo de telefone para formatá-lo
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formattedValue = formatPhone(e.target.value)
+    setValue("telefone", formattedValue)
+  }
+
+  // Lidar com o envio do formulário
+  const handleFormSubmit = async (data: OuvidoriaFormData) => {
+    try {
+      // Envie os dados originais do formulário para a API
+      await apiService.sendOuvidoriaForm(data) // Chame a API
+
+      reset() // Limpa o formulário
+      toast({
+        title: "Mensagem enviada com sucesso!",
+        description: "Obrigado por entrar em contato. Responderemos em breve.",
+        duration: 5000,
+      })
+    } catch (error) {
+      console.error("Erro ao enviar a solicitação:", error)
+      const errorMessage =
+        error instanceof Error
+          ? error.message
+          : "Ocorreu um erro. Tente novamente mais tarde."
+      toast({
+        title: "Erro ao enviar a solicitação",
+        description: errorMessage,
+        variant: "destructive",
+        duration: 5000,
+      })
+    }
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-6">
       <div className="space-y-2">
         <Label htmlFor="nome">Nome *</Label>
-        <Input id="nome" name="nome" required />
+        <Input id="nome" {...register("nome")} />
+        {errors.nome && (
+          <p className="text-destructive text-sm mt-1 flex items-center gap-1">
+            <AlertCircle className="w-4 h-4" />
+            {errors.nome.message}
+          </p>
+        )}
       </div>
 
       <div className="space-y-2">
         <Label htmlFor="sobrenome">Sobrenome</Label>
-        <Input id="sobrenome" name="sobrenome" />
+        <Input id="sobrenome" {...register("sobrenome")} />
       </div>
 
       <div className="space-y-2">
         <Label htmlFor="telefone">Telefone *</Label>
-        <Input id="telefone" name="telefone" type="tel" required />
+        <Input
+          id="telefone"
+          {...register("telefone")}
+          type="tel"
+          onChange={handlePhoneChange}
+        />
+        {errors.telefone && (
+          <p className="text-destructive text-sm mt-1 flex items-center gap-1">
+            <AlertCircle className="w-4 h-4" />
+            {errors.telefone.message}
+          </p>
+        )}
       </div>
 
       <div className="space-y-2">
         <Label htmlFor="email">Email *</Label>
-        <Input id="email" name="email" type="email" required />
+        <Input id="email" {...register("email")} type="email" />
+        {errors.email && (
+          <p className="text-destructive text-sm mt-1 flex items-center gap-1">
+            <AlertCircle className="w-4 h-4" />
+            {errors.email.message}
+          </p>
+        )}
       </div>
 
       <div className="space-y-3">
         <Label>Você é *</Label>
-        <RadioGroup name="tipo-usuario" required>
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="aluno" id="aluno" />
-            <Label htmlFor="aluno">Aluno</Label>
-          </div>
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="licenciado" id="licenciado" />
-            <Label htmlFor="licenciado">Licenciado</Label>
-          </div>
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="outros" id="outros" />
-            <Label htmlFor="outros">Outros</Label>
-          </div>
-        </RadioGroup>
+        <Controller
+          name="tipoUsuario"
+          control={control}
+          render={({ field }) => (
+            <RadioGroup
+              onValueChange={field.onChange}
+              value={field.value}
+              name={field.name}
+            >
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="aluno" id="aluno" />
+                <Label htmlFor="aluno">Aluno</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="licenciado" id="licenciado" />
+                <Label htmlFor="licenciado">Licenciado</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="outros" id="outros" />
+                <Label htmlFor="outros">Outros</Label>
+              </div>
+            </RadioGroup>
+          )}
+        />
+        {errors.tipoUsuario && (
+          <p className="text-destructive text-sm mt-1 flex items-center gap-1">
+            <AlertCircle className="w-4 h-4" />
+            {errors.tipoUsuario.message}
+          </p>
+        )}
       </div>
 
       <div className="space-y-3">
         <Label>Você já tentou contato de outra forma? *</Label>
-        <RadioGroup name="servidor" required>
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="sim" id="servidor-sim" />
-            <Label htmlFor="servidor-sim">Sim</Label>
-          </div>
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="nao" id="servidor-nao" />
-            <Label htmlFor="servidor-nao">Não</Label>
-          </div>
-        </RadioGroup>
+        <Controller
+          name="tentouContato"
+          control={control}
+          render={({ field }) => (
+            <RadioGroup
+              onValueChange={field.onChange}
+              value={field.value}
+              name={field.name}
+            >
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="sim" id="servidor-sim" />
+                <Label htmlFor="servidor-sim">Sim</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="nao" id="servidor-nao" />
+                <Label htmlFor="servidor-nao">Não</Label>
+              </div>
+            </RadioGroup>
+          )}
+        />
+        {errors.tentouContato && (
+          <p className="text-destructive text-sm mt-1 flex items-center gap-1">
+            <AlertCircle className="w-4 h-4" />
+            {errors.tentouContato.message}
+          </p>
+        )}
       </div>
 
       <div className="space-y-2">
         <Label htmlFor="setor">Setor da pessoa reclamada</Label>
-        <Input id="setor" name="setor" />
+        <Input id="setor" {...register("setor")} />
       </div>
 
       <div className="space-y-2">
         <Label htmlFor="mensagem">Texto da sugestão, crítica ou reclamação</Label>
         <Textarea
           id="mensagem"
-          name="mensagem"
+          {...register("mensagem")}
           placeholder="Texto da sugestão, crítica ou reclamação"
           className="min-h-24"
         />
@@ -98,12 +228,12 @@ export function OuvidoriaForm() {
 
       <div className="space-y-2">
         <Label htmlFor="arquivo">Upload de arquivo</Label>
-        <Input id="arquivo" name="arquivo" type="file" />
+        <Input id="arquivo" {...register("arquivo")} type="file" />
       </div>
 
       <Button
         type="submit"
-        className="w-full bg-pink-600 hover:bg-pink-700 text-white font-medium py-3"
+        className="w-full bg-orange-600 text-white font-medium py-3"
         disabled={isSubmitting}
       >
         {isSubmitting ? "Enviando..." : "Enviar"}
@@ -111,3 +241,4 @@ export function OuvidoriaForm() {
     </form>
   )
 }
+

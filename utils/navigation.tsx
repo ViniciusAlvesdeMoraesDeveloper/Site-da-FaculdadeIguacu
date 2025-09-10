@@ -6,5 +6,5 @@ export const navigationItems = [
   { href: "/#contato", label: "Contato" },
   { href: '/about', label: 'Sobre' },
   { href: '/ouvidoria', label: 'Ouvidoria' },
-
+  { href: '/parceiros', label: 'Parceiros' },
 ];
