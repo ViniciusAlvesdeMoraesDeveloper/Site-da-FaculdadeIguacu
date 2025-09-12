@@ -1,13 +1,7 @@
-// src/app/cursos/page.tsx
 
-// Mantenha apenas os imports de componentes que você ainda usa
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
-
-// Importe o seu novo componente cliente
 import CursosClientComponent from "@/components/CursosClientComponent"
-
-// Importe suas funções da API
 import { getAllCourses, getCourseDetails } from "../lib/apieduno";
 
 // Defina as tipagens para os dados da sua API
@@ -60,7 +54,7 @@ export default async function CursosPage() {
 
             {/* Hero Section - Mantém, pois é um conteúdo estático */}
             <section className="pt-24 pb-16 bg-gradient-hero text-white">
-                <div className="container mx-auto px-4">
+                <div id="areacurso" className="container mx-auto px-4">
                     <div className="max-w-4xl mx-auto text-center">
                         <h1 className="text-5xl md:text-6xl font-bold mb-6">
                             Nossos Cursos

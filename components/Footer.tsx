@@ -6,7 +6,7 @@ import Image from "next/image";
 const Footer = () => {
   const quickLinks = [
     { text: 'Sobre Nós', href: '/about' },
-    { text: 'Cursos', href: '#cursos' },
+    { text: 'Cursos', href: '/cursos' },
   ];
 
   const socialLinks = [
@@ -41,7 +41,7 @@ const Footer = () => {
               <span className="text-xl font-bold">Faculdade Marinho</span>
             </div>
             <p className="text-gray-300 mb-4 leading-normal">
-              Transformando vidas através da educação de qualidade há mais de 18 anos. Seja parte da nossa história de sucesso.
+              Transformando vidas através da educação de qualidade há mais de 15 anos. Seja parte da nossa história de sucesso.
             </p>
             <div className="text-white flex space-x-4">
               {socialLinks.map((link, index) => (
