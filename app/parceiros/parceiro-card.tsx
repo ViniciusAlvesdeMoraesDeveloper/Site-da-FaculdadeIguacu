@@ -11,10 +11,7 @@ import type { Parceiro } from "../dataparceiros/parceiros";
     return (
         <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
             <CardContent className="p-6">
-                <div className="flex flex-col items-center text-center space-y-4">
-                    {/* Logo do parceiro */}
-                    <div className="w-full h-20 flex items-center justify-center bg-muted rounded-lg p-4">
-                    </div>
+                <div>
 
                     {/* Nome e categoria */}
                     <div className="space-y-2">

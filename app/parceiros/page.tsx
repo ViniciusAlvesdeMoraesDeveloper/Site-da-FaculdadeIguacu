@@ -19,7 +19,7 @@ return (
               <CardTitle className="text-3xl font-bold text-foreground text-balance">Nossos Parceiros</CardTitle>
             </CardHeader>
             <CardContent className="pt-0">
-              <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl mx-auto text-pretty">
+              <p className=" leading-relaxed max-w-2xl mx-auto text-pretty">
                 Conheça nossos parceiros estratégicos que colaboram conosco para oferecer soluções inovadoras e o melhor
                 serviço do mercado.
               </p>
