@@ -10,6 +10,17 @@ import { Clock, Building2, GitBranch, GraduationCap } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
+// Função para gerar a descrição por template.
+const generateDescription = (course: { titulo: string; area: string }): string => {
+  if (course.titulo && course.area) {
+    return `Fortaleça a sua posição no mercado com este curso de ${course.area}, focado em ${course.titulo}. Esta é uma oportunidade de parceria para aprofundar o conhecimento da sua equipe, adquirir competências práticas e aplicar as melhores estratégias para superar os desafios do seu setor. O crescimento mútuo é a base da nossa colaboração.`;
+  }
+  if (course.titulo) {
+    return `Capacite seus profissionais e expanda a oferta de serviços do seu negócio com o nosso curso especializado em ${course.titulo}. Este conteúdo foi desenvolvido para fornecer as ferramentas e o conhecimento de ponta que sua equipe precisa para se destacar da concorrência e entregar resultados de excelência.`;
+  }
+  return `Explore o nosso catálogo de soluções de treinamento e descubra o parceiro ideal para o sucesso do seu negócio. Nossos cursos são desenhados para agregar valor, promover o desenvolvimento contínuo da sua equipe e fortalecer a nossa colaboração de longo prazo.`;
+};
+
 // Defina as props que o componente vai receber do Next.js
 interface Props {
   params: {
@@ -69,6 +80,11 @@ export default async function CourseDetailsPage({ params }: Props) {
     notFound();
   }
 
+  // A LÓGICA DE CORREÇÃO ESTÁ AQUI:
+  // Usa o operador || para garantir que a descrição exista.
+  // Se course.descricao for nulo, a função generateDescription é chamada.
+  const finalDescription = course.descricao || generateDescription(course);
+
   const formattedDuration = formatDuration(course.titulo, course.duracao);
 
   return (
@@ -99,8 +115,9 @@ export default async function CourseDetailsPage({ params }: Props) {
               <h1 className="text-5xl font-extrabold text-slate-900 leading-tight">
                 {course.titulo || "Título do Curso"}
               </h1>
+              {/* O componente agora usa a variável com a descrição garantida */}
               <p className="text-lg text-slate-700 leading-relaxed">
-                {course.descricao || "Descrição não disponível."}
+                {finalDescription}
               </p>
             </div>
 

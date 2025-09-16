@@ -12,7 +12,7 @@ const Contact = () => {
             title: "Endereço",
             info: "Luiz Rodrigues dos Santos, 44\nTodos os Santos - Coronel Fabriciano/MG\nCEP: 35170-061"
         },
-        {icon: Phone, title: "Telefone", info: "(31) 98288-3280 \n(31) 99806-3604"},
+        {icon: Phone, title: "Telefone", info: "(31) 98288-3280 \n(31) 98325-6247 \n(31) 99342-2575"},
         {icon: Mail, title: "E-mail", info: "faculdademarinho@gmail.com"},
         {icon: Clock, title: "Horário de Atendimento", info: "Segunda a Sexta: 8h às 18h"}
     ];

@@ -61,7 +61,7 @@ const Hero = () => {
               isOpen={showModal}
               onClose={() => setShowModal(false)}
               onSubmit={(data) => console.log("Form enviado:", data)}
-              courses={coursesData.courses.map((c) => c.title)}
+              
             />
           </div>
 

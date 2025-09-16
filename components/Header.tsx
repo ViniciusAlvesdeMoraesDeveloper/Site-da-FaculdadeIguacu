@@ -56,26 +56,14 @@ const Header = () => {
                                 </Link>
                             ))}
 
-                            <Button
-                                variant="secondary"
-                                className="bg-primary hover:bg-orange-600"
-                                onClick={() => {
-                                    setIsMenuOpen(false);
-                                    setShowModal(true);
-                                }}
-                            >
-                                Área do Parceiro
-
-                            </Button>
-
-                            <Link href="https://laava.simpleacademy.tech/login">
+                            <Link href="https://ead.eduno.com.br/iguacu">
                                 <Button
 
                                     variant="secondary"
                                     className="bg-primary hover:bg-orange-600"
 
                                 >
-                                    Área do Aluno
+                                    Àrea do Parceiro
 
                                 </Button>
                             </Link>

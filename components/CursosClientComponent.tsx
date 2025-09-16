@@ -18,22 +18,22 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-interface Course {
+// ADIÇÃO: Defina a interface CourseSummary para os dados resumidos.
+interface CourseSummary {
   id: number;
   area: string;
   titulo: string;
-  descricao: string;
-  duracao: string;
-  publicoalvo: string;
 }
 
+// ADIÇÃO: Defina a interface Category
 interface Category {
   id: number;
   name: string;
 }
 
+// CORREÇÃO: A interface de props agora espera CourseSummary[] em vez de Course[]
 interface CursosClientComponentProps {
-  courses: Course[];
+  courses: CourseSummary[];
   categories: Category[];
 }
 
@@ -43,7 +43,7 @@ export default function CursosClientComponent({
 }: CursosClientComponentProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [limit, setLimit] = useState<number>(10); // Estado para o limite de cards
+  const [limit, setLimit] = useState<number>(10);
 
   const filteredCourses = courses.filter((course) => {
     if (selectedCategory === "all") {
@@ -52,7 +52,6 @@ export default function CursosClientComponent({
     return course.area === selectedCategory;
   });
 
-  // Lógica de Paginação
   const totalPages = Math.ceil(filteredCourses.length / limit);
   const startIndex = (currentPage - 1) * limit;
   const endIndex = startIndex + limit;
@@ -74,13 +73,12 @@ export default function CursosClientComponent({
 
   const handleLimitChange = (value: string) => {
     setLimit(Number(value));
-    setCurrentPage(1); // Reinicia para a primeira página ao mudar o limite
+    setCurrentPage(1);
   };
 
   return (
     <section className="py-12 bg-gray-100">
       <div className="container mx-auto px-4">
-        {/* Filtros e Controles de Paginação */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
           <div className="flex flex-wrap gap-2">
             <Button
@@ -123,7 +121,6 @@ export default function CursosClientComponent({
           </div>
         </div>
 
-        {/* Grid de Cursos */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {paginatedCourses.map((course) => (
             <Card key={course.id} className="shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -133,11 +130,9 @@ export default function CursosClientComponent({
                 </div>
                 <CardTitle className="text-xl font-bold">{course.titulo}</CardTitle>
                 <CardDescription className="text-sm line-clamp-2">
-                  {course.descricao || "Descrição não disponível."}
                 </CardDescription>
               </CardHeader>
               <CardContent className="flex-grow">
-                {/* Outras informações do card, se necessário */}
               </CardContent>
               <CardFooter className="flex justify-end">
                 <Link href={`/cursos/${course.id}`}>
@@ -150,7 +145,6 @@ export default function CursosClientComponent({
           ))}
         </div>
 
-        {/* Controles de Paginação */}
         {totalPages > 1 && (
           <div className="flex justify-center items-center gap-4 mt-8">
             <Button

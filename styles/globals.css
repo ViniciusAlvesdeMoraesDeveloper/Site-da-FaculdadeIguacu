@@ -87,6 +87,7 @@
 
   --radius: 0.75rem;
 
+  
   /* Tokens adicionais */
   --orange-primary: 14 95% 60%;
   --orange-light: 14 95% 70%;
@@ -200,5 +201,6 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-family: var(--font-poppins);
   }
 }
