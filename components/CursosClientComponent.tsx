@@ -1,12 +1,9 @@
 // components/CursosClientComponent.tsx
 "use client";
-
 import { useState } from "react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight } from "lucide-react";
-
-// Adicione os componentes de botão e seletor da UI
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import {
@@ -167,6 +164,7 @@ export default function CursosClientComponent({
           </div>
         )}
       </div>
+      
     </section>
   );
 }

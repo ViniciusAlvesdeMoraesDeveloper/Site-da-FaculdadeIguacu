@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Clock, Users, Star, ArrowRight } from "lucide-react";
 import classroomModern from "@/public/assets/classroom-modern.jpg";
 import courses from "@/json/cursos.json";
-
+import ParceirosPage from "@/app/parceiros/page";
 
 const Courses = () => {
 
@@ -86,6 +86,7 @@ const Courses = () => {
                 </div>
                 <CardTitle className="text-xl group-hover:text-primary transition-colors">{course.title}</CardTitle>
               </CardHeader>
+              
               
               {/* Course Details */}
 
