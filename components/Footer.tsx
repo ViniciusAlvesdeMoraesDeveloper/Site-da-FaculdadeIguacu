@@ -17,8 +17,8 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#0B093F] text-white">
-      <div className="container mx-auto px-4 py-8">
+    <footer className="bg-[#0B093F] text-white left-0 right-0">
+      <div className="container mx-auto px-4 py-8 ">
         
         {/* Seção das Três Colunas Principais */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-4 lg:gap-16">

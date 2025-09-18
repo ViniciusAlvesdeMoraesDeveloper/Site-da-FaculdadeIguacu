@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { toast } from "@/hooks/use-toast"
 import { GraduationCap, CheckCircle, AlertCircle, Send } from "lucide-react"
-import { apiService } from "@/app/lib/api"
+
 
 // Esquema de validação do formulário com Zod
 const enrollmentSchema = z.object({
@@ -25,11 +25,11 @@ export type EnrollmentFormData = z.infer<typeof enrollmentSchema>
 interface ModalProps {
   isOpen: boolean
   onClose: () => void
-  onSubmit: (data: EnrollmentFormData) => void
+  
   
 }
 
-export default function Modal({ isOpen, onClose, onSubmit}: ModalProps) {
+export default function Modal({ isOpen, onClose}: ModalProps) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
 
@@ -70,6 +70,8 @@ export default function Modal({ isOpen, onClose, onSubmit}: ModalProps) {
   // Função para enviar o formulário e lidar com a resposta da API
   const handleSubmitForm = async (data: EnrollmentFormData) => {
     setIsSubmitting(true)
+//Colocar a URL da Integrately
+  const INTEGRATELY_WEBHOOK_URL ='';  
 
     try {
       const apiData = {
@@ -77,9 +79,17 @@ export default function Modal({ isOpen, onClose, onSubmit}: ModalProps) {
         email: data.email,
         phone: data.phone,
         message: data.message || "",
-      }
-      await apiService.registerUser(apiData)
+      };
+      const response = await fetch (INTEGRATELY_WEBHOOK_URL,{
+        method:'POST',
+        headers:{'Content-Type':'application/json',  
+        },
+        body: JSON.stringify(apiData),
+      });
 
+      if(!response.ok){
+        throw new Error('Falaha ao enviar os dados para o Integrately');
+       }
       setIsSuccess(true)
       reset()
       toast({

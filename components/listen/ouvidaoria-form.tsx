@@ -7,7 +7,6 @@ import { Textarea } from "../ui/textarea"
 import { Label } from "../ui/label"
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group"
 import { useToast } from "@/hooks/use-toast"
-import { apiService } from "@/app/lib/api"
 import { useForm, Controller } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
@@ -27,7 +26,7 @@ nome: z.string().min(2, "Nome é obrigatório."),
   }),
   setor: z.string().optional(),
   mensagem: z.string().optional(),
-  arquivo: z.any().optional(), 
+  
 })
 
 export type OuvidoriaFormData = z.infer<typeof ouvidoriaSchema>
@@ -54,7 +53,7 @@ export function OuvidoriaForm() {
       tentouContato: undefined,
       setor: "",
       mensagem: "",
-      arquivo: undefined,
+      
     },
   })
 
@@ -77,11 +76,32 @@ export function OuvidoriaForm() {
 
   // Lidar com o envio do formulário
   const handleFormSubmit = async (data: OuvidoriaFormData) => {
+    //Adicione a URL da Integrately aqui.
+    const INTEGRATELY_WEBHOOK_URL = '';
     try {
-      // Envie os dados originais do formulário para a API
-      await apiService.sendOuvidoriaForm(data) // Chame a API
+      const apiData = {
+        fullName: `${data.nome} ${data.sobrenome}`,
+        email: data.email,
+        phone: data.telefone,
+        userType: data.tipoUsuario,
+        triedContactBefore: data.tentouContato,
+        sector: data.setor || "",
+        message: data.mensagem || "",
+      };
 
-      reset() // Limpa o formulário
+      const response = await fetch(INTEGRATELY_WEBHOOK_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(apiData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Falha ao enviar os dados para o Integrately.');
+      }
+
+      reset()
       toast({
         title: "Mensagem enviada com sucesso!",
         description: "Obrigado por entrar em contato. Responderemos em breve.",
@@ -226,10 +246,7 @@ export function OuvidoriaForm() {
         />
       </div>
 
-      <div className="space-y-2">
-        <Label htmlFor="arquivo">Upload de arquivo</Label>
-        <Input id="arquivo" {...register("arquivo")} type="file" />
-      </div>
+     
 
       <Button
         type="submit"
