@@ -13,7 +13,7 @@ type ParceiroProps = {
     // Usando uma expressão regular mais robusta para substituir múltiplos espaços
    export default async function CursoPorParceiroPage({ params }: ParceiroProps) {
 
-  const parceiroSlug = (await params.parceiroId).toLowerCase().replace(/\s/g, "-");
+  const parceiroSlug = (params.parceiroId).toLowerCase().replace(/\s/g, "-");
 
     const cursoDoParceiro = cursos.filter(curso => curso.partner.toLowerCase().replace(/\s/g, "-") === parceiroSlug);
 
