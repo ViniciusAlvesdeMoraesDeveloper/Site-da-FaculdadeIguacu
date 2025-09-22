@@ -7,7 +7,7 @@ import Footer from "@/components/Footer"
 import { ArrowLeft, Phone, MapPin, Users } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import React, { useState } from "react" // Certifique-se de que useState está importado
+import React, { useState } from "react"
 import { ArrowRight } from "lucide-react"
 import Modal from "../../components/Modal"
 
@@ -23,7 +23,6 @@ const formatPhoneNumber = (phoneNumber: string) => {
 }
 
 export default function ParceirosPage() {
-  // AQUI: Declare o estado dentro do componente
   const [showModal, setShowModal] = useState(false)
 
   return (
@@ -34,6 +33,7 @@ export default function ParceirosPage() {
           <Link
             href="/"
             className="inline-flex items-center gap-2 text-gray-600 hover:text-orange-600 transition-colors font-medium"
+            aria-label="Voltar para a página principal"
           >
             <ArrowLeft className="w-4 h-4" />
             Voltar para página principal
@@ -41,9 +41,13 @@ export default function ParceirosPage() {
         </div>
       </div>
 
-      <section className="py-16 px-4 bg-gradient-to-br from-gray-50 to-white min-h-screen">
+      <section
+        className="py-16 px-4 bg-gradient-to-br from-gray-50 to-white min-h-screen"
+        itemScope
+        itemType="https://schema.org/WebPage"
+      >
         <div className="container mx-auto max-w-7xl">
-          <div className="text-center mb-16">
+          <header className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-orange-100 text-orange-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
               <Users className="w-4 h-4" />
               Rede de Parceiros
@@ -53,67 +57,73 @@ export default function ParceirosPage() {
               Conheça nossa rede estratégica de parceiros que colaboram conosco para oferecer soluções inovadoras e o
               melhor serviço educacional do mercado.
             </p>
-          </div>
+          </header>
 
           <div className="space-y-16">
-
             {contatosPorEstado.map((estado, estadoIndex) => (
-
-              <div key={estado.nome} className="relative">
-
+              <div
+                key={estado.nome}
+                className="relative"
+                itemScope
+                itemType="https://schema.org/Organization" // Schema para cada organização (estado)
+              >
                 <div className="flex items-center gap-3 mb-8">
-
                   <div className="flex items-center gap-2 bg-orange-600 text-white px-6 py-3 rounded-lg shadow-sm">
-
                     <MapPin className="w-5 h-5" />
-
-                    <h2 className="text-2xl font-bold">{estado.nome}</h2>
-
+                    <h2 itemProp="location" className="text-2xl font-bold">{estado.nome}</h2>
                   </div>
-
                   <div className="flex-1 h-px bg-gradient-to-r from-orange-200 to-transparent"></div>
-
                 </div>
-
-
-
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <ul className="grid grid-cols-1 lg:grid-cols-2 gap-12" role="list">
                   {estado.empresas.map((empresa) => (
-                    <Card
+                    <li
                       key={empresa.nome}
-                      className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300"
+                      role="listitem"
+                      itemScope
+                      itemProp="makesOffer"
+                      itemType="https://schema.org/EducationalOrganization"
                     >
-                      <CardHeader className="pb-4 bg-gradient-to-r from-gray-50 to-white border-b border-gray-100">
-                        <CardTitle className="text-xl font-semibold text-gray-900 flex items-center gap-2">
-                          <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                          {empresa.nome}
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent className="p-6">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                          {empresa.contatos.map((contato) => (
-                            <div
-                              key={contato.nome}
-                              className="group p-4 rounded-lg border border-gray-200 hover:border-orange-300 hover:bg-orange-50/50 transition-all duration-200"
-                            >
-                              <div className="flex items-start gap-3">
-                                <div className="flex-shrink-0 w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center group-hover:bg-orange-200 transition-colors">
-                                  <Phone className="w-4 h-4 text-orange-600" />
+                      <Card
+                        className="border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-all duration-300"
+                      >
+                        <CardHeader className="pb-4 bg-gradient-to-r from-gray-50 to-white border-b border-gray-100">
+                          <CardTitle
+                            itemProp="name"
+                            className="text-xl font-semibold text-gray-900 flex items-center gap-2"
+                          >
+                            <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                            {empresa.nome}
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent className="p-6">
+                          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            {empresa.contatos.map((contato) => (
+                              <li
+                                key={contato.nome}
+                                className="group p-4 rounded-lg border border-gray-200 hover:border-orange-300 hover:bg-orange-50/50 transition-all duration-200"
+                                itemScope
+                                itemProp="contactPoint"
+                                itemType="https://schema.org/ContactPoint"
+                              >
+                                <div className="flex items-start gap-3">
+                                  <div className="flex-shrink-0 w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center group-hover:bg-orange-200 transition-colors">
+                                    <Phone className="w-4 h-4 text-orange-600" />
+                                  </div>
+                                  <div className="flex-1 min-w-0">
+                                    <p itemProp="name" className="font-medium text-gray-900 text-sm mb-1 truncate">{contato.nome}</p>
+                                    <p itemProp="telephone" className="text-gray-600 text-sm font-mono">
+                                      {formatPhoneNumber(contato.telefone)}
+                                    </p>
+                                  </div>
                                 </div>
-                                <div className="flex-1 min-w-0">
-                                  <p className="font-medium text-gray-900 text-sm mb-1 truncate">{contato.nome}</p>
-                                  <p className="text-gray-600 text-sm font-mono">
-                                    {formatPhoneNumber(contato.telefone)}
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </CardContent>
-                    </Card>
+                              </li>
+                            ))}
+                          </ul>
+                        </CardContent>
+                      </Card>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             ))}
           </div>
@@ -147,12 +157,11 @@ export default function ParceirosPage() {
 
       <Footer />
 
-      {/* Renderize o modal apenas se showModal for verdadeiro */}
       {showModal && (
         <Modal
           isOpen={showModal}
           onClose={() => setShowModal(false)}
-          onSubmit={(data) => console.log("Form enviado:", data)}
+          
         />
       )}
     </>

@@ -1,52 +1,77 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Star, Quote } from "lucide-react";
-import testimonials from "@/json/testimonials.json"
+import testimonials from "@/json/testimonials.json";
 
 const Testimonials = () => {
-  
-
   return (
-    <section id="depoimentos" className="py-20 bg-gradient-subtle">
+    <section 
+      id="depoimentos" 
+      className="py-20 bg-gradient-subtle"
+      itemScope 
+      itemType="https://schema.org/CollectionPage" // Schema para uma coleção de itens
+    >
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+        <header className="text-center mb-16">
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             O que nossos <span className="text-primary">Ex-Alunos</span> dizem
-          </h2>
+          </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Histórias reais de sucesso de quem passou pela Faculdade Marinho...
+            Histórias reais de sucesso de quem passou pela Faculdade Marinho e se transformou profissionalmente.
           </p>
-        </div>
+        </header>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" role="list">
           {testimonials.testimonials.map((testimonial, index) => (
-            <Card key={index} className="relative group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-none shadow-md">
-              <CardContent className="p-6">
-                <Quote className="h-8 w-8 text-primary mb-4 opacity-50" />
-                <div className="flex gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 text-yellow-500 fill-current" />
-                  ))}
-                </div>
-                <p className="text-muted-foreground mb-6 leading-relaxed">"{testimonial.text}"</p>
-                <div className="flex items-center gap-4">
-                  <Avatar className="h-12 w-12">
-                    <AvatarImage src="" />
-                    <AvatarFallback className="bg-primary text-primary-foreground font-semibold">
-                      {testimonial.avatar}
-                    </AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <div className="font-semibold text-foreground">{testimonial.name}</div>
-                    <div className="text-sm text-muted-foreground">{testimonial.course}</div>
-                    <div className="text-sm text-primary font-medium">{testimonial.company}</div>
+            <li 
+              key={index} 
+              className="relative group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-none shadow-md"
+              itemScope
+              itemProp="hasPart"
+              itemType="https://schema.org/Review" // Schema para uma avaliação individual
+            >
+              <Card>
+                <CardContent className="p-6">
+                  <meta itemProp="reviewAspect" content="Experiência do Aluno" />
+                  <Quote className="h-8 w-8 text-primary mb-4 opacity-50" />
+                  <div 
+                    className="flex gap-1 mb-4"
+                    itemProp="reviewRating"
+                    itemScope
+                    itemType="https://schema.org/Rating"
+                  >
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 text-yellow-500 fill-current" />
+                    ))}
+                    <meta itemProp="ratingValue" content={testimonial.rating.toString()} />
+                    <meta itemProp="bestRating" content="5" />
                   </div>
-                </div>
-              </CardContent>
+                  <p itemProp="reviewBody" className="text-muted-foreground mb-6 leading-relaxed">"{testimonial.text}"</p>
+                  
+                  <div 
+                    className="flex items-center gap-4"
+                    itemProp="author"
+                    itemScope
+                    itemType="https://schema.org/Person"
+                  >
+                    <Avatar className="h-12 w-12">
+                      <AvatarImage src="" />
+                      <AvatarFallback className="bg-primary text-primary-foreground font-semibold">
+                        {testimonial.avatar}
+                      </AvatarFallback>
+                    </Avatar>
+                    <div>
+                      <div itemProp="name" className="font-semibold text-foreground">{testimonial.name}</div>
+                      <div className="text-sm text-muted-foreground">{testimonial.course}</div>
+                      <div className="text-sm text-primary font-medium" itemProp="jobTitle">{testimonial.company}</div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
               <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-primary to-orange-light opacity-0 group-hover:opacity-10 transition-opacity duration-300 pointer-events-none"></div>
-            </Card>
+            </li>
           ))}
-        </div>
+        </ul>
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-4 gap-8">
           {[

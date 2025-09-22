@@ -54,46 +54,53 @@ export default async function CursosPage() {
     <main className="min-h-screen">
       <Header />
 
-      <section className="pt-32 pb-24 bg-gradient-to-br from-orange-500 via-orange-600 to-orange-700 text-white relative overflow-hidden">
+      <section
+        id="areacurso"
+        className="pt-32 pb-24 bg-gradient-to-br from-orange-500 via-orange-600 to-orange-700 text-white relative overflow-hidden"
+        itemScope
+        itemType="https://schema.org/CollectionPage"
+      >
         {/* Background decoration */}
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-48 translate-x-48"></div>
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full translate-y-32 -translate-x-32"></div>
 
-        <div id="areacurso" className="container mx-auto px-4 relative z-10">
-          <div className="max-w-5xl mx-auto text-center">
+        <div className="container mx-auto px-4 relative z-10">
+          <header className="max-w-5xl mx-auto text-center">
             <div className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium mb-8">
               <span className="w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></span>
               Educação de Qualidade
             </div>
-            <h1 className="text-6xl md:text-7xl font-bold mb-8 leading-tight text-balance">
+            <h1 itemProp="name" className="text-6xl md:text-7xl font-bold mb-8 leading-tight text-balance">
               Nossos <span className="text-orange-200">Cursos</span>
             </h1>
             <p className="text-xl md:text-2xl opacity-95 leading-relaxed max-w-3xl mx-auto mb-12 text-pretty">
               Descubra os cursos que ofertamos e transforme seu futuro com a
-              <span className="font-semibold"> Faculdade Marinho</span>
+              <span itemProp="publisher" itemScope itemType="https://schema.org/Organization" className="font-semibold">
+                <span itemProp="name"> Faculdade Marinho</span>
+              </span>
             </p>
+          </header>
 
-            {/* Statistics section */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-              <div className="text-center group">
-                <div className="text-4xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">
-                  50+
-                </div>
-                <div className="text-orange-200 font-medium">Cursos Disponíveis</div>
+          {/* Statistics section */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+            <div className="text-center group" itemScope itemType="https://schema.org/EducationalOccupationalCredential">
+              <div className="text-4xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">
+                <span itemProp="credentialCategory">50+</span>
               </div>
-              <div className="text-center group">
-                <div className="text-4xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">
-                  15+
-                </div>
-                <div className="text-orange-200 font-medium">Anos de Experiência</div>
+              <div itemProp="name" className="text-orange-200 font-medium">Cursos Disponíveis</div>
+            </div>
+            <div className="text-center group">
+              <div className="text-4xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">
+                18+
               </div>
-              <div className="text-center group">
-                <div className="text-4xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">
-                  1000+
-                </div>
-                <div className="text-orange-200 font-medium">Alunos Formados</div>
+              <div className="text-orange-200 font-medium">Anos de Experiência</div>
+            </div>
+            <div className="text-center group">
+              <div className="text-4xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">
+                1000+
               </div>
+              <div className="text-orange-200 font-medium">Alunos Formados</div>
             </div>
           </div>
         </div>
@@ -117,7 +124,7 @@ export default async function CursosPage() {
             <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto text-pretty">
               Junte-se a nós para construir um futuro na educação técnica. Em parceria, oferecemos a você os cursos de alta qualidade da Global Tec para fortalecer sua marca e impulsionar o sucesso de seus estudantes.
             </p>
-            <Link href="\coursetecnico">
+            <Link href="\coursetecnico" aria-label="Ver cursos técnicos">
               <Button
                 size="lg"
                 className="bg-orange-600 hover:bg-orange-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 px-12 py-6 text-lg font-semibold rounded-full group"
@@ -145,7 +152,7 @@ export default async function CursosPage() {
             <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto text-pretty">
               Conheça os cursos oferecidos pelos nossos parceiros e amplie ainda mais suas possibilidades de crescimento profissional.
             </p>
-            <Link href="/courseparceiro">
+            <Link href="/courseparceiro" aria-label="Ver cursos de parceiros">
               <Button
                 size="lg"
                 className="bg-[#0B093F] text-white shadow-lg hover:shadow-xl transition-all duration-300 px-12 py-6 text-lg font-semibold rounded-full group"

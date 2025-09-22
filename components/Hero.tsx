@@ -60,7 +60,7 @@ const Hero = () => {
             <Modal
               isOpen={showModal}
               onClose={() => setShowModal(false)}
-              onSubmit={(data) => console.log("Form enviado:", data)}
+              
               
             />
           </div>
