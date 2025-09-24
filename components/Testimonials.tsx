@@ -63,7 +63,7 @@ const Testimonials = () => {
                     <div>
                       <div itemProp="name" className="font-semibold text-foreground">{testimonial.name}</div>
                       <div className="text-sm text-muted-foreground">{testimonial.course}</div>
-                      <div className="text-sm text-primary font-medium" itemProp="jobTitle">{testimonial.company}</div>
+                      
                     </div>
                   </div>
                 </CardContent>

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import cursosData from './cursos.json';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowLeft } from "lucide-react";
 
 
 export default function ParceirosPage() {
@@ -46,6 +46,15 @@ export default function ParceirosPage() {
                         })}
                     </ul>
                 </div>
+                 <div className="mt-16 text-center">
+                                        <Link 
+                                            href="/cursos" 
+                                            className="inline-flex items-center px-6 py-3 bg-[#0B093F] text-white font-bold rounded-full shadow-lg hover:bg-orange-700 transition-all duration-300 transform hover:-translate-y-1"
+                                        >
+                                            <ArrowLeft className="h-5 w-5 mr-3" />
+                                            Voltar para a página de Cursos
+                                        </Link>
+                                    </div>
             </main>
             <Footer />
         </div>
