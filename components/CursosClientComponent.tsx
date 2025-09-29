@@ -133,7 +133,7 @@ export default function CursosClientComponent({
               </CardContent>
               <CardFooter className="flex justify-end">
                 <Link href={`/cursos/${course.id}`}>
-                  <Button variant="outline" className="text-orange-600 border-orange-600 hover:bg-orange-50">
+                  <Button variant="outline" className="text-orange-600 border-orange-600 bg-orange-50">
                     Detalhes <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>

@@ -1,5 +1,3 @@
-// app/cursos/[id]/page.tsx
-
 import { getCourseDetails } from "../../lib/apieduno";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -9,8 +7,45 @@ import { Button } from "@/components/ui/button";
 import { Clock, Building2, GitBranch, GraduationCap } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import type { Metadata } from 'next';
+import { CourseSchema } from '@/components/CourseSchema'; 
+const formatDurationToIso8601 = (titulo: string, duracao: string | null): string => {
+  
+  const regexHours = /(\d+)\s*H/i;
+  const match = titulo.match(regexHours);
 
-// Função para gerar a descrição por template.
+  if (match && match[1]) {
+    const hours = Number(match[1]);
+    if (!isNaN(hours) && hours > 0) {
+      return `PT${hours}H`; 
+    }
+  }
+
+  
+  if (duracao) {
+    const numericDuration = Number(duracao);
+    if (!isNaN(numericDuration) && numericDuration > 0) {
+
+      
+      if (numericDuration === 1) return "P1Y"; 
+      if (numericDuration === 18) return "P1Y6M"; 
+
+      if (numericDuration >= 365) {
+        const years = Math.floor(numericDuration / 365);
+        return `P${years}Y`;
+      } else if (numericDuration >= 30) {
+        const months = Math.floor(numericDuration / 30);
+        return `P${months}M`;
+      } else {
+        return `P${numericDuration}D`; 
+      }
+    }
+  }
+
+  return "P1M"; 
+};
+
+
 const generateDescription = (course: { titulo: string; area: string }): string => {
   if (course.titulo && course.area) {
     return `Fortaleça a sua posição no mercado com este curso de ${course.area}, focado em ${course.titulo}. Esta é uma oportunidade de parceria para aprofundar o conhecimento da sua equipe, adquirir competências práticas e aplicar as melhores estratégias para superar os desafios do seu setor. O crescimento mútuo é a base da nossa colaboração.`;
@@ -21,23 +56,23 @@ const generateDescription = (course: { titulo: string; area: string }): string =
   return `Explore o nosso catálogo de soluções de treinamento e descubra o parceiro ideal para o sucesso do seu negócio. Nossos cursos são desenhados para agregar valor, promover o desenvolvimento contínuo da sua equipe e fortalecer a nossa colaboração de longo prazo.`;
 };
 
-// Defina as props que o componente vai receber do Next.js
+
 interface Props {
   params: {
-    id: string; // O ID do curso virá da URL (ex: /cursos/1020)
+    id: string; 
   };
 }
 
-// Função para formatar a duração
+
 const formatDuration = (titulo: string, duracao: string | null) => {
-  // 1. Tente extrair a duração em horas do título (ex: "360H")
+  
   const regex = /(\d+)\s*H/i;
   const match = titulo.match(regex);
-  
+
   if (match && match[1]) {
     const hours = Number(match[1]);
     if (!isNaN(hours)) {
-      if (hours >= 160) { // Aproximadamente 1 mês de carga horária
+      if (hours >= 160) { 
         const months = Math.floor(hours / 160);
         return `${months} ${months > 1 ? 'meses' : 'mês'} (${hours} horas)`;
       }
@@ -45,18 +80,18 @@ const formatDuration = (titulo: string, duracao: string | null) => {
     }
   }
 
-  // 2. Se não encontrar no título, use o valor da propriedade de duração da API
+  
   if (duracao) {
     const numericDuration = Number(duracao);
     if (!isNaN(numericDuration)) {
-      // Regras personalizadas para valores específicos
+      
       if (numericDuration === 1) {
         return "1 ano";
       } else if (numericDuration === 18) {
         return "18 meses";
       }
+
       
-      // Lógica padrão para outros valores
       if (numericDuration >= 365) {
         const years = Math.floor(numericDuration / 365);
         return `${years} ${years > 1 ? 'anos' : 'ano'}`;
@@ -68,9 +103,32 @@ const formatDuration = (titulo: string, duracao: string | null) => {
       }
     }
   }
-  
+
   return "Não informado";
 };
+
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const id = params.id;
+  const course = await getCourseDetails(Number(id));
+
+  if (!course) {
+    return {};
+  }
+
+  const metaDescription = course.descricao || generateDescription(course);
+
+  return {
+    title: `${course.titulo || 'Curso'} | Faculdade Marinho`,
+    description: metaDescription,
+    alternates: {
+      
+      canonical: `https://seusite.com.br/cursos/${params.id}`, 
+    },
+  };
+}
+
+
 
 export default async function CourseDetailsPage({ params }: Props) {
   const id = params.id;
@@ -80,15 +138,36 @@ export default async function CourseDetailsPage({ params }: Props) {
     notFound();
   }
 
-  // A LÓGICA DE CORREÇÃO ESTÁ AQUI:
-  // Usa o operador || para garantir que a descrição exista.
-  // Se course.descricao for nulo, a função generateDescription é chamada.
   const finalDescription = course.descricao || generateDescription(course);
-
   const formattedDuration = formatDuration(course.titulo, course.duracao);
+
+  // PREPARAÇÃO DOS DADOS DE SEO ESTRUTURAL
+  const isoDuration = formatDurationToIso8601(course.titulo, course.duracao);
+
+  // Mapeamento do Nível Educacional (Ajuste conforme seus valores de 'area')
+  const educationalLevelMap: { [key: string]: string } = {
+    'pós-graduação': 'Graduate',
+    'graduação': 'College',
+    'tecnico': 'Technical',
+    'livre': 'Professional'
+  };
+  const educationalLevel = educationalLevelMap[course.area?.toLowerCase() || ''] || 'College';
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100">
+
+      {/* INJEÇÃO DO COMPONENTE DE SCHEMA JSON-LD AQUI */}
+      <CourseSchema
+        courseName={course.titulo || 'Curso'}
+        courseDescription={finalDescription}
+        courseUrl={`https://seusite.com.br/cursos/${params.id}`} 
+        courseDuration={isoDuration}
+        educationalLevel={educationalLevel}
+        providerName="Faculdade Marinho" 
+        providerUrl="https://seusite.com.br"
+      />
+
       <Header />
       <div className="container mx-auto px-4 py-16 mt-10">
         <div className="mb-8">
@@ -107,7 +186,7 @@ export default async function CourseDetailsPage({ params }: Props) {
 
         <div className="bg-white rounded-xl shadow-lg p-10">
           <div className="flex flex-col lg:flex-row gap-12">
-            {/* Lado Esquerdo - Título e Descrição */}
+          
             <div className="w-full lg:w-3/5 space-y-6">
               <Badge className="bg-orange-600 hover:bg-orange-700">
                 {course.area || "Geral"}
@@ -115,7 +194,6 @@ export default async function CourseDetailsPage({ params }: Props) {
               <h1 className="text-5xl font-extrabold text-slate-900 leading-tight">
                 {course.titulo || "Título do Curso"}
               </h1>
-              {/* O componente agora usa a variável com a descrição garantida */}
               <p className="text-lg text-slate-700 leading-relaxed">
                 {finalDescription}
               </p>

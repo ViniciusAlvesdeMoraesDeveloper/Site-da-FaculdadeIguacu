@@ -31,8 +31,8 @@ export default function ParceirosPage() {
                             const parceiroSlug = partnerName.toLowerCase().replace(/\s/g, '-');
                             return (
                                 <li key={parceiroSlug} className="bg-white rounded-lg shadow-lg p-6 transform transition duration-300 hover:scale-105 hover:shadow-xl">
-                                    <Link 
-                                        href={`/courseparceiro/${parceiroSlug}`} 
+                                    <Link
+                                        href={`/courseparceiro/${parceiroSlug}`}
                                         className="block text-center"
                                     >
                                         <h2 className="text-xl font-bold text-gray-800 mb-2">{partnerName}</h2>
@@ -46,15 +46,15 @@ export default function ParceirosPage() {
                         })}
                     </ul>
                 </div>
-                 <div className="mt-16 text-center">
-                                        <Link 
-                                            href="/cursos" 
-                                            className="inline-flex items-center px-6 py-3 bg-[#0B093F] text-white font-bold rounded-full shadow-lg hover:bg-orange-700 transition-all duration-300 transform hover:-translate-y-1"
-                                        >
-                                            <ArrowLeft className="h-5 w-5 mr-3" />
-                                            Voltar para a página de Cursos
-                                        </Link>
-                                    </div>
+                <div className="mt-16 text-center">
+                    <Link
+                        href="/cursos"
+                        className="inline-flex items-center px-6 py-3 bg-[#0B093F] text-white font-bold rounded-full shadow-lg hover:bg-orange-700 transition-all duration-300 transform hover:-translate-y-1"
+                    >
+                        <ArrowLeft className="h-5 w-5 mr-3" />
+                        Voltar para a página de Cursos
+                    </Link>
+                </div>
             </main>
             <Footer />
         </div>

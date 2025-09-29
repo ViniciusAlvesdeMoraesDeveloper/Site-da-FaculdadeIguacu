@@ -5,7 +5,11 @@ import { ArrowRight, Phone, MapPin } from "lucide-react";
 import cursos from "../cursos.json";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import type { Metadata } from 'next';
+import { OrganizationSchema } from '@/components/PartnerListSchema'; // Novo Schema
 
+// Definição do tipo para simplificar a extração dos dados
+type Curso = typeof cursos[0];
 
 type ParceiroProps = {
     params: { parceiroId: string };
@@ -20,32 +24,65 @@ const generateSlug = (text: string): string => {
         .replace(/\s/g, "-"); // Substitui espaços por hífens
 };
 
-export default async function CursoPorParceiroPage({ params }: ParceiroProps) {
-
-    // Adicionado logs para depuração
-    console.log("Parâmetro da URL sem decodificar:", params.parceiroId);
-
-    // Decodifica a URL e gera o slug
+// --- IMPLEMENTAÇÃO DO METADATA DINÂMICO ---
+export async function generateMetadata({ params }: ParceiroProps): Promise<Metadata> {
     const decodedParceiroId = decodeURIComponent(params.parceiroId);
     const parceiroSlug = generateSlug(decodedParceiroId);
-    console.log("Parâmetro da URL decodificado:", decodedParceiroId);
-    console.log("Slug gerado da URL:", parceiroSlug);
+
+    const cursoDoParceiro = cursos.filter(curso => generateSlug(curso.partner) === parceiroSlug);
+
+    if (cursoDoParceiro.length === 0) {
+        return {};
+    }
+
+    const nomeParceiro = cursoDoParceiro[0].partner;
+    
+
+    const description = `Conheça todos os cursos em parceria com ${nomeParceiro}. Encontre as melhores formações especializadas, contatos e informações para alavancar sua carreira.`;
+
+    return {
+        title: `Cursos em Parceria com ${nomeParceiro} | Sua Faculdade`,
+        description: description,
+        alternates: {
+            // URL Canônico: Essencial para rotas dinâmicas
+            canonical: `https://faculdademarinho.com.br/parceiros/${params.parceiroId}`, // SUBSTITUA PELO SEU DOMÍNIO
+        },
+    };
+}
 
 
-    // Filtra os cursos, gerando um slug para o nome do parceiro no JSON também
-    const cursoDoParceiro = cursos.filter(curso => {
-        const jsonSlug = generateSlug(curso.partner);
-        console.log("Slug do JSON para '" + curso.partner + "':", jsonSlug);
-        return jsonSlug === parceiroSlug;
+// --- COMPONENTE PRINCIPAL (COM INJEÇÃO DE SCHEMA) ---
+export default async function CursoPorParceiroPage({ params }: ParceiroProps) {
+
+    const decodedParceiroId = decodeURIComponent(params.parceiroId);
+    const parceiroSlug = generateSlug(decodedParceiroId);
+
+    // Filtra os cursos
+    const cursoDoParceiro: Curso[] = cursos.filter(curso => {
+        return generateSlug(curso.partner) === parceiroSlug;
     });
 
     if (cursoDoParceiro.length === 0) {
         notFound();
     }
+
     const nomeParceiro = cursoDoParceiro[0].partner;
+
+    // Extrai o primeiro contato para o Schema (assumindo que o primeiro é o principal)
+    const principalContact = cursoDoParceiro[0].contacts[0];
+    const descriptionSchema = `Empresa parceira da faculdade, ${nomeParceiro} oferece cursos especializados em diversas áreas de atuação.`;
 
     return (
         <div className='flex flex-col min-h-screen'>
+            {/* INJEÇÃO DO SCHEMA DE ORGANIZAÇÃO AQUI */}
+            <OrganizationSchema
+                organizationName={nomeParceiro}
+                description={descriptionSchema}
+                phone={principalContact?.phone}
+                addressState={principalContact?.state}
+                type="EducationalOrganization" // Ou use "Organization" ou "LocalBusiness"
+            />
+
             <Header />
 
             {/* Banner Section */}
@@ -77,7 +114,7 @@ export default async function CursoPorParceiroPage({ params }: ParceiroProps) {
                                     <p className="text-gray-600 mb-4 border-b pb-2">
                                         <strong className="font-semibold text-gray-900">Parceiro:</strong> {curso.partner}
                                     </p>
-                                    
+
                                     <h3 className="text-lg font-bold text-orange-600 mb-4">Contatos:</h3>
                                     <ul className="space-y-3">
                                         {curso.contacts.map((contact, contactIndex) => (
@@ -98,10 +135,10 @@ export default async function CursoPorParceiroPage({ params }: ParceiroProps) {
                             </Card>
                         ))}
                     </div>
-                    
+
                     <div className="mt-16 text-center">
-                        <Link 
-                            href="/courseparceiro" 
+                        <Link
+                            href="/courseparceiro"
                             className="inline-flex items-center px-6 py-3 bg-orange-600 text-white font-bold rounded-full shadow-lg hover:bg-orange-700 transition-all duration-300 transform hover:-translate-y-1"
                         >
                             <ArrowRight className="h-5 w-5 mr-3 transform rotate-180" />
