@@ -7,7 +7,9 @@ import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation"; // Importa o useRouter
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image"; // Importe o componente Image do Next.js
+import Image from "next/image"; 
+import Header from "@/components/Header";
+
 
 const About = () => {
   const router = useRouter();
@@ -63,6 +65,7 @@ const About = () => {
 
   return (
     <section id="sobre" className="py-20 bg-gradient-subtle">
+      <Header/>
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}

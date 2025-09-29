@@ -1,8 +1,8 @@
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight, Phone, MapPin } from "lucide-react";
 import cursos from "../cursos.json";
-import NotFound from "@/app/NotFound";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -10,15 +10,37 @@ import Footer from '@/components/Footer';
 type ParceiroProps = {
     params: { parceiroId: string };
 };
-    // Usando uma expressão regular mais robusta para substituir múltiplos espaços
-   export default async function CursoPorParceiroPage({ params }: ParceiroProps) {
 
-  const parceiroSlug = (params.parceiroId).toLowerCase().replace(/\s/g, "-");
+// Função para gerar um slug seguro, removendo acentos e espaços
+const generateSlug = (text: string): string => {
+    return text
+        .toLowerCase()
+        .normalize("NFD") // Normaliza para remover diacríticos (acentos)
+        .replace(/[\u0300-\u036f]/g, "") // Remove os diacríticos
+        .replace(/\s/g, "-"); // Substitui espaços por hífens
+};
 
-    const cursoDoParceiro = cursos.filter(curso => curso.partner.toLowerCase().replace(/\s/g, "-") === parceiroSlug);
+export default async function CursoPorParceiroPage({ params }: ParceiroProps) {
+
+    // Adicionado logs para depuração
+    console.log("Parâmetro da URL sem decodificar:", params.parceiroId);
+
+    // Decodifica a URL e gera o slug
+    const decodedParceiroId = decodeURIComponent(params.parceiroId);
+    const parceiroSlug = generateSlug(decodedParceiroId);
+    console.log("Parâmetro da URL decodificado:", decodedParceiroId);
+    console.log("Slug gerado da URL:", parceiroSlug);
+
+
+    // Filtra os cursos, gerando um slug para o nome do parceiro no JSON também
+    const cursoDoParceiro = cursos.filter(curso => {
+        const jsonSlug = generateSlug(curso.partner);
+        console.log("Slug do JSON para '" + curso.partner + "':", jsonSlug);
+        return jsonSlug === parceiroSlug;
+    });
 
     if (cursoDoParceiro.length === 0) {
-        return <NotFound />;
+        notFound();
     }
     const nomeParceiro = cursoDoParceiro[0].partner;
 
@@ -91,4 +113,4 @@ type ParceiroProps = {
             <Footer />
         </div>
     );
-   }
+}

@@ -5,11 +5,11 @@ import testimonials from "@/json/testimonials.json";
 
 const Testimonials = () => {
   return (
-    <section 
-      id="depoimentos" 
+    <section
+      id="depoimentos"
       className="py-20 bg-gradient-subtle"
-      itemScope 
-      itemType="https://schema.org/CollectionPage" // Schema para uma coleção de itens
+      itemScope
+      itemType="https://schema.org/CollectionPage"
     >
       <div className="container mx-auto px-4">
         <header className="text-center mb-16">
@@ -21,20 +21,25 @@ const Testimonials = () => {
           </p>
         </header>
 
-        <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" role="list">
+
+        <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch" role="list">
           {testimonials.testimonials.map((testimonial, index) => (
-            <li 
-              key={index} 
-              className="relative group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-none shadow-md"
+            <li
+              key={index}
+
+              className="relative group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-none shadow-md h-full"
               itemScope
               itemProp="hasPart"
-              itemType="https://schema.org/Review" // Schema para uma avaliação individual
+              itemType="https://schema.org/Review"
             >
-              <Card>
-                <CardContent className="p-6">
+
+              <Card className="h-full">
+
+
+                <CardContent className="p-6 flex flex-col h-full">
                   <meta itemProp="reviewAspect" content="Experiência do Aluno" />
                   <Quote className="h-8 w-8 text-primary mb-4 opacity-50" />
-                  <div 
+                  <div
                     className="flex gap-1 mb-4"
                     itemProp="reviewRating"
                     itemScope
@@ -46,10 +51,16 @@ const Testimonials = () => {
                     <meta itemProp="ratingValue" content={testimonial.rating.toString()} />
                     <meta itemProp="bestRating" content="5" />
                   </div>
-                  <p itemProp="reviewBody" className="text-muted-foreground mb-6 leading-relaxed">"{testimonial.text}"</p>
-                  
-                  <div 
-                    className="flex items-center gap-4"
+                  <p
+                    itemProp="reviewBody"
+
+                    className="text-muted-foreground mb-6 leading-relaxed flex-grow"
+                  >
+                    "{testimonial.text}"
+                  </p>
+                  <div
+
+                    className="flex items-center gap-4 mt-auto"
                     itemProp="author"
                     itemScope
                     itemType="https://schema.org/Person"
@@ -61,9 +72,10 @@ const Testimonials = () => {
                       </AvatarFallback>
                     </Avatar>
                     <div>
-                      <div itemProp="name" className="font-semibold text-foreground">{testimonial.name}</div>
+                      <div itemProp="name" className="font-semibold text-foreground">
+                        {testimonial.name}
+                      </div>
                       <div className="text-sm text-muted-foreground">{testimonial.course}</div>
-                      
                     </div>
                   </div>
                 </CardContent>

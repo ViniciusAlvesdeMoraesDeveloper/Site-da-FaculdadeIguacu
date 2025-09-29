@@ -71,7 +71,7 @@ export default function Modal({ isOpen, onClose}: ModalProps) {
   const handleSubmitForm = async (data: EnrollmentFormData) => {
     setIsSubmitting(true)
 //Colocar a URL da Integrately
-  const INTEGRATELY_WEBHOOK_URL ='';  
+  const INTEGRATELY_WEBHOOK_URL ='https://webhooks.integrately.com/a/webhooks/5bd023710825410384f1c0f5a999fa65';  
 
     try {
       const apiData = {
