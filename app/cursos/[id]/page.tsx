@@ -109,7 +109,7 @@ const formatDuration = (titulo: string, duracao: string | null) => {
 
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const id = params.id;
+  const {id} = await params;
   const course = await getCourseDetails(Number(id));
 
   if (!course) {
@@ -123,7 +123,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: metaDescription,
     alternates: {
       
-      canonical: `https://seusite.com.br/cursos/${params.id}`, 
+      canonical: `https://seusite.com.br/cursos/${id}`, 
     },
   };
 }
@@ -131,7 +131,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 
 export default async function CourseDetailsPage({ params }: Props) {
-  const id = params.id;
+  const {id} = await params;
   const course = await getCourseDetails(Number(id));
 
   if (!course) {
@@ -161,7 +161,7 @@ export default async function CourseDetailsPage({ params }: Props) {
       <CourseSchema
         courseName={course.titulo || 'Curso'}
         courseDescription={finalDescription}
-        courseUrl={`https://seusite.com.br/cursos/${params.id}`} 
+        courseUrl={`https://seusite.com.br/cursos/${id}`} 
         courseDuration={isoDuration}
         educationalLevel={educationalLevel}
         providerName="Faculdade Marinho" 
