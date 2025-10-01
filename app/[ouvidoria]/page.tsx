@@ -10,9 +10,9 @@ export default function OuvidoriaPage() {
             <Header />
             <main className="min-h-screen bg-gray-50 py-16">
                 <div className="container mx-auto px-4">
+
                     
-                    {/* MELHORIA: Título e subtítulo alinhados ao novo design */}
-                    <div className="text-center mb-12">
+                    <div className="text-center mb-12 mt-10">
                         <h1 className="text-5xl md:text-6xl font-bold text-primary mb-4">
                             Ouvidoria
                         </h1>
@@ -21,7 +21,7 @@ export default function OuvidoriaPage() {
                         </p>
                     </div>
 
-                    {/* MELHORIA: Container principal com visual profissional */}
+                    
                     <Card className="bg-white p-8 md:p-12 shadow-2xl rounded-lg">
                         <CardContent className="p-0">
                             <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -43,8 +43,8 @@ export default function OuvidoriaPage() {
                                         className="rounded-lg shadow-lg w-full h-auto"
                                     />
                                 </div>
-                                    
-                                {/* Formulário - Agora com um design integrado */}
+
+                                
                                 <div>
                                     <OuvidoriaForm />
                                 </div>

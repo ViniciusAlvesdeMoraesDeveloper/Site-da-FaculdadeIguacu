@@ -106,12 +106,7 @@ const Header = () => {
                 </div>
             </header>
 
-            <Modal
-                isOpen={showModal}
-                onClose={() => setShowModal(false)}
-                onSubmit={(data) => console.log("Form enviado:", data)}
-
-            />
+            
         </>
     );
 };

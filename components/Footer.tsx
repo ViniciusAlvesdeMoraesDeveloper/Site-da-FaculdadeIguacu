@@ -49,8 +49,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-8">
         {/* Seção das Três Colunas Principais */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-4 lg:gap-16">
-          {/* ... (Seções de Logo, Links Rápidos, e Contato) ... */}
-          {/* Logo e Descrição */}
+          
           <div>
             <div className="flex items-center space-x-2 mb-2">
               <div className="w-10 h-10 flex items-center justify-center">
