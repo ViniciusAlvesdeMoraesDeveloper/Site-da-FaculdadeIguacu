@@ -14,10 +14,10 @@ export default function OuvidoriaPage() {
                     
                     <div className="text-center mb-12 mt-10">
                         <h1 className="text-5xl md:text-6xl font-bold text-primary mb-4">
-                            Ouvidoria
+                            Canal do Aluno - Ouvidoria
                         </h1>
                         <p className="max-w-3xl mx-auto text-lg text-muted-foreground leading-relaxed">
-                            Com o compromisso contínuo de zelar pela qualidade de nossos serviços e garantir o melhor atendimento aos nossos alunos e parceiros, a Faculdade Marinho tem a satisfação de anunciar o lançamento oficial do nosso Setor de Ouvidoria.
+                            Este é o seu espaço de comunicação direta com a Faculdade Iguaçu. A Ouvidoria está aqui para ouvir você, garantindo que suas sugestões, dúvidas e críticas ajudem a melhorar o ambiente e os serviços da faculdade.
                         </p>
                     </div>
 
@@ -28,12 +28,10 @@ export default function OuvidoriaPage() {
                                 {/* Imagem e Descrição Adicional */}
                                 <div className="space-y-6">
                                     <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                                        Sua voz é a chave para a nossa melhoria.
+                                        Sua opinião constrói a nossa faculdade!
                                     </h2>
                                     <p className="text-muted-foreground leading-relaxed">
-                                        Nossa Ouvidoria é o canal direto para suas sugestões, elogios,
-                                        críticas ou denúncias. Aqui, sua manifestação é tratada de forma
-                                        confidencial e imparcial, buscando sempre a melhor solução.
+                                        Use este canal para enviar suas sugestões, registrar um elogio ou reportar uma reclamação/crítica. Sua manifestação é tratada com total confidencialidade, buscando soluções justas e eficientes para a comunidade acadêmica.
                                     </p>
                                     <Image
                                         src="/ouvidoria.webp"

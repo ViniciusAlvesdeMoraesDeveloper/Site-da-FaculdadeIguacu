@@ -25,11 +25,11 @@ export type EnrollmentFormData = z.infer<typeof enrollmentSchema>
 interface ModalProps {
   isOpen: boolean
   onClose: () => void
-  
-  
+
+
 }
 
-export default function Modal({ isOpen, onClose}: ModalProps) {
+export default function Modal({ isOpen, onClose }: ModalProps) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
 
@@ -70,8 +70,8 @@ export default function Modal({ isOpen, onClose}: ModalProps) {
   // Função para enviar o formulário e lidar com a resposta da API
   const handleSubmitForm = async (data: EnrollmentFormData) => {
     setIsSubmitting(true)
-//Colocar a URL da Integrately
-  const INTEGRATELY_WEBHOOK_URL ='https://webhooks.integrately.com/a/webhooks/5bd023710825410384f1c0f5a999fa65';  
+    //Colocar a URL da Integrately
+    const INTEGRATELY_WEBHOOK_URL = 'https://webhooks.integrately.com/a/webhooks/5bd023710825410384f1c0f5a999fa65';
 
     try {
       const apiData = {
@@ -80,21 +80,22 @@ export default function Modal({ isOpen, onClose}: ModalProps) {
         phone: data.phone,
         message: data.message || "",
       };
-      const response = await fetch (INTEGRATELY_WEBHOOK_URL,{
-        method:'POST',
-        headers:{'Content-Type':'application/json',  
+      const response = await fetch(INTEGRATELY_WEBHOOK_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(apiData),
       });
 
-      if(!response.ok){
+      if (!response.ok) {
         throw new Error('Falaha ao enviar os dados para o Integrately');
-       }
+      }
       setIsSuccess(true)
       reset()
       toast({
-        title: "Solicitação enviada com sucesso!",
-        description: "Entraremos em contato em breve.",
+        title: "Inscrição enviada com sucesso!",
+        description: "Entraremos em contato em breve para confirmar.",
       })
 
       setTimeout(() => {
@@ -102,13 +103,13 @@ export default function Modal({ isOpen, onClose}: ModalProps) {
         onClose()
       }, 3000)
     } catch (error) {
-      console.error("Erro ao enviar a solicitação:", error)
+      console.error("Erro ao enviar a inscrição:", error)
       const errorMessage = error instanceof Error
         ? error.message
         : "Ocorreu um erro. Tente novamente mais tarde."
 
       toast({
-        title: "Erro ao enviar a solicitação",
+        title: "Erro ao enviar a inscrição",
         description: errorMessage,
         variant: "destructive",
       })
@@ -135,19 +136,19 @@ export default function Modal({ isOpen, onClose}: ModalProps) {
           <div className="w-16 h-16 bg-gradient-hero rounded-full flex items-center justify-center mx-auto mb-4 shadow-orange">
             <GraduationCap className="w-8 h-8 text-primary-foreground" />
           </div>
-          <h2 className="text-2xl font-bold text-foreground mb-2">Solicite uma Proposta</h2>
-          <p className="text-muted-foreground">Preencha o formulário e descubra como podemos expandir seu negócio</p>
+          <h2 className="text-2xl font-bold text-foreground mb-2">Faça sua Pré-Inscrição!</h2>
+          <p className="text-muted-foreground">Preencha seus dados para garantir sua vaga e iniciar sua jornada de sucesso.</p>
         </div>
 
         {!isSuccess ? (
           <div className="p-6">
             <form onSubmit={handleSubmit(handleSubmitForm)} className="space-y-4">
               <div>
-                <label className="block text-sm font-semibold text-foreground mb-2">Nome da Instituição</label>
+                <label className="block text-sm font-semibold text-foreground mb-2">Seu Nome Completo</label>
                 <Input
                   {...register("name")}
                   className="w-full px-4 py-3 border border-input rounded-lg focus:border-primary focus:ring-2 focus:ring-ring transition-all duration-200 outline-none bg-background text-foreground"
-                  placeholder="Digite o nome da sua empresa/instituição"
+                  placeholder="Seu nome"
                 />
                 {errors.name && (
                   <p className="text-destructive text-sm mt-1 flex items-center gap-1">
@@ -158,7 +159,7 @@ export default function Modal({ isOpen, onClose}: ModalProps) {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-foreground mb-2">E-mail para Contato</label>
+                <label className="block text-sm font-semibold text-foreground mb-2">Seu Melhor E-mail</label>
                 <Input
                   {...register("email")}
                   type="email"
@@ -174,7 +175,7 @@ export default function Modal({ isOpen, onClose}: ModalProps) {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-foreground mb-2">Telefone para Contato</label>
+                <label className="block text-sm font-semibold text-foreground mb-2">Seu WhatsApp/Telefone</label>
                 <Input
                   {...register("phone")}
                   type="tel"
@@ -197,7 +198,7 @@ export default function Modal({ isOpen, onClose}: ModalProps) {
                   variant="outline"
                   className="flex-1 px-6 py-3 border border-border text-foreground rounded-lg hover:bg-muted transition-all duration-200 font-semibold bg-transparent"
                 >
-                  Cancelar
+                  Voltar
                 </Button>
                 <Button
                   type="submit"
@@ -212,7 +213,7 @@ export default function Modal({ isOpen, onClose}: ModalProps) {
                   ) : (
                     <>
                       <Send className="w-5 h-5" />
-                      Enviar Solicitação
+                      Finalizar Inscrição
                     </>
                   )}
                 </Button>
@@ -224,9 +225,9 @@ export default function Modal({ isOpen, onClose}: ModalProps) {
             <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-orange">
               <CheckCircle className="w-10 h-10 text-white" />
             </div>
-            <h3 className="text-2xl font-bold text-foreground mb-2">Solicitação Enviada!</h3>
+            <h3 className="text-2xl font-bold text-foreground mb-2">Inscrição Recebida!</h3>
             <p className="text-muted-foreground text-center mb-6">
-              Agradecemos o seu interesse. Em breve, um de nossos consultores entrará em contato.
+              Parabéns! Entraremos em contato em breve para finalizar sua matrícula e dar o próximo passo na sua formação.
             </p>
             <Button
               onClick={handleClose}

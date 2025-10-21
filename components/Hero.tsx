@@ -21,7 +21,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <img
           src={campusHero.src}
-          alt="Campus da Faculdade Marinho"
+          alt="Campus da Faculdade Iguaçu"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/35"></div>
@@ -33,19 +33,20 @@ const Hero = () => {
           <h1
             className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight"
           >
-            Expanda seu
+            Comece a construir seu
             <span
               className="block bg-gradient-to-r from-orange to-orange-light bg-clip-text text-transparent"
             >
-              Negócio Educacional
+              Futuro Profissional
             </span>
           </h1>
 
           <p
             className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto leading-relaxed text-white"
           >
-            Ofereça cursos de pós-graduação EAD com a legitimidade e segurança de uma
-            instituição credenciada pelo MEC.
+            Transforme sua carreira com o ensino superior de qualidade,
+            infraestrutura moderna e a credibilidade de uma instituição
+            reconhecida pelo MEC.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
@@ -54,7 +55,7 @@ const Hero = () => {
               className="px-8 py-4 text-lg rounded-md hover:bg-orange-600"
               onClick={() => setShowModal(true)}
             >
-              Solicitar Proposta
+              Inscreva-se Agora
               <ArrowRight className="ml-2 h-5 w-5"/>
             </Button>
             <Modal
@@ -70,18 +71,18 @@ const Hero = () => {
             <div className="text-center">
               <div className="text-4xl font-bold mb-2" style={{color: "hsl(var(--orange-primary))"}}>18+
               </div>
-              <div className="text-white">Anos de Experiência</div>
+              <div className="text-white">Anos de Transformação</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold mb-2"
-                 style={{color: "hsl(var(--orange-primary))"}}>2.500+
+                  style={{color: "hsl(var(--orange-primary))"}}>2.500+
               </div>
-              <div className="text-white">Cursos no MEC</div>
+              <div className="text-white">Alunos Formados</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold mb-2" style={{color: "hsl(var(--orange-primary))"}}>1.640
+              <div className="text-4xl font-bold mb-2" style={{color: "hsl(var(--orange-primary))"}}>Nota Máxima
               </div>
-              <div className="text-white">Portaria de Credenciamento</div>
+              <div className="text-white">Avaliação do MEC</div>
             </div>
           </div>
         </div>

@@ -31,26 +31,26 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   
   title: {
-    default: "Faculdade Marinho | Cursos, Pós-Graduação e o Topo do Sucesso",
+    default: "Faculdade Iguaçu | Cursos, Pós-Graduação e o Topo do Sucesso",
     
-    template: "%s | Faculdade Marinho",
+    template: "%s | Faculdade Iguaçu",
   },
   
   
-  description: "A Faculdade Marinho oferece cursos de graduação e pós-graduação focados no sucesso profissional. Encontre sua carreira e alcance o topo conosco.",
+  description: "A Faculdade Iguaçu oferece cursos de graduação e pós-graduação focados no sucesso profissional. Encontre sua carreira e alcance o topo conosco.",
   
   
   openGraph: {
-    title: "Faculdade Marinho",
-    description: "A Faculdade Marinho oferece cursos de graduação e pós-graduação focados no sucesso profissional.",
+    title: "Faculdade Iguaçu",
+    description: "A Faculdade Iguaçu oferece cursos de graduação e pós-graduação focados no sucesso profissional.",
     url: 'https://seusite.com.br', 
-    siteName: 'Faculdade Marinho',
+    siteName: 'Faculdade Iguaçu',
     images: [
       {
         url: 'https://seusite.com.br/images/og-image-default.jpg', 
         width: 1200,
         height: 630,
-        alt: 'Logo da Faculdade Marinho e Símbolo do Sucesso',
+        alt: 'Logo da Faculdade Iguaçu e Símbolo do Sucesso',
       },
     ],
     locale: 'pt_BR',
@@ -60,8 +60,8 @@ export const metadata: Metadata = {
   
   twitter: {
     card: 'summary_large_image',
-    title: 'Faculdade Marinho',
-    description: 'Encontre sua carreira e alcance o topo do sucesso na Faculdade Marinho.',
+    title: 'Faculdade Iguaçu',
+    description: 'Encontre sua carreira e alcance o topo do sucesso na Faculdade Iguaçu.',
   },
 
   

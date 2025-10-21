@@ -1,10 +1,10 @@
 "use client";
 import React from 'react';
 import { useState } from 'react';
-import { Facebook, Instagram, Music2, Linkedin, Youtube } from "lucide-react";
+import { Facebook, Instagram, FacebookIcon, Linkedin, Youtube } from "lucide-react";
 import Image from "next/image";
-import ModalGeral from './ModalGeral'; 
-import ModalTermosDeUso from './ModalTermoUso'; 
+import ModalGeral from './ModalGeral';
+import ModalTermosDeUso from './ModalTermoUso';
 
 const politicaDePrivacidadeContent: React.ReactNode = (
   <>
@@ -31,9 +31,9 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: Instagram, href: "https://www.instagram.com/faculdade.marinho?igsh=d3QzNmZzMzB3ZGFu" },
-    { icon: Music2, href: "https://www.tiktok.com/@faculdade.marinho?is_from_webapp=1&sender_device=pc" },
-    { icon: Youtube, href: "https://youtube.com/@faculdademarinho?si=qWmhtcnYpzfP3uCw" },
+    { icon: Instagram, href: "https://www.instagram.com/faculdadeiguacu.oficial?igshid=YmMyMTA2M2Y%3D" },
+    { icon: FacebookIcon, href: "https://www.facebook.com/iguacufaculdade/?locale=pt_BR" },
+    { icon: Youtube, href: "https://www.youtube.com/channel/UCR64dMUVML-8juSIDLmZ-aA" },
   ];
 
   const handleOpenModal = (modalType: string) => {
@@ -49,7 +49,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-8">
         {/* Seção das Três Colunas Principais */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-4 lg:gap-16">
-          
+
           <div>
             <div className="flex items-center space-x-2 mb-2">
               <div className="w-10 h-10 flex items-center justify-center">
@@ -61,7 +61,7 @@ const Footer = () => {
                   className="object-contain"
                 />
               </div>
-              <span className="text-xl font-bold">Faculdade Marinho</span>
+              <span className="text-xl font-bold">Faculdade Iguaçu</span>
             </div>
             <p className="text-gray-300 mb-4 leading-normal">
               Transformando vidas através da educação de qualidade há mais de 18 anos. Seja parte da nossa história de sucesso.
@@ -106,17 +106,18 @@ const Footer = () => {
                 CEP: 35170-061
               </p>
               <p>
-                <strong>Telefone:</strong> (31) 98288-3280
+                <strong>Telefone:</strong> (46) 3552-1464
               </p>
               <p>
-                <strong>E-mail:</strong> atendimento@faculdademarinho.com.br
+                <strong>E-mail:</strong> faculdadeiguacuead@gmail.com
               </p>
               <p>
                 <strong>Horário:</strong>
                 <br />
-                Seg-Sex: 8h às 18h
+                Seg-Sex: 8h às 12h, das 13h30 ás 22h40
+
                 <br />
-                Sáb: 8h às 12h
+
               </p>
             </div>
           </div>

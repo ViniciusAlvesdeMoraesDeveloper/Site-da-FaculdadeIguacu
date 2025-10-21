@@ -14,25 +14,24 @@ interface Slide {
 }
 
 const slides: Slide[] = [
-    {
-        id: 1,
-        title: "Parcerias que Transformam",
-        description:
-            "Conecte-se conosco e descubra oportunidades de colaboração que impulsionam o crescimento acadêmico e profissional",
-        image: "https://images.pexels.com/photos/5716037/pexels-photo-5716037.jpeg?_gl=1*1lgqucq*_ga*MTcxNzA2Mzc4OC4xNzU1NjI1MjMx*_ga_8JE65Q40S6*czE3NTc0MzAyNzckbzUkZzEkdDE3NTc0MzAzMTAkajI3JGwwJGgw",
-    },
-    {
-        id: 2,
-        title: "Excelência Acadêmica",
-        description: "Oferecemos ensino superior de qualidade com infraestrutura moderna e corpo docente especializado",
-        image: "https://images.pexels.com/photos/159751/book-address-book-learning-learn-159751.jpeg?_gl=1*1if5keh*_ga*MTcxNzA2Mzc4OC4xNzU1NjI1MjMx*_ga_8JE65Q40S6*czE3NTc0MzAyNzckbzUkZzEkdDE3NTc0MzA1NzEkajQwJGwwJGgw",
-    },
-    {
-        id: 3,
-        title: "Suporte Completo",
-        description: "Nossa equipe está sempre disponível para apoiar nossos parceiros e estudantes em todos os momentos",
-        image: "https://images.pexels.com/photos/5833873/pexels-photo-5833873.jpeg?_gl=1*1ahv3qo*_ga*MTcxNzA2Mzc4OC4xNzU1NjI1MjMx*_ga_8JE65Q40S6*czE3NTc0MzAyNzckbzUkZzEkdDE3NTc0MzA1MDgkajQzJGwwJGgw",
-    },
+  {
+    "id": 1,
+    "title": "Oportunidades que Transformam Seu Futuro",
+    "description": "Descubra como nossas conexões exclusivas com o mercado de trabalho impulsionam seu crescimento acadêmico e profissional. Seu futuro começa aqui!",
+    "image": "https://images.pexels.com/photos/7944180/pexels-photo-7944180.jpeg?_gl=1*2vv8ot*_ga*MTcxNzA2Mzc4OC4xNzU1NjI1MjMx*_ga_8JE65Q40S6*czE3NjAxMDE4MzkkbzExJGcxJHQxNzYwMTAxODc2JGoyMyRsMCRoMA.."
+  },
+  {
+    "id": 2,
+    "title": "Sua Jornada de Excelência",
+    "description": "Garanta um ensino superior de alta qualidade! Conte com **infraestrutura moderna e um corpo docente especializado** para levar sua carreira ao próximo nível.",
+    "image": "https://images.pexels.com/photos/256455/pexels-photo-256455.jpeg?_gl=1*1m4vldj*_ga*MTcxNzA2Mzc4OC4xNzU1NjI1MjMx*_ga_8JE65Q40S6*czE3NjAwOTc2NDUkbzEwJGcxJHQxNzYwMDk3ODc0JGoyJGwwJGgw"
+  },
+  {
+    "id": 3,
+    "title": "Apoio Total em Cada Passo",
+    "description": "Você não está sozinho! Nossa equipe está sempre disponível para oferecer o suporte completo que você precisa, garantindo que sua experiência de aprendizado seja a melhor possível.",
+    "image": "https://images.pexels.com/photos/1516440/pexels-photo-1516440.jpeg?_gl=1*1yybqt4*_ga*MTcxNzA2Mzc4OC4xNzU1NjI1MjMx*_ga_8JE65Q40S6*czE3NjAwOTc2NDUkbzEwJGcxJHQxNzYwMDk3ODIyJGo1NCRsMCRoMA.."
+  }
 ]
 
 export function BannerCarousel() {

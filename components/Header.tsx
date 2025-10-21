@@ -41,7 +41,7 @@ const Header = () => {
                                 />
                                 
                             </div>
-                            <a href="/" className="text-xl font-bold text-#100D5D">Faculdade Marinho</a>
+                            <a href="/" className="text-xl font-bold text-#100D5D">Faculdade Iguaçu</a>
                         </div>
 
                         {/* Desktop Navigation */}
