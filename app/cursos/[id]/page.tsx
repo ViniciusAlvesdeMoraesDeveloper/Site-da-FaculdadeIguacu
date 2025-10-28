@@ -188,7 +188,7 @@ export default async function CourseDetailsPage({ params }: Props) {
           <div className="flex flex-col lg:flex-row gap-12">
           
             <div className="w-full lg:w-3/5 space-y-6">
-              <Badge className="bg-orange-600 hover:bg-orange-700">
+              <Badge className="bg-red-600 hover:bg-red-700">
                 {course.area || "Geral"}
               </Badge>
               <h1 className="text-5xl font-extrabold text-slate-900 leading-tight">
@@ -202,12 +202,12 @@ export default async function CourseDetailsPage({ params }: Props) {
             {/* Lado Direito - Detalhes do Curso */}
             <div className="w-full lg:w-2/5 p-8 bg-slate-50 rounded-xl">
               <h2 className="text-2xl font-semibold text-slate-900 mb-6 flex items-center gap-2">
-                <div className="w-1 h-6 bg-orange-600 rounded-full"></div>
+                <div className="w-1 h-6 bg-red-600 rounded-full"></div>
                 Informações do Curso
               </h2>
               <div className="grid gap-4">
                 <div className="flex items-center gap-3 p-4 bg-white rounded-lg shadow-sm">
-                  <Clock className="h-5 w-5 text-orange-600" />
+                  <Clock className="h-5 w-5 text-red-600" />
                   <div>
                     <span className="font-medium text-slate-900">Duração:</span>
                     <span className="ml-2 text-slate-700">{formattedDuration}</span>
@@ -215,7 +215,7 @@ export default async function CourseDetailsPage({ params }: Props) {
                 </div>
 
                 <div className="flex items-center gap-3 p-4 bg-white rounded-lg shadow-sm">
-                  <Building2 className="h-5 w-5 text-orange-600" />
+                  <Building2 className="h-5 w-5 text-red-600" />
                   <div>
                     <span className="font-medium text-slate-900">Empresa:</span>
                     <span className="ml-2 text-slate-700">{course.empresa || "Não informado"}</span>
@@ -223,7 +223,7 @@ export default async function CourseDetailsPage({ params }: Props) {
                 </div>
 
                 <div className="flex items-center gap-3 p-4 bg-white rounded-lg shadow-sm">
-                  <GitBranch className="h-5 w-5 text-orange-600" />
+                  <GitBranch className="h-5 w-5 text-red-600" />
                   <div>
                     <span className="font-medium text-slate-900">Repositório:</span>
                     <span className="ml-2 text-slate-700">{course.repositorio || "Não informado"}</span>
@@ -231,7 +231,7 @@ export default async function CourseDetailsPage({ params }: Props) {
                 </div>
 
                 <div className="flex items-center gap-3 p-4 bg-white rounded-lg shadow-sm">
-                  <GraduationCap className="h-5 w-5 text-orange-600" />
+                  <GraduationCap className="h-5 w-5 text-red-600" />
                   <div>
                     <span className="font-medium text-slate-900">TCC:</span>
                     <span className="ml-2 text-slate-700">{course.tcc === "S" ? "Sim" : "Não"}</span>
@@ -240,13 +240,13 @@ export default async function CourseDetailsPage({ params }: Props) {
               </div>
 
               <div className="pt-8">
-                <div className="bg-orange-50 border border-orange-200 rounded-lg p-6">
-                  <h3 className="font-semibold text-orange-900 mb-2">Interessado neste curso?</h3>
-                  <p className="text-orange-700 text-sm mb-4">
+                <div className="bg-red-50 border border-red-200 rounded-lg p-6">
+                  <h3 className="font-semibold text-red-900 mb-2">Interessado neste curso?</h3>
+                  <p className="text-red-700 text-sm mb-4">
                     Entre em contato para mais informações sobre inscrições e cronograma.
                   </p>
                   <Link href="#contato">
-                    <Button className="w-full bg-orange-600 hover:bg-orange-700">Solicitar Informações</Button>
+                    <Button className="w-full bg-red-600 hover:bg-red-700">Solicitar Informações</Button>
                   </Link>
                 </div>
               </div>

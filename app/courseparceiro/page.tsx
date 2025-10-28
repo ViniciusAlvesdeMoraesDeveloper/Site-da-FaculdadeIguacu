@@ -13,10 +13,10 @@ export default function ParceirosPage() {
             <Header />
 
             {/* Banner Section */}
-            <section className="bg-gradient-to-r from-orange-500 to-orange-600 text-white py-20 mt-16">
+            <section className="bg-gradient-to-r from-red-500 to-red-600 text-white py-20 mt-16">
                 <div className="container mx-auto px-4 text-center">
                     <h1 className="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-md">
-                        Nossos <span className="text-orange-200">Parceiros</span>
+                        Nossos <span className="text-red-200">Parceiros</span>
                     </h1>
                     <p className="text-xl opacity-90 max-w-2xl mx-auto">
                         Explore os cursos exclusivos oferecidos pelos nossos parceiros educacionais.
@@ -36,7 +36,7 @@ export default function ParceirosPage() {
                                         className="block text-center"
                                     >
                                         <h2 className="text-xl font-bold text-gray-800 mb-2">{partnerName}</h2>
-                                        <div className="inline-flex items-center text-orange-600 font-medium mt-2">
+                                        <div className="inline-flex items-center text-red-600 font-medium mt-2">
                                             Ver Cursos
                                             <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                                         </div>
@@ -49,7 +49,7 @@ export default function ParceirosPage() {
                 <div className="mt-16 text-center">
                     <Link
                         href="/cursos"
-                        className="inline-flex items-center px-6 py-3 bg-[#0B093F] text-white font-bold rounded-full shadow-lg hover:bg-orange-700 transition-all duration-300 transform hover:-translate-y-1"
+                        className="inline-flex items-center px-6 py-3 bg-[#0B093F] text-white font-bold rounded-full shadow-lg hover:bg-red-700 transition-all duration-300 transform hover:-translate-y-1"
                     >
                         <ArrowLeft className="h-5 w-5 mr-3" />
                         Voltar para a página de Cursos

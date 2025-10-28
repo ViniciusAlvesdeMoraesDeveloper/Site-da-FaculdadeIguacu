@@ -14,7 +14,7 @@ const Testimonials = () => {
       <div className="container mx-auto px-4">
         <header className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            O que nossos <span className="text-primary">Ex-Alunos</span> dizem
+            O que nossos <span className="text-red-700">Ex-Alunos</span> dizem
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Histórias reais de sucesso de quem passou pela Faculdade Marinho e se transformou profissionalmente.
@@ -38,7 +38,8 @@ const Testimonials = () => {
 
                 <CardContent className="p-6 flex flex-col h-full">
                   <meta itemProp="reviewAspect" content="Experiência do Aluno" />
-                  <Quote className="h-8 w-8 text-primary mb-4 opacity-50" />
+                  {/* Cor do Quote alterada para vermelho */}
+                  <Quote className="h-8 w-8 text-red-600 mb-4 opacity-50" />
                   <div
                     className="flex gap-1 mb-4"
                     itemProp="reviewRating"
@@ -67,7 +68,8 @@ const Testimonials = () => {
                   >
                     <Avatar className="h-12 w-12">
                       <AvatarImage src="" />
-                      <AvatarFallback className="bg-primary text-primary-foreground font-semibold">
+                      {/* Cor do AvatarFallback alterada para vermelho e texto para um tom mais claro */}
+                      <AvatarFallback className="bg-red-700 text-red-50 font-semibold">
                         {testimonial.avatar}
                       </AvatarFallback>
                     </Avatar>
@@ -80,7 +82,8 @@ const Testimonials = () => {
                   </div>
                 </CardContent>
               </Card>
-              <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-primary to-orange-light opacity-0 group-hover:opacity-10 transition-opacity duration-300 pointer-events-none"></div>
+              {/* Degradê de hover alterado para tons de vermelho */}
+              <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-red-600 to-red-400 opacity-0 group-hover:opacity-10 transition-opacity duration-300 pointer-events-none"></div>
             </li>
           ))}
         </ul>
@@ -93,7 +96,8 @@ const Testimonials = () => {
             { value: "18+", label: "Anos de Tradição" }
           ].map((stat, i) => (
             <div key={i} className="text-center">
-              <div className="text-4xl font-bold text-primary mb-2">{stat.value}</div>
+              {/* Cor das estatísticas alterada para vermelho */}
+              <div className="text-4xl font-bold text-red-700 mb-2">{stat.value}</div>
               <div className="text-muted-foreground">{stat.label}</div>
             </div>
           ))}

@@ -139,17 +139,17 @@ const ModalTermosDeUso = ({ onClose }: TermosDeUsoProps) => {
 
     return (
         <div className="fixed inset-0  bg-opacity-40 flex items-center justify-center p-4 z-50">
-            <div ref={contentRef} className="bg-white p-6 rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative border-2 border-orange-100">
+            <div ref={contentRef} className="bg-white p-6 rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative border-2 border-red-100">
 
                 {/* Header com gradiente laranja */}
-                <div className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-t-lg -m-6 mb-6 p-6">
+                <div className="bg-gradient-to-r from-red-600 to-red-700 rounded-t-lg -m-6 mb-6 p-6">
                     <div className="flex items-center justify-between">
                         <div>
                             <h1 className="text-2xl font-bold text-white mb-2">Termos de Uso</h1>
-                            <p className="text-orange-100 text-sm">Versão vigente: {new Date().toLocaleDateString('pt-BR')}</p>
+                            <p className="text-red-100 text-sm">Versão vigente: {new Date().toLocaleDateString('pt-BR')}</p>
                         </div>
                         <button
-                            className="text-white hover:text-orange-200 text-2xl font-bold transition-all duration-200 hover:scale-110 w-10 h-10 flex items-center justify-center rounded-full hover:bg-orange-700"
+                            className="text-white hover:text-red-200 text-2xl font-bold transition-all duration-200 hover:scale-110 w-10 h-10 flex items-center justify-center rounded-full hover:bg-red-700"
                             onClick={onClose}
                             aria-label="Fechar modal de termos de uso"
                             title="Fechar"
@@ -162,8 +162,8 @@ const ModalTermosDeUso = ({ onClose }: TermosDeUsoProps) => {
                 {/* Conteúdo do modal */}
                 <div className="text-gray-800 space-y-6">
                     {/* Seção de Introdução */}
-                    <section className="bg-orange-50 rounded-lg p-4 border-l-4 border-orange-500">
-                        <h2 className="text-lg font-semibold text-orange-800 mb-2">Aceitação dos Termos</h2>
+                    <section className="bg-red-50 rounded-lg p-4 border-l-4 border-red-500">
+                        <h2 className="text-lg font-semibold text-red-800 mb-2">Aceitação dos Termos</h2>
                         <p className="text-gray-700 leading-relaxed">
                             Ao acessar e utilizar nossa plataforma, você concorda integralmente com estes Termos de Uso.
                             Estes termos regulam o uso dos nossos serviços e estabelecem os direitos e responsabilidades de todas as partes envolvidas.
@@ -176,14 +176,14 @@ const ModalTermosDeUso = ({ onClose }: TermosDeUsoProps) => {
 
                     {/* Seção de Definições */}
                     <section className="space-y-4">
-                        <h2 className="text-xl font-bold text-orange-700 border-b border-orange-200 pb-2">
+                        <h2 className="text-xl font-bold text-red-700 border-b border-red-200 pb-2">
                             1. Definições e Âmbito de Aplicação
                         </h2>
 
                         <div className="grid md:grid-cols-2 gap-4">
-                            <div className="bg-white border border-orange-200 rounded-lg p-4">
-                                <h3 className="font-semibold text-orange-600 mb-2 flex items-center">
-                                    <span className="w-2 h-2 bg-orange-500 rounded-full mr-2"></span>
+                            <div className="bg-white border border-red-200 rounded-lg p-4">
+                                <h3 className="font-semibold text-red-600 mb-2 flex items-center">
+                                    <span className="w-2 h-2 bg-red-500 rounded-full mr-2"></span>
                                     Plataforma
                                 </h3>
                                 <p className="text-sm text-gray-700">
@@ -192,9 +192,9 @@ const ModalTermosDeUso = ({ onClose }: TermosDeUsoProps) => {
                                 </p>
                             </div>
 
-                            <div className="bg-white border border-orange-200 rounded-lg p-4">
-                                <h3 className="font-semibold text-orange-600 mb-2 flex items-center">
-                                    <span className="w-2 h-2 bg-orange-500 rounded-full mr-2"></span>
+                            <div className="bg-white border border-red-200 rounded-lg p-4">
+                                <h3 className="font-semibold text-red-600 mb-2 flex items-center">
+                                    <span className="w-2 h-2 bg-red-500 rounded-full mr-2"></span>
                                     Usuário
                                 </h3>
                                 <p className="text-sm text-gray-700">
@@ -215,7 +215,7 @@ const ModalTermosDeUso = ({ onClose }: TermosDeUsoProps) => {
 
                     {/* Seção de Cadastro e Conta */}
                     <section className="space-y-4">
-                        <h2 className="text-xl font-bold text-orange-700 border-b border-orange-200 pb-2">
+                        <h2 className="text-xl font-bold text-red-700 border-b border-red-200 pb-2">
                             2. Cadastro e Gestão de Conta
                         </h2>
 
@@ -258,7 +258,7 @@ const ModalTermosDeUso = ({ onClose }: TermosDeUsoProps) => {
 
                     {/* Seção de Condutas Proibidas */}
                     <section className="space-y-4">
-                        <h2 className="text-xl font-bold text-orange-700 border-b border-orange-200 pb-2">
+                        <h2 className="text-xl font-bold text-red-700 border-b border-red-200 pb-2">
                             3. Condutas Expressamente Proibidas
                         </h2>
 
@@ -307,7 +307,7 @@ const ModalTermosDeUso = ({ onClose }: TermosDeUsoProps) => {
 
                     {/* Seção de Propriedade Intelectual */}
                     <section className="space-y-4">
-                        <h2 className="text-xl font-bold text-orange-700 border-b border-orange-200 pb-2">
+                        <h2 className="text-xl font-bold text-red-700 border-b border-red-200 pb-2">
                             4. Propriedade Intelectual e Licenças
                         </h2>
 
@@ -342,7 +342,7 @@ const ModalTermosDeUso = ({ onClose }: TermosDeUsoProps) => {
 
                     {/* Seção de Limitação de Responsabilidade */}
                     <section className="space-y-4">
-                        <h2 className="text-xl font-bold text-orange-700 border-b border-orange-200 pb-2">
+                        <h2 className="text-xl font-bold text-red-700 border-b border-red-200 pb-2">
                             5. Limitação de Responsabilidade
                         </h2>
 
@@ -368,7 +368,7 @@ const ModalTermosDeUso = ({ onClose }: TermosDeUsoProps) => {
 
                     {/* Seção de Privacidade e Dados */}
                     <section className="space-y-4">
-                        <h2 className="text-xl font-bold text-orange-700 border-b border-orange-200 pb-2">
+                        <h2 className="text-xl font-bold text-red-700 border-b border-red-200 pb-2">
                             6. Privacidade e Proteção de Dados
                         </h2>
 
@@ -404,35 +404,35 @@ const ModalTermosDeUso = ({ onClose }: TermosDeUsoProps) => {
 
                     {/* Seção de Disposições Finais */}
                     <section className="space-y-4">
-                        <h2 className="text-xl font-bold text-orange-700 border-b border-orange-200 pb-2">
+                        <h2 className="text-xl font-bold text-red-700 border-b border-red-200 pb-2">
                             7. Disposições Finais
                         </h2>
 
-                        <div className="bg-orange-50 p-4 rounded-lg border border-orange-200">
-                            <h3 className="font-semibold text-orange-700 mb-3">Alterações Contratuais</h3>
-                            <p className="text-sm text-orange-800 mb-3">
+                        <div className="bg-red-50 p-4 rounded-lg border border-red-200">
+                            <h3 className="font-semibold text-red-700 mb-3">Alterações Contratuais</h3>
+                            <p className="text-sm text-red-800 mb-3">
                                 Reservamo-nos o direito de modificar estes Termos a qualquer momento,
                                 comunicando as alterações através dos canais oficiais com antecedência mínima de 30 dias.
                             </p>
 
                             <div className="grid md:grid-cols-3 gap-3 text-xs">
                                 <div className="text-center">
-                                    <div className="bg-orange-100 rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-1">
-                                        <span className="text-orange-600 font-bold">1</span>
+                                    <div className="bg-red-100 rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-1">
+                                        <span className="text-red-600 font-bold">1</span>
                                     </div>
-                                    <p className="text-orange-700">Comunicação prévia</p>
+                                    <p className="text-red-700">Comunicação prévia</p>
                                 </div>
                                 <div className="text-center">
-                                    <div className="bg-orange-100 rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-1">
-                                        <span className="text-orange-600 font-bold">2</span>
+                                    <div className="bg-red-100 rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-1">
+                                        <span className="text-red-600 font-bold">2</span>
                                     </div>
-                                    <p className="text-orange-700">Aceitação tácita</p>
+                                    <p className="text-red-700">Aceitação tácita</p>
                                 </div>
                                 <div className="text-center">
-                                    <div className="bg-orange-100 rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-1">
-                                        <span className="text-orange-600 font-bold">3</span>
+                                    <div className="bg-red-100 rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-1">
+                                        <span className="text-red-600 font-bold">3</span>
                                     </div>
-                                    <p className="text-orange-700">Vigência imediata</p>
+                                    <p className="text-red-700">Vigência imediata</p>
                                 </div>
                             </div>
                         </div>
@@ -447,7 +447,7 @@ const ModalTermosDeUso = ({ onClose }: TermosDeUsoProps) => {
                     </section>
 
                     {/* Aviso Final */}
-                    <section className="bg-gradient-to-r from-orange-500 to-red-500 rounded-lg p-4 text-white">
+                    <section className="bg-gradient-to-r from-red-500 to-red-500 rounded-lg p-4 text-white">
                         <h2 className="text-lg font-bold mb-2">⚠️ Aviso Importante</h2>
                         <p className="text-sm opacity-90">
                             Estes Termos de Uso constituem instrumento contratual vinculante. Recomendamos que
@@ -458,7 +458,7 @@ const ModalTermosDeUso = ({ onClose }: TermosDeUsoProps) => {
                 </div>
 
                 {/* MOVIDO PARA CÁ: Footer com botões de ação */}
-                <div className="flex flex-col sm:flex-row justify-between items-center pt-6 mt-6 border-t border-orange-100 gap-4">
+                <div className="flex flex-col sm:flex-row justify-between items-center pt-6 mt-6 border-t border-red-100 gap-4">
                     <div className="text-xs text-gray-500">
                         <p>Documento juridicamente válido - Conservar para referência futura</p>
                     </div>
@@ -475,7 +475,7 @@ const ModalTermosDeUso = ({ onClose }: TermosDeUsoProps) => {
 
                         <button
                             onClick={onClose}
-                            className="bg-orange-500 hover:bg-orange-600 text-white font-medium py-2 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-md"
+                            className="bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-md"
                         >
                             Concordo com os Termos
                         </button>

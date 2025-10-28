@@ -30,10 +30,10 @@ export default function CursosTecnicosPage() {
             <Header />
 
             {/* Banner Section */}
-            <section className="bg-gradient-to-r from-orange-500 to-orange-600 text-white py-20 mt-16">
+            <section className="bg-gradient-to-r from-red-500 to-red-600 text-white py-20 mt-16">
                 <div className="container mx-auto px-4 text-center">
                     <h1 className="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-md">
-                        Cursos <span className="text-orange-200">Técnicos</span>
+                        Cursos <span className="text-red-200">Técnicos</span>
                     </h1>
                     <p className="text-xl opacity-90 max-w-2xl mx-auto">
                         Cursos oferecidos pela nossa instituição, a Global Tec, para sua formação técnica e profissional.
@@ -46,8 +46,8 @@ export default function CursosTecnicosPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {cursosParaExibir.map((curso, index) => (
                             <Card key={index} className="shadow-lg hover:shadow-xl transition-shadow duration-300">
-                                <CardHeader className="bg-orange-100 p-6 rounded-t-lg flex flex-col items-center">
-                                    <div className="text-orange-600 mb-2">
+                                <CardHeader className="bg-red-100 p-6 rounded-t-lg flex flex-col items-center">
+                                    <div className="text-red-600 mb-2">
                                         <Wrench className="h-10 w-10" />
                                     </div>
                                     <CardTitle className="text-2xl font-bold text-gray-800 text-center">
@@ -56,7 +56,7 @@ export default function CursosTecnicosPage() {
                                 </CardHeader>
                                 <CardContent className="p-6">
                                     <p className="text-gray-600 mb-2 border-b pb-2 text-center">
-                                        <strong className="font-semibold text-gray-900">Tipo:</strong> <span className="text-orange-600 font-bold">{curso.type}</span>
+                                        <strong className="font-semibold text-gray-900">Tipo:</strong> <span className="text-red-600 font-bold">{curso.type}</span>
                                     </p>
                                     <p className="text-gray-600 mb-4 border-b pb-2 text-center">
                                         <strong className="font-semibold text-gray-900">Parceiro:</strong> {curso.partner}
@@ -74,7 +74,7 @@ export default function CursosTecnicosPage() {
                         <div className="mt-16 text-center">
                             <Button
                                 size="lg"
-                                className="bg-orange-600 hover:bg-orange-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 px-12 py-6 text-lg font-semibold rounded-full group"
+                                className="bg-red-600 hover:bg-red-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 px-12 py-6 text-lg font-semibold rounded-full group"
                                 onClick={handleLoadMore}
                             >
                                 Carregar mais Cursos
@@ -86,7 +86,7 @@ export default function CursosTecnicosPage() {
                     <div className="mt-16 text-center">
                         <Link 
                             href="/cursos" 
-                            className="inline-flex items-center px-6 py-3 bg-[#0B093F] text-white font-bold rounded-full shadow-lg hover:bg-orange-700 transition-all duration-300 transform hover:-translate-y-1"
+                            className="inline-flex items-center px-6 py-3 bg-[#0B093F] text-white font-bold rounded-full shadow-lg hover:bg-red-700 transition-all duration-300 transform hover:-translate-y-1"
                         >
                             <ArrowLeft className="h-5 w-5 mr-3" />
                             Voltar para a página de Cursos

@@ -1,3 +1,5 @@
+"use client"
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
@@ -28,7 +30,7 @@ const Contact = () => {
             <div className="container mx-auto px-4">
                 <header className="text-center mb-16">
                     <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                        Vamos <span className="text-primary">Conversar?</span>
+                        Vamos <span className="text-red-700">Conversar?</span>
                     </h1>
                     <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
                         Pronto para transformar seu futuro? Fale conosco para tirar suas dúvidas, agendar uma visita e iniciar sua matrícula.
@@ -45,11 +47,11 @@ const Contact = () => {
                                 itemProp="contactPoint" // Indica um ponto de contato dentro da página
                                 itemType="https://schema.org/ContactPoint"
                             >
-                                <Card className="flex group hover:shadow-orange transition-shadow border-none">
+                                <Card className="flex group hover:shadow-red-500 transition-shadow border-none">
                                     <CardContent className="p-6 w-full">
                                         <div className="flex items-start gap-4">
-                                            <div className="bg-primary/10 p-3 rounded-lg transition-colors">
-                                                <item.icon className="h-6 w-6 text-primary" />
+                                            <div className="bg-red-700/10 p-3 rounded-lg transition-colors">
+                                                <item.icon className="h-6 w-6 text-red-700" />
                                             </div>
                                             <div>
                                                 <h2 itemProp="contactType" className="font-semibold text-lg mb-2 text-foreground">
@@ -67,11 +69,16 @@ const Contact = () => {
                     </ul>
                 </div>
 
-                <div className="mt-16 text-center bg-gradient-to-r from-orange-500 to bg-orange-700 rounded-2xl p-12 text-primary-foreground">
+                {/* Chamada para Ação (CTA) com degradê vermelho */}
+                <div className="mt-16 text-center bg-gradient-to-r from-red-600 to-red-700 rounded-2xl p-12 text-primary-foreground">
                     <h2 className="text-3xl font-bold mb-4">Pronto para começar sua Graduação ou Pós?</h2>
                     <p className="text-xl mb-8 opacity-90">Clique abaixo e preencha nosso formulário de inscrição. É rápido, fácil e o primeiro passo para o seu sucesso profissional!</p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button size="lg" variant="secondary" className="bg-background text-foreground hover:bg-muted"
+                        <Button 
+                            size="lg" 
+                            variant="secondary" 
+                            // Cores do botão invertidas para contraste: fundo branco e texto vermelho
+                            className="bg-white text-red-700 hover:bg-red-50"
                             onClick={() => {
                                 setIsMenuOpen(false);
                                 setShowModal(true);

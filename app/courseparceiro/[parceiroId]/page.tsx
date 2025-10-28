@@ -86,10 +86,10 @@ export default async function CursoPorParceiroPage({ params }: ParceiroProps) {
             <Header />
 
             {/* Banner Section */}
-            <section className="bg-gradient-to-r from-orange-500 to-orange-600 text-white py-20 mt-16">
+            <section className="bg-gradient-to-r from-red-500 to-red-600 text-white py-20 mt-16">
                 <div className="container mx-auto px-4 text-center">
                     <h1 className="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-md">
-                        Cursos de <span className="text-orange-200">{nomeParceiro}</span>
+                        Cursos de <span className="text-red-200">{nomeParceiro}</span>
                     </h1>
                     <p className="text-xl opacity-90 max-w-2xl mx-auto">
                         Explore as oportunidades de aprendizado que nosso parceiro tem a oferecer.
@@ -102,7 +102,7 @@ export default async function CursoPorParceiroPage({ params }: ParceiroProps) {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {cursoDoParceiro.map((curso, index) => (
                             <Card key={index} className="shadow-lg hover:shadow-xl transition-shadow duration-300">
-                                <CardHeader className="bg-orange-100 p-6 rounded-t-lg">
+                                <CardHeader className="bg-red-100 p-6 rounded-t-lg">
                                     <CardTitle className="text-2xl font-bold text-gray-800">
                                         {curso.course}
                                     </CardTitle>
@@ -115,12 +115,12 @@ export default async function CursoPorParceiroPage({ params }: ParceiroProps) {
                                         <strong className="font-semibold text-gray-900">Parceiro:</strong> {curso.partner}
                                     </p>
 
-                                    <h3 className="text-lg font-bold text-orange-600 mb-4">Contatos:</h3>
+                                    <h3 className="text-lg font-bold text-red-600 mb-4">Contatos:</h3>
                                     <ul className="space-y-3">
                                         {curso.contacts.map((contact, contactIndex) => (
-                                            <li key={contactIndex} className="flex items-center gap-4 p-3 rounded-lg bg-orange-50">
+                                            <li key={contactIndex} className="flex items-center gap-4 p-3 rounded-lg bg-red-50">
                                                 <div className="flex-shrink-0">
-                                                    <Phone className="h-5 w-5 text-orange-600" />
+                                                    <Phone className="h-5 w-5 text-red-600" />
                                                 </div>
                                                 <div className="flex-grow">
                                                     <p className="text-sm font-medium text-gray-800">Telefone: {contact.phone}</p>
@@ -139,7 +139,7 @@ export default async function CursoPorParceiroPage({ params }: ParceiroProps) {
                     <div className="mt-16 text-center">
                         <Link
                             href="/courseparceiro"
-                            className="inline-flex items-center px-6 py-3 bg-orange-600 text-white font-bold rounded-full shadow-lg hover:bg-orange-700 transition-all duration-300 transform hover:-translate-y-1"
+                            className="inline-flex items-center px-6 py-3 bg-red-600 text-white font-bold rounded-full shadow-lg hover:bg-red-700 transition-all duration-300 transform hover:-translate-y-1"
                         >
                             <ArrowRight className="h-5 w-5 mr-3 transform rotate-180" />
                             Voltar para a página de Parceiros

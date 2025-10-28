@@ -13,7 +13,7 @@ export default function OuvidoriaPage() {
 
                     
                     <div className="text-center mb-12 mt-10">
-                        <h1 className="text-5xl md:text-6xl font-bold text-primary mb-4">
+                        <h1 className="text-5xl md:text-6xl font-bold text-red-700 mb-4">
                             Canal do Aluno - Ouvidoria
                         </h1>
                         <p className="max-w-3xl mx-auto text-lg text-muted-foreground leading-relaxed">

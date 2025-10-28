@@ -34,14 +34,15 @@ const Header = () => {
                             <div className="w-10 h-10 flex items-center justify-center">
                                 <Image
                                     src="/logo-marinho.webp"
-                                    alt="Logo da Faculdade Marinho"
+                                    alt="Logo da Faculdade Iguaçu"
                                     width={40}
                                     height={40}
                                     className="rounded-lg"
                                 />
                                 
                             </div>
-                            <a href="/" className="text-xl font-bold text-#100D5D">Faculdade Iguaçu</a>
+                            {/* text-#100D5D substituído por text-red-800 */}
+                            <a href="/" className="text-xl font-bold text-red-800">Faculdade Iguaçu</a>
                         </div>
 
                         {/* Desktop Navigation */}
@@ -50,7 +51,7 @@ const Header = () => {
                                 <Link
                                     key={item.href}
                                     href={item.href}
-                                    className={`text-foreground hover:text-primary transition-color ${item.href === "/" && isHomePage ? "text-primary" : "text-foreground"} ${item.href === "/about" && isCoursePage ? "text-primary" : "text-foregound"}`}
+                                    className={`text-foreground hover:text-red-700 transition-color ${item.href === "/" && isHomePage ? "text-red-700" : "text-foreground"} ${item.href === "/about" && isCoursePage ? "text-red-700" : "text-foregound"}`}
                                 >
                                     {item.label}
                                 </Link>
@@ -58,13 +59,11 @@ const Header = () => {
 
                             <Link href="https://ead.eduno.com.br/iguacu">
                                 <Button
-
                                     variant="secondary"
-                                    className="bg-primary hover:bg-orange-600"
-
+                                    
+                                    className="bg-red-700 hover:bg-red-600"
                                 >
                                     Àrea do Parceiro
-
                                 </Button>
                             </Link>
                         </nav>
@@ -90,14 +89,14 @@ const Header = () => {
                                     <Link
                                         key={item.href}
                                         href={item.href}
-                                        className="text-foreground hover:text-primary transition-colors"
+                                        className="text-foreground hover:text-red-700 transition-colors"
                                         onClick={() => setIsMenuOpen(false)}
                                     >
                                         {item.label}
                                     </Link>
                                 ))}
                                 <ButtonLink href="Dialog" variant="default"
-                                    className="bg-primary hover:bg-orange-dark w-full">
+                                    className="bg-red-700 hover:bg-red-800 w-full">
                                     Inscreva-se
                                 </ButtonLink>
                             </div>

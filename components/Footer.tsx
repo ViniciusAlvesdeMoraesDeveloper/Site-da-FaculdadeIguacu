@@ -45,7 +45,8 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#0B093F] text-white left-0 right-0">
+    
+    <footer className="bg-red-950 text-white left-0 right-0">
       <div className="container mx-auto px-4 py-8">
         {/* Seção das Três Colunas Principais */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-4 lg:gap-16">
@@ -71,7 +72,8 @@ const Footer = () => {
                 <a
                   key={index}
                   href={link.href}
-                  className="w-10 h-10 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors"
+                  
+                  className="w-10 h-10 rounded-lg flex items-center justify-center hover:bg-red-800 transition-colors"
                 >
                   <link.icon className="h-5 w-5" />
                 </a>
@@ -86,7 +88,8 @@ const Footer = () => {
                 <li key={index}>
                   <a
                     href={link.href}
-                    className="hover:text-orange transition-colors"
+                    
+                    className="hover:text-red-400 transition-colors"
                   >
                     {link.text}
                   </a>
@@ -123,7 +126,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Rodapé inferior com os links dos modais */}
+        
         <div className="border-t border-gray-700 mt-8 pt-4">
           <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
             <p className="text-gray-400 text-sm mb-2 md:mb-0">
@@ -156,7 +159,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Renderização condicional dos modais */}
+      
       {modalAberto === 'privacidade' && (
         <ModalGeral
           title="Política de Privacidade"

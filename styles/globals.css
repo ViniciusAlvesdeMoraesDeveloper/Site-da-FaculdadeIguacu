@@ -7,8 +7,8 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ===============================
-   THEME - mapeamento para Tailwind v4
-   =============================== */
+    THEME - mapeamento para Tailwind v4
+    =============================== */
 @theme inline {
   /* Cores base */
   --color-background: hsl(var(--background));
@@ -19,15 +19,15 @@
   --font-mono: var(--font-geist-mono);
 
   /* Cores principais */
-  --color-primary: hsl(var(--orange-primary));
+  --color-primary: hsl(var(--red-primary));
   --color-primary-foreground: hsl(var(--primary-foreground));
-  --color-secondary: hsl(var(--orange-secondary));
+  --color-secondary: hsl(var(--red-secondary));
   --color-secondary-foreground: hsl(var(--secondary-foreground));
   --color-accent: hsl(var(--accent));
   --color-accent-foreground: hsl(var(--accent-foreground));
-  --color-orange: hsl(var(--orange-primary));
-  --color-orange-light: hsl(var(--orange-light));
-  --color-orange-dark: hsl(var(--orange-dark));
+  --color-red: hsl(var(--red-primary));
+  --color-red-light: hsl(var(--red-light));
+  --color-red-dark: hsl(var(--red-dark));
 
   /* Cores auxiliares */
   --color-muted: hsl(var(--muted));
@@ -43,7 +43,7 @@
   --gradient-subtle: var(--gradient-subtle);
 
   /* Sombras */
-  --shadow-orange: var(--shadow-orange);
+  --shadow-red: var(--shadow-red);
   --shadow-elegant: var(--shadow-elegant);
 
   /* Radius */
@@ -54,8 +54,8 @@
 }
 
 /* ===============================
-   TOKENS BASE DO TEMA
-   =============================== */
+    TOKENS BASE DO TEMA
+    =============================== */
 :root {
   --background: 0 0% 100%;
   --foreground: 0 0% 5%;
@@ -66,7 +66,8 @@
   --popover: 0 0% 100%;
   --popover-foreground: 0 0% 5%;
 
-  --primary: 14 95% 60%;
+  /* ALTERADO: Matiz 14 (Laranja) para 0 (Vermelho) */
+  --primary: 0 95% 60%;
   --primary-foreground: 0 0% 100%;
 
   --secondary: 0 0% 8%;
@@ -75,28 +76,32 @@
   --muted: 0 0% 96%;
   --muted-foreground: 0 0% 45%;
 
-  --accent: 14 95% 60%;
+  /* ALTERADO: Matiz 14 (Laranja) para 0 (Vermelho) */
+  --accent: 0 95% 60%;
   --accent-foreground: 0 0% 100%;
 
-  --destructive: 0 84.2% 60.2%;
+  --destructive: 0 84.2% 60.2%; /* Já é vermelho, mantido */
   --destructive-foreground: 0 0% 98%;
 
   --border: 0 0% 90%;
   --input: 0 0% 90%;
-  --ring: 14 95% 60%;
+  
+  /* ALTERADO: Matiz 14 (Laranja) para 0 (Vermelho) */
+  --ring: 0 95% 60%;
 
   --radius: 0.75rem;
 
   
   /* Tokens adicionais */
-  --orange-primary: 14 95% 60%;
-  --orange-light: 14 95% 70%;
-  --orange-dark: 14 95% 50%;
+  /* ALTERADO: Matiz 14 (Laranja) para 0 (Vermelho) */
+  --red-primary: 0 95% 60%;
+  --red-light: 0 95% 70%;
+  --red-dark: 0 95% 50%;
   --black-primary: 0 0% 8%;
   --black-light: 0 0% 15%;
   --gradient-hero: linear-gradient(
     135deg,
-    hsl(var(--orange-primary)),
+    hsl(var(--red-primary)),
     hsl(var(--black-primary))
   );
   --gradient-subtle: linear-gradient(
@@ -104,7 +109,7 @@
     hsl(var(--background)),
     hsl(var(--muted))
   );
-  --shadow-orange: 0 10px 40px -10px hsl(var(--orange-primary) / 0.3);
+  --shadow-red: 0 10px 40px -10px hsl(var(--red-primary) / 0.3);
   --shadow-elegant: 0 20px 60px -10px hsl(var(--black-primary) / 0.1);
 }
 
@@ -116,7 +121,8 @@
   --card: 222.2 84% 4.9%;
   --card-foreground: 210 40% 98%;
 
-  --primary: 210 40% 98%;
+  /* Matiz HSL para Primary no Dark Mode (geralmente branco/cinza, mantido) */
+  --primary: 210 40% 98%; 
   --primary-foreground: 222.2 47.4% 11.2%;
 
   --secondary: 217.2 32.6% 17.5%;
@@ -137,8 +143,8 @@
 }
 
 /* ===============================
-   UTILITIES CUSTOMIZADAS
-   =============================== */
+    UTILITIES CUSTOMIZADAS
+    =============================== */
 @utility bg-gradient-hero {
   background-image: var(--gradient-hero);
 }
@@ -151,15 +157,15 @@
     background-image: var(--secondary);
 }
 
-@utility orange-light {
-  color:var(--orange-light) ;
+@utility red-light {
+  color:var(--red-light) ;
 }
 
-@utility orange {
-  color: var(--orange-primary);
+@utility red {
+  color: var(--red-primary);
 }
-@utility shadow-orange {
-  box-shadow: var(--shadow-orange);
+@utility shadow-red {
+  box-shadow: var(--shadow-red);
 }
 
 @utility shadow-elegant {
@@ -181,8 +187,8 @@
 }
 
 /* ===============================
-   BASE
-   =============================== */
+    BASE
+    =============================== */
 @layer base {
   *,
   *::before,

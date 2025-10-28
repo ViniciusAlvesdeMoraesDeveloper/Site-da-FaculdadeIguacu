@@ -133,7 +133,7 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-hero"></div>
 
         <div className="bg-gradient-subtle p-6 text-center border-b border-border">
-          <div className="w-16 h-16 bg-gradient-hero rounded-full flex items-center justify-center mx-auto mb-4 shadow-orange">
+          <div className="w-16 h-16 bg-gradient-hero rounded-full flex items-center justify-center mx-auto mb-4 shadow-red">
             <GraduationCap className="w-8 h-8 text-primary-foreground" />
           </div>
           <h2 className="text-2xl font-bold text-foreground mb-2">Faça sua Pré-Inscrição!</h2>
@@ -196,14 +196,14 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
                   type="button"
                   onClick={handleClose}
                   variant="outline"
-                  className="flex-1 px-6 py-3 border border-border text-foreground rounded-lg hover:bg-muted transition-all duration-200 font-semibold bg-transparent"
+                  className="flex-1 px-6 py-3 border border-border text-foreground rounded-lg hover:bg-red-700 font-semibold "
                 >
                   Voltar
                 </Button>
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex-1 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-orange-dark disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 font-semibold shadow-orange flex items-center justify-center gap-2"
+                  className="flex-1 px-6 py-3 bg-red-700 text-primary-foreground rounded-lg hover:bg-red-dark disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 font-semibold shadow-red flex items-center justify-center gap-2"
                 >
                   {isSubmitting ? (
                     <>

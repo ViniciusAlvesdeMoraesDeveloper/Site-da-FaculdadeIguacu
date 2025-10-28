@@ -250,7 +250,7 @@ export function OuvidoriaForm() {
 
     <Button
       type="submit"
-      className="w-full bg-orange-600 text-white font-medium py-3"
+      className="w-full bg-red-700 text-white font-medium py-3"
       disabled={isSubmitting}
     >
       {isSubmitting ? "Enviando..." : "Enviar"}
