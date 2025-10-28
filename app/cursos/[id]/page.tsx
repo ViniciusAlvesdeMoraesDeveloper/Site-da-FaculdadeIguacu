@@ -8,27 +8,28 @@ import { Clock, Building2, GitBranch, GraduationCap } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import type { Metadata } from 'next';
-import { CourseSchema } from '@/components/CourseSchema'; 
+import { CourseSchema } from '@/components/CourseSchema';
+
 const formatDurationToIso8601 = (titulo: string, duracao: string | null): string => {
-  
+
   const regexHours = /(\d+)\s*H/i;
   const match = titulo.match(regexHours);
 
   if (match && match[1]) {
     const hours = Number(match[1]);
     if (!isNaN(hours) && hours > 0) {
-      return `PT${hours}H`; 
+      return `PT${hours}H`;
     }
   }
 
-  
+
   if (duracao) {
     const numericDuration = Number(duracao);
     if (!isNaN(numericDuration) && numericDuration > 0) {
 
-      
-      if (numericDuration === 1) return "P1Y"; 
-      if (numericDuration === 18) return "P1Y6M"; 
+
+      if (numericDuration === 1) return "P1Y";
+      if (numericDuration === 18) return "P1Y6M";
 
       if (numericDuration >= 365) {
         const years = Math.floor(numericDuration / 365);
@@ -37,12 +38,12 @@ const formatDurationToIso8601 = (titulo: string, duracao: string | null): string
         const months = Math.floor(numericDuration / 30);
         return `P${months}M`;
       } else {
-        return `P${numericDuration}D`; 
+        return `P${numericDuration}D`;
       }
     }
   }
 
-  return "P1M"; 
+  return "P1M";
 };
 
 
@@ -59,20 +60,20 @@ const generateDescription = (course: { titulo: string; area: string }): string =
 
 interface Props {
   params: {
-    id: string; 
+    id: string;
   };
 }
 
 
 const formatDuration = (titulo: string, duracao: string | null) => {
-  
+
   const regex = /(\d+)\s*H/i;
   const match = titulo.match(regex);
 
   if (match && match[1]) {
     const hours = Number(match[1]);
     if (!isNaN(hours)) {
-      if (hours >= 160) { 
+      if (hours >= 160) {
         const months = Math.floor(hours / 160);
         return `${months} ${months > 1 ? 'meses' : 'mês'} (${hours} horas)`;
       }
@@ -80,18 +81,18 @@ const formatDuration = (titulo: string, duracao: string | null) => {
     }
   }
 
-  
+
   if (duracao) {
     const numericDuration = Number(duracao);
     if (!isNaN(numericDuration)) {
-      
+
       if (numericDuration === 1) {
         return "1 ano";
       } else if (numericDuration === 18) {
         return "18 meses";
       }
 
-      
+
       if (numericDuration >= 365) {
         const years = Math.floor(numericDuration / 365);
         return `${years} ${years > 1 ? 'anos' : 'ano'}`;
@@ -109,7 +110,7 @@ const formatDuration = (titulo: string, duracao: string | null) => {
 
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const {id} = await params;
+  const { id } = await params;
   const course = await getCourseDetails(Number(id));
 
   if (!course) {
@@ -122,8 +123,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${course.titulo || 'Curso'} | Faculdade Marinho`,
     description: metaDescription,
     alternates: {
-      
-      canonical: `https://seusite.com.br/cursos/${id}`, 
+
+      canonical: `https://faculdadeiguaçu.com.br/cursos/${id}`,
     },
   };
 }
@@ -131,7 +132,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 
 export default async function CourseDetailsPage({ params }: Props) {
-  const {id} = await params;
+  const { id } = await params;
   const course = await getCourseDetails(Number(id));
 
   if (!course) {
@@ -155,17 +156,17 @@ export default async function CourseDetailsPage({ params }: Props) {
 
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100 overflow-x-hidden"> {/* CORREÇÃO AQUI */}
 
       {/* INJEÇÃO DO COMPONENTE DE SCHEMA JSON-LD AQUI */}
       <CourseSchema
         courseName={course.titulo || 'Curso'}
         courseDescription={finalDescription}
-        courseUrl={`https://seusite.com.br/cursos/${id}`} 
+        courseUrl={`https://faculdadeiguaçu.com.br/cursos/${id}`}
         courseDuration={isoDuration}
         educationalLevel={educationalLevel}
-        providerName="Faculdade Marinho" 
-        providerUrl="https://seusite.com.br"
+        providerName="Faculdade Iguaçu"
+        providerUrl="https://faculdadeiguaçu.com.br"
       />
 
       <Header />
@@ -186,12 +187,12 @@ export default async function CourseDetailsPage({ params }: Props) {
 
         <div className="bg-white rounded-xl shadow-lg p-10">
           <div className="flex flex-col lg:flex-row gap-12">
-          
+
             <div className="w-full lg:w-3/5 space-y-6">
               <Badge className="bg-red-600 hover:bg-red-700">
                 {course.area || "Geral"}
               </Badge>
-              <h1 className="text-5xl font-extrabold text-slate-900 leading-tight">
+              <h1 className="text-3xl font-extrabold text-slate-900 leading-tight">
                 {course.titulo || "Título do Curso"}
               </h1>
               <p className="text-lg text-slate-700 leading-relaxed">

@@ -1,4 +1,3 @@
-// components/CursosClientComponent.tsx
 "use client";
 import { useState } from "react";
 import Link from "next/link";
@@ -15,20 +14,19 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-// ADIÇÃO: Defina a interface CourseSummary para os dados resumidos.
+
+
 interface CourseSummary {
   id: number;
   area: string;
   titulo: string;
 }
 
-// ADIÇÃO: Defina a interface Category
 interface Category {
   id: number;
   name: string;
 }
 
-// CORREÇÃO: A interface de props agora espera CourseSummary[] em vez de Course[]
 interface CursosClientComponentProps {
   courses: CourseSummary[];
   categories: Category[];
@@ -74,10 +72,15 @@ export default function CursosClientComponent({
   };
 
   return (
-    <section className="py-12 bg-gray-100">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
-          <div className="flex flex-wrap gap-2">
+   
+    <section className="py-12 bg-gray-100 overflow-x-hidden">
+      <div className="w-full lg-full"> 
+        
+      
+        <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-4 mb-8">
+          
+          {/* Botões de Categoria */}
+          <div className="flex flex-wrap gap-2 justify-center md:justify-start">
             <Button
               variant={selectedCategory === "all" ? "default" : "outline"}
               onClick={() => {
@@ -96,15 +99,17 @@ export default function CursosClientComponent({
                   setSelectedCategory(category.name);
                   setCurrentPage(1);
                 }}
-                className="rounded-full"
+                
+                className="rounded-full whitespace-nowrap" 
               >
                 {category.name}
               </Button>
             ))}
           </div>
           
-          <div className="flex items-center gap-4">
-            <span className="text-gray-600">Cursos por página:</span>
+          {/* Seletor de Limite */}
+          <div className="flex items-center gap-4 w-full justify-center md:w-auto">
+            <span className="text-gray-600 hidden sm:block">Cursos por página:</span>
             <Select onValueChange={handleLimitChange} defaultValue={limit.toString()}>
               <SelectTrigger className="w-[100px] bg-white">
                 <SelectValue placeholder="10" />
@@ -118,6 +123,7 @@ export default function CursosClientComponent({
           </div>
         </div>
 
+        {/* 2. Grid de Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {paginatedCourses.map((course) => (
             <Card key={course.id} className="shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -133,7 +139,7 @@ export default function CursosClientComponent({
               </CardContent>
               <CardFooter className="flex justify-end">
                 <Link href={`/cursos/${course.id}`}>
-                  <Button variant="outline" className="text-orange-600 border-orange-600 bg-orange-50">
+                  <Button variant="outline" className="text-red-600 border-red-700 bg-red-50">
                     Detalhes <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
@@ -142,6 +148,7 @@ export default function CursosClientComponent({
           ))}
         </div>
 
+        {/* 3. Paginação */}
         {totalPages > 1 && (
           <div className="flex justify-center items-center gap-4 mt-8">
             <Button
@@ -164,7 +171,7 @@ export default function CursosClientComponent({
           </div>
         )}
       </div>
-      
     </section>
   );
 }
+

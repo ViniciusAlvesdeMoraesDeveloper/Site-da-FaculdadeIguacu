@@ -56,7 +56,7 @@ export default async function CursosPage() {
 
       <section
         id="areacurso"
-        className="pt-32 pb-24 bg-gradient-to-br from-red-400 via-red-500 to-red-600 text-white relative overflow-hidden"
+        className="pt-48 md:pt-32 pb-24 bg-gradient-to-br from-red-400 via-red-500 to-red-600 text-white relative overflow-hidden"
         itemScope
         itemType="https://schema.org/CollectionPage"
       >
@@ -67,46 +67,53 @@ export default async function CursosPage() {
 
         <div className="container mx-auto px-4 relative z-10">
           <header className="max-w-5xl mx-auto text-center">
-            <div className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium mb-8">
+            <div className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium mb-6">
               <span className="w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></span>
               Educação de Qualidade
             </div>
-            <h1 itemProp="name" className="text-6xl md:text-7xl font-bold mb-8 leading-tight text-balance">
+
+            
+            <h1 itemProp="name" className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 leading-tight text-balance">
               Nossos <span className="text-red-200">Cursos</span>
             </h1>
-            <p className="text-xl md:text-2xl opacity-95 leading-relaxed max-w-3xl mx-auto mb-12 text-pretty">
+
+         
+            <p className="text-lg sm:text-xl md:text-2xl opacity-95 leading-relaxed max-w-3xl mx-auto mb-10 text-pretty">
               Descubra os cursos que ofertamos e transforme seu futuro com a
               <span itemProp="publisher" itemScope itemType="https://schema.org/Organization" className="font-semibold">
-                <span itemProp="name"> Faculdade Marinho</span>
+                <span itemProp="name"> Faculdade Iguaçu</span>
               </span>
             </p>
           </header>
 
-          {/* Statistics section */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-y-8 md:gap-8 mt-12 md:mt-16">
             <div className="text-center group" itemScope itemType="https://schema.org/EducationalOccupationalCredential">
-              <div className="text-4xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">
+              
+              <div className="text-3xl sm:text-4xl font-bold mb-1 group-hover:scale-110 transition-transform duration-300">
                 <span itemProp="credentialCategory">50+</span>
               </div>
-              <div itemProp="name" className="text-red-200 font-medium">Cursos Disponíveis</div>
+              <div itemProp="name" className="text-red-200 font-medium text-sm sm:text-base">Cursos Disponíveis</div>
             </div>
             <div className="text-center group">
-              <div className="text-4xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">
+              
+              <div className="text-3xl sm:text-4xl font-bold mb-1 group-hover:scale-110 transition-transform duration-300">
                 18+
               </div>
-              <div className="text-red-200 font-medium">Anos de Experiência</div>
+              <div className="text-red-200 font-medium text-sm sm:text-base">Anos de Experiência</div>
             </div>
             <div className="text-center group">
-              <div className="text-4xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">
+              
+              <div className="text-3xl sm:text-4xl font-bold mb-1 group-hover:scale-110 transition-transform duration-300">
                 1000+
               </div>
-              <div className="text-red-200 font-medium">Alunos Formados</div>
+              <div className="text-red-200 font-medium text-sm sm:text-base">Alunos Formados</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Apenas chame o componente cliente, passando os dados como props */}
+      
       <CursosClientComponent courses={courses} categories={uniqueCategories} />
 
       {/* Seção para Cursos Técnicos */}

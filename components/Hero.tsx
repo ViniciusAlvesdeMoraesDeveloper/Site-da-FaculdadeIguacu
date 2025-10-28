@@ -18,7 +18,7 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 ">
         <img
           src={campusHero.src}
           alt="Campus da Faculdade Iguaçu"
