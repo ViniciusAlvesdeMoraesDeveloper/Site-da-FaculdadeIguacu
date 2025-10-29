@@ -127,7 +127,7 @@ const About = () => {
         },
         {
           info: "Pedagógico: pedagogico@faculdadeiguacu.edu.br",
-          href: "mailto:pedagogico@faculdadeiguacu.edu.br",
+          href: "mailto: pedagogico@faculdadeiguacu.edu.br",
           icon: Mail,
           buttonText: "Enviar E-mail Pedagógico",
         },
@@ -159,8 +159,18 @@ const About = () => {
                 </h2>
 
                 <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                  Credenciada em 2004 (Portaria Nº 2762/04), a Faculdade Iguaçu
-                  realiza a formação de profissionais há mais de 15 anos...
+                  A Faculdade Iguaçu (mantida pelo Instituto de Educação e Cultura de Capanema - IECC) é uma Instituição de Ensino Superior credenciada desde 2004 (Portaria Nº 2762/04), dedicando-se há mais de 15 anos à excelência na formação profissional.
+
+                  Nosso foco é ser um lócus de saber e inteligência, promovendo o autoaperfeiçoamento, o raciocínio inovador e a conexão direta do aluno com o mercado de trabalho através de uma sólida integração entre ensino, pesquisa e extensão.
+
+                  Oferta Educacional
+                  Com o curso de Pedagogia Presencial e a importante expansão para a Educação a Distância (EaD) em 2019, nosso portfólio atualizado inclui:
+                  <br />
+                  * Licenciatura em Pedagogia
+                  <br />
+                  * Tecnólogo em Processos Gerenciais
+                  <br />
+                  * Bacharelado em Administração
                 </p>
 
                 <div className="grid sm:grid-cols-2 gap-6 mb-8">
@@ -237,39 +247,31 @@ const About = () => {
 
                 <div className="max-w-4xl mx-auto">
                   <div
-                    className={`grid gap-6 ${
-                      section.contacts.length === 1
-                        ? "grid-cols-1 max-w-md mx-auto"
-                        : "grid-cols-1 md:grid-cols-2 lg:grid-cols-2"
-                    }`}
+                    className={`grid gap-6 ${section.contacts.length === 1
+                      ? "grid-cols-1 max-w-md mx-auto"
+                      : "grid-cols-1 md:grid-cols-2 lg:grid-cols-2"
+                      }`}
                   >
                     {section.contacts.map((contact, i) => (
                       <Card
                         key={i}
-                        
                         className="group border-2 border-red-700/20 shadow-lg hover:shadow-xl hover:border-red-700/40 transition-all duration-300 transform hover:-translate-y-1"
                       >
                         <CardContent className="p-8 text-center flex flex-col justify-between">
                           <div className="flex-1">
-                            {/* bg-primary/10 substituído por bg-red-700/10 */}
-                            {/* group-hover:bg-primary/20 substituído por group-hover:bg-red-700/20 */}
                             <div className="bg-red-700/10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 group-hover:bg-red-700/20 transition-colors">
                               {contact.icon ? (
-                                // text-primary substituído por text-red-700
                                 <contact.icon className="h-10 w-10 text-red-700" />
-                              ) : (
-                                // text-primary substituído por text-red-700
+                              ) : (                               
                                 <Smartphone className="h-10 w-10 text-red-700" />
                               )}
                             </div>
-
                             <h4 className="text-xl font-bold text-foreground mb-2 break-all">
                               {contact.number ?? contact.info}
                             </h4>
                           </div>
-
                           <Link href={contact.href} passHref>
-                            
+
                             <Button className="w-full bg-red-800 hover:bg-red-700 text-red-50 py-3 text-base font-semibold rounded-lg transition-all duration-200 hover:scale-105">
                               {contact.buttonText ?? "Fale com o consultor"}
                             </Button>

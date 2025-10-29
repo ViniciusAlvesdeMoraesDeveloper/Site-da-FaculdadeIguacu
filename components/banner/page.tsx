@@ -68,7 +68,7 @@ export function BannerCarousel() {
 
     return (
         
-       <div className=" border border-red-400 rounded-lg p-10 m-2 shadow-md bg-white hover:shadow-lg transition-shadow duration-900">
+       <div className=" border border-red-200 rounded-lg p-10 m-2 shadow-md bg-white hover:shadow-lg transition-shadow duration-900">
        <div className="relative w-full h-[600px] overflow-hidden bg-card mt-20">
             {/* Slides Container */}
             <div

@@ -2,17 +2,21 @@
 
 import { ButtonLink } from "@/components/ui/button-link";
 import { Button } from "./ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { navigationItems } from "@/utils/navigation";
+import { portalitems } from "@/utils/navigation";
 import Link from "next/link";
 import Modal from "@/components/Modal"
 import coursesData from "@/json/cursos.json"
 import About from "@/app/about/page";
 import Image from "next/image";
+import { link } from "fs";
+
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+    const [isPortalDropDownOpen, setIsPortalDropDownOpen] = useState<boolean>(false);
     const pathname = usePathname();
     const isHomePage = pathname === '/';
     const isCoursePage = pathname === '/about';
@@ -39,7 +43,7 @@ const Header = () => {
                                     height={40}
                                     className="rounded-lg"
                                 />
-                                
+
                             </div>
                             {/* text-#100D5D substituído por text-red-800 */}
                             <a href="/" className="text-xl font-bold text-red-800">Faculdade Iguaçu</a>
@@ -56,6 +60,35 @@ const Header = () => {
                                     {item.label}
                                 </Link>
                             ))}
+
+                            <div className="relative">
+                                <Button
+                                    variant="ghost"
+                                    onClick={() => setIsPortalDropDownOpen(!isPortalDropDownOpen)}
+                                    // Adiciona um padding e ajusta a aparência
+                                    className={`flex items-center space-x-1 ${isPortalDropDownOpen ? 'text-red-500' : 'text-foreground '}`}
+                                >
+                                    <span>Portais</span> 
+                                    <ChevronDown className={`w-4 h-4 transition-transform ${isPortalDropDownOpen ? 'rotate-180' : 'rotate-0'}`} />
+                                </Button>
+
+                                
+                                {isPortalDropDownOpen && (
+                                    <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-20">
+                                        {portalitems.map((item) => (
+                                            <Link
+                                                key={item.href}
+                                                href={item.href}
+                                                // Fecha o dropdown ao clicar
+                                                onClick={() => setIsPortalDropDownOpen(false)}
+                                                className="block px-4 py-2 text-sm text-foreground hover:bg-gray-100 hover:text-red-700 w-full transition-colors"
+                                            >
+                                                {item.label}
+                                            </Link>
+                                        ))}
+                                    </div>
+                                )}
+                                </div>
 
                             <Link href="https://ead.eduno.com.br/iguacu">
                                 <Button
@@ -105,7 +138,7 @@ const Header = () => {
                 </div>
             </header>
 
-            
+
         </>
     );
 };

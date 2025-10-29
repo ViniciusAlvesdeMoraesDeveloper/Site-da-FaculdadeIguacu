@@ -124,7 +124,7 @@ export default function CursosClientComponent({
         </div>
 
         {/* 2. Grid de Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-2">
           {paginatedCourses.map((course) => (
             <Card key={course.id} className="shadow-lg hover:shadow-xl transition-shadow duration-300">
               <CardHeader>
