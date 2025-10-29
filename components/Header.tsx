@@ -36,14 +36,7 @@ const Header = () => {
                         {/* Logo */}
                         <div className="flex items-center space-x-2">
                             <div className="w-10 h-10 flex items-center justify-center">
-                                <Image
-                                    src="/logo-marinho.webp"
-                                    alt="Logo da Faculdade Iguaçu"
-                                    width={40}
-                                    height={40}
-                                    className="rounded-lg"
-                                />
-
+                                
                             </div>
                             {/* text-#100D5D substituído por text-red-800 */}
                             <a href="/" className="text-xl font-bold text-red-800">Faculdade Iguaçu</a>
@@ -60,7 +53,6 @@ const Header = () => {
                                     {item.label}
                                 </Link>
                             ))}
-
                             <div className="relative">
                                 <Button
                                     variant="ghost"
@@ -108,7 +100,8 @@ const Header = () => {
                             variant="ghost"
                             size="icon"
                             className="md:hidden"
-                            onClick={() => setIsMenuOpen(!isMenuOpen)}
+                            onClick={() => {setIsMenuOpen(!isMenuOpen);
+                            setIsPortalDropDownOpen(false);}}
                         >
                             {isMenuOpen ? <X /> : <Menu />}
                         </ButtonLink>
@@ -128,11 +121,38 @@ const Header = () => {
                                         {item.label}
                                     </Link>
                                 ))}
+                                <div className="relative border-t pt-4">
+                                    <Button
+                                        variant="ghost"
+                                        // Usa o state dedicado para o mobile
+                                        onClick={() => setIsPortalDropDownOpen(!isPortalDropDownOpen)}
+                                        // Ajustei a classe para ocupar 100% no mobile e alinhar o texto
+                                        className={`flex justify-between items-center w-full px-0 ${isPortalDropDownOpen ? 'text-red-500' : 'text-foreground '}`} 
+                                    >
+                                        <span>Portais</span> 
+                                        <ChevronDown className={`w-4 h-4 transition-transform ${isPortalDropDownOpen ? 'rotate-180' : 'rotate-0'}`} />
+                                    </Button>
+                                    
+                                    {isPortalDropDownOpen && (
+                                        <div className="flex flex-col pl-4 mt-2 space-y-2"> {/* Estilo de sub-menu simples */}
+                                            {portalitems.map((item) => (
+                                                <Link
+                                                    key={item.href}
+                                                    href={item.href}
+                                                    className="block px-4 py-2 text-sm text-foreground hover:bg-gray-100 hover:text-red-700 w-full transition-colors "
+                                                >
+                                                    {item.label}
+                                                </Link>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
                                 <ButtonLink href="Dialog" variant="default"
                                     className="bg-red-700 hover:bg-red-800 w-full">
                                     Inscreva-se
                                 </ButtonLink>
                             </div>
+                            
                         </nav>
                     )}
                 </div>

@@ -55,10 +55,10 @@ const Footer = () => {
             <div className="flex items-center space-x-2 mb-2">
               <div className="w-10 h-10 flex items-center justify-center">
                 <Image
-                  src="/logo-marinho.webp"
-                  alt="Faculdade Marinho Logo"
-                  width={30}
-                  height={30}
+                  src="/logo-faculdade-iguacu.webp"
+                  alt="Faculdade Iguaçu Logo"
+                  width={90}
+                  height={90}
                   className="object-contain"
                 />
               </div>
